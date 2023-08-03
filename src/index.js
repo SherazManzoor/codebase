@@ -3,11 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom';
+import Navbar from './routes/components/Navbar';
+import Footer from './routes/components/Footer';
+import Home from './routes/components/Home';
+import Chatbot from './routes/components/Chatbot';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+    <Navbar/>
+      <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/chatbot" element={<Chatbot />} />
+      </Routes>
+      <Footer/>
+    </Router>
   </React.StrictMode>
 );
 

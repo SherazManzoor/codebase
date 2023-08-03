@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.cls-1 {
+  fill: url(#radial-gradient-2);
+}
+
+.cls-1,.cls-2 {
+  opacity: .32;
+}
+
+.cls-3 {
+  fill: #fff;
+}
+
+.cls-4 {
+  clip-path: url(#clippath-1);
+}
+
+.cls-5 {
+  fill: none;
+}
+
+.cls-2 {
+  fill: url(#radial-gradient);
+}
