@@ -8,6 +8,7 @@ import Navbar from './routes/components/Navbar';
 import Footer from './routes/components/Footer';
 import Home from './routes/components/Home';
 import Chatbot from './routes/components/Chatbot';
+import CreateChatbot from './routes/components/CreateChatbot';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -18,6 +19,8 @@ root.render(
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/chatbot" element={<Chatbot />} />
+      <Route path="/create-new-chatbot" element={<CreateChatbot />} />
+
       </Routes>
       <Footer/>
     </Router>
