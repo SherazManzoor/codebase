@@ -92,7 +92,7 @@ const [qna, setqna] = useState([""]);
             <main className="isolate">
               <div className="relative px-6 lg:px-8 py-16 sm:py-8">
                 <h1 className=" text-3xl mb-8 text-center font-bold">
-                  My Chatbots
+                 Data Sources
                 </h1>
 
                 <div className="pb-8">
