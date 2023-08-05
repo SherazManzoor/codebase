@@ -9,7 +9,7 @@ import Footer from './routes/components/Footer';
 import Home from './routes/components/Home';
 import Chatbot from './routes/components/Chatbot';
 import CreateChatbot from './routes/components/CreateChatbot';
-import OpenChatbot from './routes/components/OpenChatbot';
+import OpenChatbot from './routes/OpenChatbot';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
