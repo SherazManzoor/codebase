@@ -42,7 +42,7 @@ export default function Chatbot() {
                             key={index}
                             className="flex items-center justify-center"
                           >
-                            <a href="">
+                            <a href="/open-chatbot">
                               <div className="flex flex-col justify-between w-40 border rounded relative overflow-hidden">
                                 <img
                                   srcSet="https://backend.chatbase.co/storage/v1/object/public/chatbase/chatbot-placeholder.png?width=256&quality=50 1x, https://backend.chatbase.co/storage/v1/object/public/chatbase/chatbot-placeholder.png?width=640&quality=50 2x"

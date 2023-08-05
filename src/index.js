@@ -9,6 +9,7 @@ import Footer from './routes/components/Footer';
 import Home from './routes/components/Home';
 import Chatbot from './routes/components/Chatbot';
 import CreateChatbot from './routes/components/CreateChatbot';
+import OpenChatbot from './routes/components/OpenChatbot';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,7 +21,8 @@ root.render(
       <Route path="/" element={<Home />} />
       <Route path="/chatbot" element={<Chatbot />} />
       <Route path="/create-new-chatbot" element={<CreateChatbot />} />
-
+       <Route path="/open-chatbot" element={<OpenChatbot />} />
+      
       </Routes>
       <Footer/>
     </Router>

@@ -1,4 +1,5 @@
 import React from 'react'
+import ChatbotFrame from './ChatbotFrame'
 
 export default function Home() {
   return (
@@ -104,11 +105,8 @@ export default function Home() {
                         website!
                       </p>
                       <div className="my-8 rounded border">
-                        <iframe
-                          src="https://www.chatbase.co/chatbot-iframe/chatbase--1--pdf-p680fxvnm"
-                          width="100%"
-                          height="600"
-                        ></iframe>
+                      <ChatbotFrame/>
+                       
                       </div>
                     </div>
                   </div>
