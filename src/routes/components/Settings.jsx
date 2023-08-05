@@ -163,12 +163,25 @@ export default function Settings() {
   const handleBubbleColorReset = () => {
     setBubbleColor(defaultBubbleColor);
   };
-
+// align bubble icon
   const [justifyContentValue, setJustifyContentValue] = useState("flex-end");
 
   const handleJustifyContentChange = (event) => {
     setJustifyContentValue(event.target.value);
   };
+
+    const [copied, setCopied] = useState(false);
+  
+    const handleCopyClick = () => {
+      const textToCopy = document.getElementById("textToCopy").innerText;
+      navigator.clipboard.writeText(textToCopy);
+      setCopied(true);
+  
+      // Reset the copied state after a short delay (optional)
+      setTimeout(() => {
+        setCopied(false);
+      }, 2000);
+    };
   return (
     <>
       <div className=" max-w-7xl mx-auto py-8 sm:py-24 px-4 sm:px-6 lg:px-8">
@@ -301,10 +314,10 @@ export default function Settings() {
                       Chatbot ID
                     </label>
                     <div className="flex space-x-4 items-center mt-1">
-                      <div className="font-semibold">
+                      <div id="textToCopy" className="font-semibold">
                         cg4jKuFttHITHAOVYD24a{" "}
                       </div>
-                      <button className="h-7 w-7 border border-zinc-900/10 text-gray-700 p-1 rounded-lg hover:bg-gray-200">
+                      <button  onClick={handleCopyClick} className="h-7 w-7 border border-zinc-900/10 text-gray-700 p-1 rounded-lg hover:bg-gray-200">
                         <svg
                           viewBox="0 0 24 24"
                           aria-hidden="true"
@@ -318,6 +331,7 @@ export default function Settings() {
                             d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z"
                           ></path>
                         </svg>
+                        {copied ? "Copied!" : ""}
                       </button>
                     </div>
                   </div>
