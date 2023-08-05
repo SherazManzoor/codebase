@@ -2,6 +2,8 @@ import React from "react";
 import ChatbotFrame from "./components/ChatbotFrame";
 import { useState } from "react";
 import Settings from "./components/Settings";
+import Dashboard from "./components/Dashboard";
+import Sources from "./components/Sources";
 export default function OpenChatbot() {
   const [selectedLink, setSelectedLink] = useState("Chatbot");
 
@@ -68,15 +70,15 @@ export default function OpenChatbot() {
                       Sources
                     </a>
                     <a
-                      href="Embed on site"
+                      href="Integrations"
                       onClick={handleLinkClick}
                       className={`border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 items-center border-b-2 px-1 pt-1 font-medium pb-1 col-span-1 ${
-                        selectedLink === "Embed on site"
+                        selectedLink === "Integrations"
                           ? "border-violet-500 text-gray-900"
                           : ""
                       }`}
                     >
-                      Embed on site
+                    Integrations
                     </a>
                     <a
                       href="Share"
@@ -110,6 +112,21 @@ export default function OpenChatbot() {
                 )}
                 {selectedLink === "Settings" && (
                   <Settings/>
+                )}
+                 {selectedLink === "Dashboard" && (
+                  <Dashboard/>
+                )}
+                 {selectedLink === "Sources" && (
+                  <div className="max-w-4xl w-full m-auto py-12">
+                  <Sources/>
+
+                  </div>
+                )}
+                 {selectedLink === "Integrations" && (
+                  <div className="max-w-4xl w-full m-auto py-12">
+               
+
+                  </div>
                 )}
               </div>
             </div>
