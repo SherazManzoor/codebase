@@ -116,7 +116,7 @@ export default function OpenChatbot() {
     setMessage(defaultMessage); // Reset the value to the default
   };
 
-//   Set Textarea value to button
+  //   Set Textarea value to button
   const [textareaValue, setTextareaValue] = useState("");
   const handleTextareaChange = (event) => {
     setTextareaValue(event.target.value);
@@ -134,6 +134,35 @@ export default function OpenChatbot() {
         {line}
       </button>
     ));
+  };
+  const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
+  const handleCheckboxChange = (event) => {
+    setIsCheckboxChecked(event.target.checked);
+  };
+  const [isChatIconChecked, setIsChatIconChecked] = useState(false);
+  const handleChatIconChange = (event) => {
+    setIsChatIconChecked(event.target.checked);
+  };
+  const [Color, setColor] = useState("#3B81F6");
+  let defaultColor = "#3B81F6";
+
+  const handleColorChange = (event) => {
+    const newValue = event.target.value;
+    setColor(newValue);
+  };
+  const handleColorReset = () => {
+    setColor(defaultColor);
+  };
+
+  const [BubbleColor, setBubbleColor] = useState("#fff");
+  let defaultBubbleColor = "#fff";
+
+  const handleBubbleColorChange = (event) => {
+    const newValue = event.target.value;
+    setBubbleColor(newValue);
+  };
+  const handleBubbleColorReset = () => {
+    setBubbleColor(defaultBubbleColor);
   };
   return (
     <div>
@@ -247,9 +276,9 @@ export default function OpenChatbot() {
                                     <a
                                       href="General"
                                       onClick={handlesideClick}
-                                      className={`bg-gray-50 text-violet-600 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold whitespace-nowrap ${
+                                      className={`text-gray-700 hover:text-violet-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold whitespace-nowrap ${
                                         selectedside === "General"
-                                          ? "bg-violet-50"
+                                          ? "bg-gray-50 text-violet-600"
                                           : ""
                                       }`}
                                     >
@@ -259,7 +288,11 @@ export default function OpenChatbot() {
                                         fill="none"
                                         stroke="currentColor"
                                         strokeWidth="1.5"
-                                        className="text-violet-600 h-6 w-6 shrink-0"
+                                        className={`text-gray-400 group-hover:text-violet-600 h-6 w-6 ${
+                                          selectedside === "General"
+                                            ? "bg-gray-50 text-violet-600"
+                                            : "shrink-0"
+                                        }`}
                                       >
                                         <path
                                           strokeLinecap="round"
@@ -279,9 +312,9 @@ export default function OpenChatbot() {
                                     <a
                                       href="Leads"
                                       onClick={handlesideClick}
-                                      className={`text-gray-700 hover:text-violet-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold  whitespace-nowrap ${
+                                      className={`text-gray-700 hover:text-violet-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold whitespace-nowrap ${
                                         selectedside === "Leads"
-                                          ? "bg-violet-50"
+                                          ? "bg-gray-50 text-violet-600"
                                           : ""
                                       }`}
                                     >
@@ -291,7 +324,11 @@ export default function OpenChatbot() {
                                         fill="none"
                                         stroke="currentColor"
                                         strokeWidth="1.5"
-                                        className="text-gray-400 group-hover:text-violet-600 h-6 w-6 shrink-0"
+                                        className={`text-gray-400 group-hover:text-violet-600 h-6 w-6 ${
+                                          selectedside === "Leads"
+                                            ? "bg-gray-50 text-violet-600"
+                                            : "shrink-0"
+                                        }`}
                                       >
                                         <path
                                           strokeLinecap="round"
@@ -306,9 +343,9 @@ export default function OpenChatbot() {
                                     <a
                                       href="Chat Interface"
                                       onClick={handlesideClick}
-                                      className={`text-gray-700 hover:text-violet-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold  whitespace-nowrap ${
+                                      className={`text-gray-700 hover:text-violet-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold whitespace-nowrap ${
                                         selectedside === "Chat Interface"
-                                          ? "bg-violet-50"
+                                          ? "bg-gray-50 text-violet-600"
                                           : ""
                                       }`}
                                     >
@@ -318,7 +355,11 @@ export default function OpenChatbot() {
                                         fill="none"
                                         stroke="currentColor"
                                         strokeWidth="1.5"
-                                        className="text-gray-400 group-hover:text-violet-600 h-6 w-6 shrink-0"
+                                        className={`text-gray-400 group-hover:text-violet-600 h-6 w-6 ${
+                                          selectedside === "Chat Interface"
+                                            ? "bg-gray-50 text-violet-600"
+                                            : "shrink-0"
+                                        }`}
                                       >
                                         <path
                                           strokeLinecap="round"
@@ -961,16 +1002,21 @@ export default function OpenChatbot() {
                                     </select>
                                   </div>
                                   <div className="pb-8">
-                                    <label className="block text-sm font-medium text-gray-700">
-                                      Update chatbot profile picture
-                                    </label>
-                                    <input
-                                      id="bot_profile_picture"
-                                      type="file"
-                                      accept="image/*"
-                                      name="bot_profile_picture"
-                                      className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
-                                    />
+                                    {!isCheckboxChecked && (
+                                      <>
+                                        {" "}
+                                        <label className="block text-sm font-medium text-gray-700">
+                                          Update chatbot profile picture
+                                        </label>
+                                        <input
+                                          id="bot_profile_picture"
+                                          type="file"
+                                          accept="image/*"
+                                          name="bot_profile_picture"
+                                          className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
+                                        />
+                                      </>
+                                    )}
                                     <label className="block text-sm font-medium text-red-700"></label>
                                   </div>
                                   <div className="pb-8">
@@ -980,6 +1026,8 @@ export default function OpenChatbot() {
                                     <input
                                       type="checkbox"
                                       name="should_remove_bot_profile_picture"
+                                      checked={isCheckboxChecked}
+                                      onChange={handleCheckboxChange}
                                       className="h-4 w-4 rounded border-gray-300 text-violet-600 focus:ring-violet-600"
                                     />
                                   </div>
@@ -1001,23 +1049,29 @@ export default function OpenChatbot() {
                                       <label className="block text-sm font-medium text-gray-700">
                                         User Message Color
                                       </label>
-                                      <button className="inline-flex items-center justify-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto">
+                                      <button
+                                        onClick={handleColorReset}
+                                        className="inline-flex items-center justify-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto"
+                                      >
                                         Reset
                                       </button>
                                     </div>
                                     <div className="flex items-center">
                                       <div className="relative">
                                         <div
-                                          className="p-1 border bg-gray-100"
+                                          className="p-1 h-5 w-5 border bg-gray-50"
                                           role="colorPicker"
                                         >
-                                          <div
-                                            className="h-5 w-5"
+                                          <input
+                                            type="Color"
+                                            value={Color}
+                                            onChange={handleColorChange}
+                                            className="h-8 w-8 cursor-pointer"
                                             style={{
-                                              backgroundColor: "#3B81F6",
+                                              backgroundColor: { Color },
                                             }}
                                             role="colorPicker"
-                                          ></div>
+                                          ></input>
                                         </div>
                                       </div>
                                     </div>
@@ -1029,16 +1083,22 @@ export default function OpenChatbot() {
                                     users will see the changes immediately)**
                                   </p>
                                   <div className="pb-8">
-                                    <label className="block text-sm font-medium text-gray-700">
-                                      Update chat icon
-                                    </label>
-                                    <input
-                                      id="chat_icon"
-                                      type="file"
-                                      accept="image/*"
-                                      name="bot_profile_picture"
-                                      className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
-                                    />
+                                    {!isChatIconChecked && (
+                                      <>
+                                        {" "}
+                                        <label className="block text-sm font-medium text-gray-700">
+                                          Update chat icon
+                                        </label>
+                                        <input
+                                          id="chat_icon"
+                                          type="file"
+                                          accept="image/*"
+                                          name="bot_profile_picture"
+                                          className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
+                                        />
+                                      </>
+                                    )}
+
                                     <label className="block text-sm font-medium text-red-700"></label>
                                   </div>
                                   <div className="pb-2">
@@ -1047,6 +1107,8 @@ export default function OpenChatbot() {
                                     </label>
                                     <input
                                       type="checkbox"
+                                      checked={isChatIconChecked}
+                                      onChange={handleChatIconChange}
                                       name="should_remove_bot_profile_picture"
                                       className="h-4 w-4 rounded border-gray-300 text-violet-600 focus:ring-violet-600"
                                     />
@@ -1056,7 +1118,10 @@ export default function OpenChatbot() {
                                       <label className="block text-sm font-medium text-gray-700">
                                         Chat Bubble Button Color
                                       </label>
-                                      <button className="inline-flex items-center justify-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto">
+                                      <button
+                                        onClick={handleBubbleColorReset}
+                                        className="inline-flex items-center justify-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto"
+                                      >
                                         Reset
                                       </button>
                                     </div>
@@ -1066,13 +1131,16 @@ export default function OpenChatbot() {
                                           className="p-1 border bg-gray-100"
                                           role="colorPicker"
                                         >
-                                          <div
-                                            className="h-5 w-5"
+                                          <input
+                                            type="Color"
+                                            value={BubbleColor}
+                                            onChange={handleBubbleColorChange}
+                                            className="h-8 w-8 cursor-pointer"
                                             style={{
-                                              backgroundColor: "#00000",
+                                              backgroundColor: { BubbleColor },
                                             }}
                                             role="colorPicker"
-                                          ></div>
+                                          ></input>
                                         </div>
                                       </div>
                                     </div>
