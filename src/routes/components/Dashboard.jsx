@@ -3,26 +3,52 @@ import Datepicker from "react-tailwindcss-datepicker";
 
 export default function Dashboard() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOptions, setSelectedOptions] = useState([ 
+  "Widget or Iframe",
+    "API (non-stream)",
+    "API (stream)",
+    "Chatbase site",
+    "Unspecified",
+  ]);
+
+  const options = [
+    "Widget or Iframe",
+    "API (non-stream)",
+    "API (stream)",
+    "Chatbase site",
+    "Unspecified",
+  
+  ];
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleOptionClick = (option) => {
+    if (selectedOptions.includes(option)) {
+      setSelectedOptions(selectedOptions.filter((item) => item !== option));
+    } else {
+      setSelectedOptions([...selectedOptions, option]);
+    }
+  };
   const datepickerRef = useRef(null);
-  //   const handleButtonClick = () => {
+  // const handleButtonClick = () => {
   //     setIsPopupOpen(!isPopupOpen);
-  //   };
-  const [value, setValue] = useState({
-    startDate: null,
-    endDate: null,
-  });
+  // };
+  const [value, setValue] = useState({ startDate: null, endDate: null });
 
   const handleValueChange = (newValue) => {
     console.log("newValue:", newValue);
     setValue(newValue);
   };
   const handleButtonClick = () => {
-   
-    if(datepickerRef.current.setOpen==="true"){
-        datepickerRef.current.setClose(true);
-    }
-    else{
-        datepickerRef.current.setOpen(true);
+    if (datepickerRef.current.setOpen === "true") {
+      datepickerRef.current.setClose(true);
+    } else {
+      datepickerRef.current.setOpen(true);
     }
   };
 
@@ -83,7 +109,6 @@ export default function Dashboard() {
           </button> */}{" "}
         </div>
       </div>
-
       {selectedType === "Conversations" && (
         <>
           <div class=" my-8">
@@ -96,7 +121,7 @@ export default function Dashboard() {
                     placeholder="Pick date range"
                     autoComplete="off"
                     role="presentation"
-                    value=""
+                    
                   /> */}
                   <button
                     onClick={handleButtonClick}
@@ -148,7 +173,9 @@ export default function Dashboard() {
                                 type="button"
                                 aria-expanded="false"
                                 data-headlessui-state=""
+                                onClick={toggleDropdown}
                               >
+                                 {isOpen ? "" : ""}
                                 <span>Source</span>
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -164,6 +191,34 @@ export default function Dashboard() {
                                   ></path>
                                 </svg>
                               </button>
+
+                              {isOpen && (
+        <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black z-10 ring-opacity-5">
+          <div
+            className="py-1"
+            role="menu"
+            aria-orientation="vertical"
+            aria-labelledby="options-menu"
+          >
+            {options.map((option) => (
+              <div
+                key={option}
+                className="block px-2 ml-12 py-2  text-sm text-gray-700 cursor-pointer hover:bg-gray-100"
+                role="menuitem"
+                onClick={() => handleOptionClick(option)}
+              >
+                <input
+                  type="checkbox"
+                  className="mr-2 leading-tight"
+                  checked={selectedOptions.includes(option)}
+                  onChange={() => handleOptionClick(option)}
+                />
+                <span>{option}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
                             </div>
                           </div>
                         </div>
@@ -232,7 +287,6 @@ export default function Dashboard() {
                   </div>
                 )}{" "}
               </div>
-
               {conversations.length > 0 && selectedConversation && (
                 <div class="flex justify-center items-center flex-grow ">
                   <div className="w-full px-8">
@@ -305,13 +359,42 @@ export default function Dashboard() {
                     </div>
                   </div>
                 </div>
-              )}
+              )}{" "}
             </div>
           </div>
         </>
       )}
-
-      {selectedType === "Leads" && <></>}
+      {selectedType === "Leads" && (
+        <>
+          <div className="my-8">
+            <div className=" max-w-sm">
+              <div className="flex space x-4">
+                <button
+                  data-variant="flat"
+                  style={{ backgroundColor: "black" }}
+                  className="rounded-md  w-full px-4 py-2 text-sm mt-4 whitespace-nowrap  font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
+                >
+                  {" "}
+                  Export customers (CSV)
+                </button>
+                <button
+                  data-variant="flat"
+                  style={{ backgroundColor: "black" }}
+                  className="rounded-md w-full px-4 mx-4 py-2 text-sm  mt-4 whitespace-nowrap font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
+                >
+                  {" "}
+                  Export customers (PDF)
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col space-y-12 sm:flex-row sm:space-x-8 sm:space-y-0 ">
+            <div className=" w-full ">
+              <div className="text-center my-24">No customers found</div>
+            </div>
+          </div>
+        </>
+      )}{" "}
     </div>
   );
 }
