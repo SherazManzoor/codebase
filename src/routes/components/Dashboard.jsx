@@ -4,10 +4,9 @@ import Datepicker from "react-tailwindcss-datepicker";
 export default function Dashboard() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOptions, setSelectedOptions] = useState([ 
-  "Widget or Iframe",
+  const [selectedOptions, setSelectedOptions] = useState([
+    "Widget or Iframe",
     "API (non-stream)",
     "API (stream)",
     "Chatbase site",
@@ -20,7 +19,6 @@ export default function Dashboard() {
     "API (stream)",
     "Chatbase site",
     "Unspecified",
-  
   ];
 
   const toggleDropdown = () => {
@@ -175,7 +173,7 @@ export default function Dashboard() {
                                 data-headlessui-state=""
                                 onClick={toggleDropdown}
                               >
-                                 {isOpen ? "" : ""}
+                                {isOpen ? "" : ""}
                                 <span>Source</span>
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -193,32 +191,38 @@ export default function Dashboard() {
                               </button>
 
                               {isOpen && (
-        <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black z-10 ring-opacity-5">
-          <div
-            className="py-1"
-            role="menu"
-            aria-orientation="vertical"
-            aria-labelledby="options-menu"
-          >
-            {options.map((option) => (
-              <div
-                key={option}
-                className="block px-2 ml-12 py-2  text-sm text-gray-700 cursor-pointer hover:bg-gray-100"
-                role="menuitem"
-                onClick={() => handleOptionClick(option)}
-              >
-                <input
-                  type="checkbox"
-                  className="mr-2 leading-tight"
-                  checked={selectedOptions.includes(option)}
-                  onChange={() => handleOptionClick(option)}
-                />
-                <span>{option}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+                                <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black z-10 ring-opacity-5">
+                                  <div
+                                    className="py-1"
+                                    role="menu"
+                                    aria-orientation="vertical"
+                                    aria-labelledby="options-menu"
+                                  >
+                                    {options.map((option) => (
+                                      <div
+                                        key={option}
+                                        className="block px-2 ml-12 py-2  text-sm text-gray-700 cursor-pointer hover:bg-gray-100"
+                                        role="menuitem"
+                                        onClick={() =>
+                                          handleOptionClick(option)
+                                        }
+                                      >
+                                        <input
+                                          type="checkbox"
+                                          className="mr-2 leading-tight"
+                                          checked={selectedOptions.includes(
+                                            option
+                                          )}
+                                          onChange={() =>
+                                            handleOptionClick(option)
+                                          }
+                                        />
+                                        <span>{option}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
                             </div>
                           </div>
                         </div>

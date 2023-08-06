@@ -163,25 +163,25 @@ export default function Settings() {
   const handleBubbleColorReset = () => {
     setBubbleColor(defaultBubbleColor);
   };
-// align bubble icon
+  // align bubble icon
   const [justifyContentValue, setJustifyContentValue] = useState("flex-end");
 
   const handleJustifyContentChange = (event) => {
     setJustifyContentValue(event.target.value);
   };
 
-    const [copied, setCopied] = useState(false);
-  
-    const handleCopyClick = () => {
-      const textToCopy = document.getElementById("textToCopy").innerText;
-      navigator.clipboard.writeText(textToCopy);
-      setCopied(true);
-  
-      // Reset the copied state after a short delay (optional)
-      setTimeout(() => {
-        setCopied(false);
-      }, 2000);
-    };
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyClick = () => {
+    const textToCopy = document.getElementById("textToCopy").innerText;
+    navigator.clipboard.writeText(textToCopy);
+    setCopied(true);
+
+    // Reset the copied state after a short delay (optional)
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  };
   return (
     <>
       <div className=" max-w-7xl mx-auto py-8 sm:py-24 px-4 sm:px-6 lg:px-8">
@@ -317,7 +317,10 @@ export default function Settings() {
                       <div id="textToCopy" className="font-semibold">
                         cg4jKuFttHITHAOVYD24a{" "}
                       </div>
-                      <button  onClick={handleCopyClick} className="h-7 w-7 border border-zinc-900/10 text-gray-700 p-1 rounded-lg hover:bg-gray-200">
+                      <button
+                        onClick={handleCopyClick}
+                        className="h-7 w-7 border border-zinc-900/10 text-gray-700 p-1 rounded-lg hover:bg-gray-200"
+                      >
                         <svg
                           viewBox="0 0 24 24"
                           aria-hidden="true"
@@ -586,7 +589,6 @@ export default function Settings() {
                           defaultValue={defaultIpLimit}
                           onChange={handleIpLimitChange}
                           className="min-w-0 p-1 px-2 rounded-md border border-zinc-900/10 bg-white placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
-                         
                         />
                         messages every
                         <input
@@ -1067,7 +1069,6 @@ export default function Settings() {
                           defaultValue={defaultpopupLimit}
                           onChange={handlepopupLimitChange}
                           className="min-w-0 p-1 px-2 rounded-md border border-zinc-900/10 bg-white placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
-                        
                         />
                         {/* <!-- --> */}
                         seconds (negative to disable)
