@@ -10,11 +10,28 @@ import Home from './routes/components/Home';
 import Chatbot from './routes/components/Chatbot';
 import CreateChatbot from './routes/CreateChatbot';
 import OpenChatbot from './routes/OpenChatbot';
-
-
+import { I18nextProvider } from "react-i18next";
+// import i18n from "i18next";
+import Backend from "i18next-http-backend";
+import LanguageDetector from "i18next-browser-languagedetector";
+import i18n from "./i18n";
+i18n
+  .use(Backend)
+  .use(LanguageDetector)
+  .init({
+    fallbackLng: "en", // Default language if translation is missing
+    supportedLngs: ["en", "ar"], // Supported languages
+    backend: {
+      loadPath: "../public/locales/{{lng}}/{{ns}}.json", // Path to translation files
+    },
+    detection: {
+      order: ["localStorage", "navigator"], // Check saved language preference first, then check browser language
+    },
+  });
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+     <I18nextProvider i18n={i18n}>
     <Router>
     <Navbar/>
       <Routes>
@@ -26,6 +43,7 @@ root.render(
       </Routes>
       <Footer/>
     </Router>
+    </I18nextProvider>
   </React.StrictMode>
 );
 

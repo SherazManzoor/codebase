@@ -1,11 +1,15 @@
 import React from "react";
-
+import { useTranslation } from "react-i18next";
 export default function Chatbot() {
   const chatbots = [
     { name: "Chatbot 1" },
 
     // Add more chatbots here
   ];
+
+
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.dir() === "rtl";
   return (
     <div>
       <main id="skip">
@@ -17,10 +21,10 @@ export default function Chatbot() {
                   <div className="max-w-3xl w-full m-auto">
                     <div className="flex justify-between items-center mb-4">
                       <div>
-                        <h1 className="text-2xl md:text-3xl font-extrabold text-black">
-                          My Chatbots
+                        <h1 style={{ direction: isRTL ? "rtl" : "ltr" }} className="text-2xl md:text-3xl font-extrabold text-black">
+                         {t("My Chatbots")}
                         </h1>
-                        <p className="text-sm font-normal">(1 chatbot limit)</p>
+                        <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="text-sm font-normal">{t("(1 chatbot limit)")}</p>
                       </div>
 
                       {chatbots.length != 0 && ( // Only show the button if chatbots array is not empty
@@ -30,7 +34,7 @@ export default function Chatbot() {
                             className="rounded-md px-4 py-2 text-base font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                             href="/create-new-chatbot"
                           >
-                            New Chatbot
+                            {t("New Chatbot")}
                           </a>
                         </div>
                       )}

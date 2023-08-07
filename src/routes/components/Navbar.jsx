@@ -2,17 +2,25 @@ import React from "react";
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-
-const navigation = [
-  { name: "Demo", href: "/#demo" },
-  { name: "Affiliate", href: "#" },
-  { name: "Pricing", href: "#" },
-  { name: "API", href: "#" },
-  { name: "Guide", href: "#" },
-  { name: "My Chatbots", href: "chatbot" },
-];
+import { useTranslation } from "react-i18next";
+import i18n from "../../i18n.js";
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+  // document.body.dir = i18n.dir();
+  const handleLanguageChange = (language) => {
+    i18n.changeLanguage(language);
+  };
+
+  const navigation = [
+    { name: t("demo"), href: "/#demo" },
+    { name: t("affiliate"), href: "#" },
+    { name: t("pricing"), href: "#" },
+    { name: t("api"), href: "#" },
+    { name: t("guide"), href: "#" },
+    { name: t("mychatbots"), href: "chatbot" },
+  ];
+
   return (
     <div>
       <header className="absolute inset-x-0 top-0 z-50">
@@ -20,6 +28,13 @@ export default function Navbar() {
           className="flex items-center justify-between p-6 lg:px-8"
           aria-label="Global"
         >
+          {" "}
+          <button onClick={() => handleLanguageChange("en")}>
+            Switch to English
+          </button>
+          <button onClick={() => handleLanguageChange("ar")}>
+            Switch to Arabic
+          </button>
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>

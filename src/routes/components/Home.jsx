@@ -1,7 +1,9 @@
 import React from "react";
 import ChatbotFrame from "./ChatbotFrame";
-
+import { useTranslation } from "react-i18next";
 export default function Home() {
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.dir() === "rtl";
   return (
     <div>
       <main id="skip">
@@ -13,15 +15,15 @@ export default function Home() {
                   <div className="flex space-x-8 items-center justify-center">
                     <div className="text-left w-[38rem]">
                       <h1 className="text-4xl text-center font-bold tracking-tight text-gray-900 sm:text-6xl">
-                        Custom ChatGPT for
+                        {t("Custom ChatGPT for")}
                         <span className=" text-transparent bg-clip-text bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-purple-200 via-violet-700 to-rose-700">
-                          your data
+                          {t("your data")}
                         </span>
                       </h1>
                       <p className="mt-8 text-lg text-center leading-8 text-gray-600">
-                        Just connect your data sources and get a ChatGPT-like
-                        chatbot for your data. Then add it as a widget to your
-                        website or chat with it through the API.
+                        {t(
+                          " Just connect your data sources and get a ChatGPT-like chatbot for your data. Then add it as a widget to your website or chat with it through the API."
+                        )}
                       </p>
                       <div className="mt-10 flex items-center justify-center gap-x-6">
                         <a
@@ -29,7 +31,7 @@ export default function Home() {
                           className="rounded-md px-4 py-2 text-base font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                           href="/create-new-chatbot"
                         >
-                          Build Your Chatbot
+                          {t("Build Your Chatbot")}
                         </a>
                       </div>
                     </div>
@@ -71,13 +73,14 @@ export default function Home() {
                 </div>
                 <div id="video" className="py-16">
                   <h4 className="text-2xl md:text-3xl font-extrabold text-black text-center py-2">
-                    Video Demo
+                    {t("Video Demo")}
                   </h4>
                   <p className="text-center pb-4">
-                    Creating a chatbot for
-                    <span className="font-bold">Product Hunt </span>
-                    by crawling the website and training the AI on its content.
-                    I can then embed the chatbot on the website!
+                    {t("Creating a chatbot for")}
+                    <span className="font-bold">{t("Product Hunt")} </span>
+                    {t(
+                      "by crawling the website and training the AI on its content.I can then embed the chatbot on the website!"
+                    )}
                   </p>
                   <div className="py-8 mx-auto">
                     <video
@@ -94,15 +97,16 @@ export default function Home() {
                 <div className="mx-auto max-w-4xl">
                   <div id="demo" className="py-16">
                     <h4 className="text-2xl md:text-3xl font-extrabold text-black text-center py-2">
-                      Live Demo
+                      {t("Live Demo")}
                     </h4>
                     <p className="text-center pb-4">
-                      This chatbot was trained on a document explaining
-                      <span className="font-bold">Chatbase</span>
+                      {t("This chatbot was trained on a document explaining")}
+                      <span className="font-bold">{t("Chatbase")}</span>
                     </p>
                     <p className="text-center">
-                      You can embed a widget like this on any page on your
-                      website!
+                      {t(
+                        "You can embed a widget like this on any page on your website!"
+                      )}
                     </p>
                     <div className="my-8 rounded border">
                       <ChatbotFrame />
@@ -113,7 +117,7 @@ export default function Home() {
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="mx-auto max-w-xl text-center">
                       <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                        Chatbase integrates with your favorite tools
+                        {t("Chatbase integrates with your favorite tools")}
                       </p>
                     </div>
                     <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-20 text-sm leading-6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
@@ -135,7 +139,7 @@ export default function Home() {
                             style={{ color: "transparent" }}
                           />
                           <p className="font-semibold text-center">
-                            Add an AI chatbot to your WordPress website
+                            {t("Add an AI chatbot to your WordPress website")}
                             <span aria-hidden="true">→</span>
                           </p>
                         </a>
@@ -158,7 +162,7 @@ export default function Home() {
                             style={{ color: "transparent" }}
                           />
                           <p className="font-semibold text-center">
-                            Connect your chatbot to 5000+ apps on Zapier
+                            {t("Connect your chatbot to 5000+ apps on Zapier")}
                             <span aria-hidden="true">→</span>
                           </p>
                         </a>
@@ -180,8 +184,9 @@ export default function Home() {
                             style={{ color: "transparent" }}
                           />
                           <p className="font-semibold text-center">
-                            Connect your chatbot to a Slack channel and interact
-                            with it there
+                            {t(
+                              "Connect your chatbot to a Slack channel and interact with it there"
+                            )}
                           </p>
                         </a>
                       </div>
@@ -202,7 +207,7 @@ export default function Home() {
                             style={{ color: "transparent" }}
                           />
                           <p className="font-semibold text-center">
-                            Coming soon...
+                            {t("Coming soon")}...
                           </p>
                         </a>
                       </div>
@@ -216,16 +221,16 @@ export default function Home() {
                 >
                   <div className="relative">
                     <h4 className="text-2xl md:text-3xl font-extrabold text-black text-center py-2">
-                      Frequently Asked Questions
+                      {t("Frequently Asked Questions")}
                     </h4>
                     <h6 className="text-lg text-center">
-                      If you can &#x27;t find your question, email
-                      <a
+                      {t("If you can &#x27;t find your question, email ")}
+                      {/* <a
                         className=" font-semibold"
                         href="mailto:support@chatbase.co"
                       >
-                        support@chatbase.co
-                      </a>
+                        {t("support@chatbase.co")}
+                      </a> */}
                     </h6>
                   </div>
                   <ul
@@ -236,44 +241,50 @@ export default function Home() {
                       <ul role="list" className="flex flex-col gap-y-8">
                         <li>
                           <h3 className="font-display text-lg leading-7 text-slate-900">
-                            What is Chatbase?
+                            {t("What is Chatbase?")}
                           </h3>
                           <p className="mt-4 text-slate-700">
-                            Chatbase is an AI chatbot builder, it trains ChatGPT
-                            on your data and lets you add a chat widget to your
-                            website. Just upload a document or add a link to
-                            your website and get a chatbot that can answer any
-                            question about their content.
+                            <div dir="rtl">
+                              {t(
+                                "Chatbase is an AI chatbot builder, it trains ChatGPT on your data and lets you add a chat widget to your website. Just upload a document or add a link to your website and get a chatbot that can answer any question about their content."
+                              )}
+                            </div>
                           </p>
                         </li>
                         <li>
                           <h3 className="font-display text-lg leading-7 text-slate-900">
-                            What should my data look like?
+                            {t("What should my data look like?")}
                           </h3>
                           <p className="mt-4 text-slate-700">
-                            Currently, you can upload one or multiple files
-                            (.pdf, .txt, .doc, .docx), paste text, or add a link
-                            to your website to be scraped.
+                            <div dir="rtl">
+                              {t(
+                                "Currently, you can upload one or multiple files(.pdf, .txt, .doc, .docx), paste text, or add a link to your website to be scraped."
+                              )}
+                            </div>{" "}
                           </p>
                         </li>
                         <li>
                           <h3 className="font-display text-lg leading-7 text-slate-900">
-                            Can I give my chatbots instructions?
+                            {t("Can I give my chatbots instructions?")}
                           </h3>
                           <p className="mt-4 text-slate-700">
-                            Yes, you can edit the base prompt and give your
-                            chatbot a name, personality traits and instructions
-                            on how to answer questions ex. (only answer in
-                            French).
+                            <div dir="rtl">
+                              {t(
+                                "Yes, you can edit the base prompt and give your chatbot a name, personality traits and instructions on how to answer questions ex. (only answer in French)."
+                              )}
+                            </div>{" "}
                           </p>
                         </li>
                         <li>
                           <h3 className="font-display text-lg leading-7 text-slate-900">
-                            Where is my data stored?
+                            {t("Where is my data stored?")}
                           </h3>
                           <p className="mt-4 text-slate-700">
-                            The content of the document is hosted on secure
-                            GCP/AWS servers in us-east.
+                            <div dir="rtl">
+                              {t(
+                                "The content of the document is hosted on secure GCP/AWS servers in us-east."
+                              )}
+                            </div>
                           </p>
                         </li>
                       </ul>
@@ -282,44 +293,64 @@ export default function Home() {
                       <ul role="list" className="flex flex-col gap-y-8">
                         <li>
                           <h3 className="font-display text-lg leading-7 text-slate-900">
-                            Does it use GPT-3.5 or GPT-4?
+                            <div style={{ direction: isRTL ? "rtl" : "ltr" }}>
+                              {t("Does it use GPT-3.5 or GPT-4?")}
+                            </div>
                           </h3>
                           <p className="mt-4 text-slate-700">
-                            By default your chatbot uses gpt-3.5-turbo (but you
-                            have the option to use gpt-4 on the Standard and
-                            Unlimited plans).
+                            <div style={{ direction: isRTL ? "rtl" : "ltr" }}>
+                              {t(
+                                "By default your chatbot uses gpt-3.5-turbo (but you have the option to use gpt-4 on the Standard and Unlimited plans)"
+                              )}
+                            </div>
                           </p>
                         </li>
                         <li>
-                          <h3 className="font-display text-lg leading-7 text-slate-900">
-                            How can I add my chatbot to my website?
+                          <h3
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
+                            className="font-display text-lg leading-7 text-slate-900"
+                          >
+                            {t("How can I add my chatbot to my website?")}
                           </h3>
-                          <p className="mt-4 text-slate-700">
-                            You can embed an iframe or add a chat bubble to the
-                            bottom right of your website. To do that, create a
-                            chatbot and click &quot;Embed on website &quot;. You
-                            can also use the API to communicate with your
-                            chatbot anywhere!
+                          <p
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
+                            className="mt-4 text-slate-700"
+                          >
+                            {t(
+                              "You can embed an iframe or add a chat bubble to the bottom right of your website. To do that, create a chatbot and click &quot;Embed on website &quot;. You  can also use the API to communicate with your chatbot anywhere!"
+                            )}
                           </p>
                         </li>
                         <li>
-                          <h3 className="font-display text-lg leading-7 text-slate-900">
-                            Does it support other languages?
+                          <h3
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
+                            className="font-display text-lg leading-7 text-slate-900"
+                          >
+                            {t("Does it support other languages?")}
                           </h3>
-                          <p className="mt-4 text-slate-700">
-                            Yes, Chatbase supports about 95 languages. You can
-                            have your sources in any language and ask it
-                            questions in any language.
+                          <p
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
+                            className="mt-4 text-slate-700"
+                          >
+                            {t(
+                              "Yes, Chatbase supports about 95 languages. You can have your sources in any language and ask it questions in any language."
+                            )}
                           </p>
                         </li>
                         <li>
-                          <h3 className="font-display text-lg leading-7 text-slate-900">
-                            Can I share a chatbot I created?
+                          <h3
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
+                            className="font-display text-lg leading-7 text-slate-900"
+                          >
+                            {t("Can I share a chatbot I created?")}
                           </h3>
-                          <p className="mt-4 text-slate-700">
-                            Yes, by default any chatbot you create is private
-                            but you can change the setting to make it public and
-                            send it to anyone.
+                          <p
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
+                            className="mt-4 text-slate-700"
+                          >
+                            {t(
+                              "Yes, by default any chatbot you create is private but you can change the setting to make it public and send it to anyone."
+                            )}
                           </p>
                         </li>
                       </ul>
@@ -364,8 +395,11 @@ export default function Home() {
                   </div>
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="mx-auto max-w-xl text-center">
-                      <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                        What people say about Chatbase
+                      <p
+                        style={{ direction: isRTL ? "rtl" : "ltr" }}
+                        className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+                      >
+                        {t("What people say about Chatbase")}
                       </p>
                     </div>
                     <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-4 text-sm leading-6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
@@ -393,12 +427,10 @@ export default function Home() {
                           </a>
                         </div>
                         <blockquote className="p-10 text-xl font-semibold leading-8 tracking-tight text-gray-900">
-                          <p>
-                            “For anyone on the fence - in the 2 hours since this
-                            tweet I &#x27;ve tested, set up and gone live on
-                            three separate websites with Chatbase. Still need to
-                            do some light tweaking of the base prompt but very
-                            happy with the results.”
+                          <p style={{ direction: isRTL ? "rtl" : "ltr" }}>
+                            {t(
+                              "“For anyone on the fence - in the 2 hours since this tweet I 've tested, set up and gone live on three separate websites with Chatbase. Still need to do some light tweaking of the base prompt but very happy with the results.”"
+                            )}
                           </p>
                         </blockquote>
                         <figcaption className="flex items-center gap-x-4 border-t border-gray-900/10 py-4 px-6">
@@ -441,7 +473,9 @@ export default function Home() {
                               </a>
                             </div>
                             <blockquote className="text-gray-900">
-                              <p>“This is awesome”</p>
+                              <p style={{ direction: isRTL ? "rtl" : "ltr" }}>
+                                {t("“This is awesome”")}
+                              </p>
                             </blockquote>
                             <figcaption className="mt-6 flex items-center gap-x-4">
                               <img
@@ -483,9 +517,10 @@ export default function Home() {
                               </a>
                             </div>
                             <blockquote className="text-gray-900">
-                              <p>
-                                “Another overpowered project built with the 🪄
-                                OP stack”
+                              <p style={{ direction: isRTL ? "rtl" : "ltr" }}>
+                                {t(
+                                  "“Another overpowered project built with the 🪄 OP stack”"
+                                )}
                               </p>
                             </blockquote>
                             <figcaption className="mt-6 flex items-center gap-x-4">
@@ -530,7 +565,11 @@ export default function Home() {
                               </a>
                             </div>
                             <blockquote className="text-gray-900">
-                              <p>“This is awesome, thanks for building it!”</p>
+                              <p style={{ direction: isRTL ? "rtl" : "ltr" }}>
+                                {t(
+                                  "“This is awesome, thanks for building it!”"
+                                )}
+                              </p>
                             </blockquote>
                             <figcaption className="mt-6 flex items-center gap-x-4">
                               <img
@@ -550,9 +589,10 @@ export default function Home() {
                         <div className="xl:row-span-2 space-y-8">
                           <figure className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5">
                             <blockquote className="text-gray-900">
-                              <p>
-                                “Website embed works like a charm even with
-                                non-English content!”
+                              <p style={{ direction: isRTL ? "rtl" : "ltr" }}>
+                                {t(
+                                  " “Website embed works like a charm even with non-English content!”"
+                                )}
                               </p>
                             </blockquote>
                             <figcaption className="mt-6 flex items-center gap-x-4">
