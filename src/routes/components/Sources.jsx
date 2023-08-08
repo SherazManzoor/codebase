@@ -247,14 +247,14 @@ export default function Sources() {
                   name="data"
                   value={text}
                   onChange={handlecharCount}
-                  placeholder="data"
+                  placeholder={t("data")}
                   rows="20"
                   className="my-2 min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                 ></textarea>
                 <p className="text-sm text-gray-600 text-center h-8">
                   {" "}
                   {text.length}
-                  characters
+                  {t("characters")}
                 </p>
               </div>
             </div>
@@ -292,7 +292,7 @@ export default function Sources() {
               </div>
               <div className="flex items-center my-4">
                 <hr className="w-full border-gray-300 border-t" />
-                <span className="px-2 text-gray-600 whitespace-nowrap">OR</span>
+                <span className="px-2 text-gray-600 whitespace-nowrap">{t("OR")}</span>
                 <hr className="w-full border-gray-300 border-t" />
               </div>
               <div>

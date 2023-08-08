@@ -6,10 +6,26 @@ import { useTranslation } from "react-i18next";
 import i18n from "../../i18n.js";
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   const { t, i18n } = useTranslation();
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
   // document.body.dir = i18n.dir();
+  const [activeLanguage, setActiveLanguage] = useState("English");
+  const languages = ["English", "عربي"];
+
   const handleLanguageChange = (language) => {
-    i18n.changeLanguage(language);
+    if (language === "English") {
+      i18n.changeLanguage("en");
+      // Set the language code to 'en' (English)
+    } else if (language === "عربي") {
+      i18n.changeLanguage("ar");
+      // Set the language code to 'ar' (Arabic)
+    }
+    setActiveLanguage(language);
+    setDropdownOpen(false); // Close the dropdown after selecting a language
   };
 
   const navigation = [
@@ -27,14 +43,14 @@ export default function Navbar() {
         <nav
           className="flex items-center justify-between p-6 lg:px-8"
           aria-label="Global"
+          style={{
+            position: "fixed",
+            width: "100%",
+            backgroundColor: "transparent",
+           
+          }}
         >
           {" "}
-          <button onClick={() => handleLanguageChange("en")}>
-            Switch to English
-          </button>
-          <button onClick={() => handleLanguageChange("ar")}>
-            Switch to Arabic
-          </button>
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
@@ -67,11 +83,62 @@ export default function Navbar() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <div className="relative px-12 inline-block text-left">
+              <button
+                type="button"
+                className="inline-flex justify-center w-100 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                id="language-menu"
+                onClick={toggleDropdown}
+                aria-haspopup="true"
+                aria-expanded={dropdownOpen ? "true" : "false"}
+              >
+                {activeLanguage}
+                <svg
+                  className="-mr-1 ml-2 h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M6.293 6.293a1 1 0 011.414 0L10 8.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414zM6 14a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+            {dropdownOpen && (
+              <div
+                className="origin-top-right absolute right-4 mt-12 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="language-menu"
+              >
+                <div className="py-1" role="none">
+                  {languages.map((language) => (
+                    <a
+                      key={language}
+                      href="#"
+                      onClick={() => handleLanguageChange(language)}
+                      className={`block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
+                        language === activeLanguage
+                          ? "bg-gray-100 text-gray-900"
+                          : ""
+                      }`}
+                      role="menuitem"
+                    >
+                      {language}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
             <a
               href="#"
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className="text-sm font-semibold mt-1 leading-6 text-gray-900"
             >
-              Account <span aria-hidden="true">&rarr;</span>
+              {t("Account")} <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </nav>
@@ -115,11 +182,62 @@ export default function Navbar() {
                   ))}
                 </div>
                 <div className="py-6">
+                <div className="relative px-0 inline-block text-left">
+              <button
+                type="button"
+                className="inline-flex justify-center w-100 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                id="language-menu"
+                onClick={toggleDropdown}
+                aria-haspopup="true"
+                aria-expanded={dropdownOpen ? "true" : "false"}
+              >
+                {activeLanguage}
+                <svg
+                  className="-mr-1 ml-2 h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M6.293 6.293a1 1 0 011.414 0L10 8.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414zM6 14a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+            {dropdownOpen && (
+              <div
+                className="origin-top-right absolute left-4 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="language-menu"
+              >
+                <div className="py-1" role="none">
+                  {languages.map((language) => (
+                    <a
+                      key={language}
+                      href="#"
+                      onClick={() => handleLanguageChange(language)}
+                      className={`block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
+                        language === activeLanguage
+                          ? "bg-gray-100 text-gray-900"
+                          : ""
+                      }`}
+                      role="menuitem"
+                    >
+                      {language}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
                   <a
                     href="#"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
-                    Account
+                    {t("Account")}
                   </a>
                 </div>
               </div>

@@ -1,6 +1,9 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function ChatbotFrame() {
+    const { t, i18n } = useTranslation();
+    const isRTL = i18n.dir() === "rtl";
   return (
     <div>
       <div id="next">
@@ -23,7 +26,7 @@ export default function ChatbotFrame() {
                   style={{ color: "transparent" }}
                 />
                 <h1 className="text-lg font-bold     text-zinc-700">
-                  Chatbase
+                  {t("Chatbase")}
                 </h1>
               </div>
               <div className="flex justify-center items-center">
@@ -55,8 +58,8 @@ export default function ChatbotFrame() {
               >
                 <div className="flex flex-col items-start gap-4 break-words">
                   <div className="prose text-inherit text-left w-full break-words dark:prose-invert ">
-                    <p>
-                      👋 Hi! I am ChatbaseAI, ask me anything about Chatbase!
+                    <p  style={{ direction: isRTL ? "rtl" : "ltr" }}>
+                      {t("👋 Hi! I am ChatbaseAI, ask me anything about Chatbase!")}
                     </p>
                   </div>
                 </div>
@@ -69,9 +72,8 @@ export default function ChatbotFrame() {
               >
                 <div className="flex flex-col items-start gap-4 break-words">
                   <div className="prose text-inherit text-left w-full break-words dark:prose-invert ">
-                    <p>
-                      By the way, you can create a chatbot like me for your
-                      website! 😮
+                    <p  style={{ direction: isRTL ? "rtl" : "ltr" }}>
+                      {t("By the way, you can create a chatbot like me for your website! 😮")}
                     </p>
                   </div>
                 </div>
@@ -82,10 +84,10 @@ export default function ChatbotFrame() {
             <form action="">
               <div className="py-3 flex overflow-x-auto">
                 <button className="rounded-xl whitespace-nowrap  mr-1 mt-1 py-2 px-3 text-sm   bg-zinc-100 hover:bg-zinc-200">
-                  What is Chatbase?
+                  {t("What is Chatbase?")}
                 </button>
                 <button className="rounded-xl whitespace-nowrap  mr-1 mt-1 py-2 px-3 text-sm   bg-zinc-100 hover:bg-zinc-200">
-                  How do I add data to my chatbot?
+                  {t("How do I add data to my chatbot?")}
                 </button>
               </div>
               <div

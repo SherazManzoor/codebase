@@ -139,7 +139,7 @@
 "Attached Files":"الملفات المرفقة",
 "Crawl":"زحف",
 "Fetch links":"إحضار الروابط",
-"This will crawl all the links starting with the URL (not including files on the website).":"",
+"This will crawl all the links starting with the URL (not including files on the website).":"سيؤدي هذا إلى الزحف إلى جميع الروابط بدءًا من عنوان URL (لا يشمل الملفات الموجودة على موقع الويب).",
 "Submit Sitemap":"إرسال خريطة الموقع ",
 "Load sitemap":"تحميل خريطة الموقع",
 "Included Links":"الروابط المضمنة",
@@ -159,33 +159,36 @@
 "Add to Wordpress": "أضف إلى Wordpress",
 "Add to Shopify":"أضف إلى Shopify",
 "Add to Whatsapp":"أضف إلى Whatsapp",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
-"":"",
+"Account":"حساب",
+"Embed on website":"تضمين في الموقع",
+"To add the chatbot any where on your website, add this iframe to your html code":"لإضافة chatbot في أي مكان على موقع الويب الخاص بك ، أضف iframe هذا إلى كود html الخاص بك",
+"To add a chat bubble to the bottom right of your website add this script tag to your html":"لإضافة فقاعة دردشة إلى أسفل يمين موقع الويب الخاص بك ، أضف علامة البرنامج النصي هذه إلى html الخاص بك",
+"Share your chatbot":"شارك روبوت المحادثة الخاص بك",
+"Use this link to access the chatbot":"استخدم هذا الرابط للوصول إلى chatbot",
+"Delete chatbot":"حذف chatbot",
+"Are you sure you want to delete your chatbot? This action cannot be undone.":"هل أنت متأكد أنك تريد حذف الشات بوت الخاص بك؟ لا يمكن التراجع عن هذا الإجراء.",
+"Cancel":"يلغي",
+"Chatbot Name":"اسم Chatbot",
+"I want you to act as a document that I am having a conversation with. Your name is 'AI Assistant'. You will provide me with answers from the given info. If the answer is not included, say exactly 'Hmm, I am not sure.' and stop after that. Refuse to answer any question not about the info. Never break character.":"أريدك أن تعمل كوثيقة أجري محادثة معها. اسمك 'AI Assistant'. سوف تزودني بالإجابات من المعلومات المقدمة. إذا لم يتم تضمين الإجابة ، قل بالضبط 'حسنًا ، لست متأكدًا'. وتوقف بعد ذلك. رفض الإجابة على أي سؤال لا يتعلق بالمعلومات. لا تكسر الشخصية أبدًا.",
+"Too many messages in a row":"هناك عدد كبير جدًا من الرسائل على التوالي",
+"Hi! What can I help you with?": "أهلاً! بماذا يمكنني مساعدتك؟",
+"What is example.com?":"ما هو example.com؟",
+"Hi":"أهلاً",
+"revise answer":"مراجعة الإجابة",
+"Export customers (CSV)":"عملاء التصدير (CSV)",
+"Export customers (PDF)":"عملاء التصدير (PDF)",
+
+"No customers found":"لم يتم العثور على عملاء",
+"data":"بيانات",
+"characters":" حرف ",
+"OR":"أو",
+"Privacy Policy":"سياسة الخصوصية",
+"Terms of Service":"شروط الخدمة",
+"Contact Support":"اتصل بالدعم",
+"Contact":"اتصال",
+"👋 Hi! I am ChatbaseAI, ask me anything about Chatbase!":"👋 مرحبًا! أنا ChatbaseAI ، اسألني أي شيء عن Chatbase!",
+"By the way, you can create a chatbot like me for your website! 😮":"بالمناسبة ، يمكنك إنشاء روبوت محادثة مثلي لموقعك على الويب! 😮",
+"How do I add data to my chatbot?":"كيف أضيف البيانات إلى برنامج الدردشة الآلي الخاص بي؟",
 "":"",
 "":"",
 "":"",

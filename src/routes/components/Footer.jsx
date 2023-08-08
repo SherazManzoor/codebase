@@ -1,6 +1,9 @@
 import React from 'react'
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+    const { t, i18n } = useTranslation();
+    const isRTL = i18n.dir() === "rtl";
   return (
     <div>
         <footer className="mx-auto max-w-[1920px] px-6 bg-zinc-100">
@@ -65,9 +68,9 @@ export default function Footer() {
                                 </svg>
                             </span>
                         </a>
-                        <a className="block text-sm text-zinc-600" href="/privacy">Privacy Policy</a>
-                        <a className="block text-sm text-zinc-600" href="/terms">Terms of Service</a>
-                        <a className="block text-sm text-zinc-600" href="/help">Contact Support</a>
+                        <a className="block text-sm text-zinc-600" href="/privacy">{t("Privacy Policy")}</a>
+                        <a className="block text-sm text-zinc-600" href="/terms">{t("Terms of Service")}</a>
+                        <a className="block text-sm text-zinc-600" href="/help">{t("Contact Support")}</a>
                     </div>
                     <div className="col-span-1 lg:col-span-2"></div>
                     <div className="col-span-1 lg:col-span-2"></div>
@@ -86,8 +89,8 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <p className="py-5">
-                    Contact:<a href="mailto:support@chatbase.co">support@chatbase.co</a>
+                <p  style={{ direction: isRTL ? "rtl" : "ltr" }} className="py-5">
+                    {t("Contact")}:<a href="mailto:support@chatbase.co">support@chatbase.co</a>
                 </p>
             </footer>
     </div>

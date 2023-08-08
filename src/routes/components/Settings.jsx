@@ -361,7 +361,7 @@ export default function Settings() {
                     <div className="mt-1">
                       <input
                         type="text"
-                        value="blockchainguy.net"
+                        value={t("Chatbot Name")}
                         name="name"
                         className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900 "
                       />
@@ -398,14 +398,11 @@ export default function Settings() {
                         name="intructions"
                         maxLength="5000"
                         rows="5"
+                        style={{ direction: isRTL ? "rtl" : "ltr" }}
+                        value= {t("I want you to act as a document that I am having a conversation with. Your name is 'AI Assistant'. You will provide me with answers from the given info. If the answer is not included, say exactly 'Hmm, I am not sure.' and stop after that. Refuse to answer any question not about the info. Never break character.")}
+
                         className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                       >
-                        I want you to act as a document that I am having a
-                        conversation with. Your name is 'AI Assistant'. You will
-                        provide me with answers from the given info. If the
-                        answer is not included, say exactly 'Hmm, I am not
-                        sure.' and stop after that. Refuse to answer any
-                        question not about the info. Never break character.
                       </textarea>
                     </div>
                   </div>
@@ -561,7 +558,7 @@ export default function Settings() {
                               maxLength="400"
                               className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                             >
-                              blockchainguy.net
+                              {t("Chatbot Name")}
                             </textarea>
                             <p
                               style={{ direction: isRTL ? "rtl" : "ltr" }}
@@ -637,7 +634,7 @@ export default function Settings() {
                         {t("Show this message to show when limit is hit")}
                         <input
                           name="ip_limit_message"
-                          value="Too many messages in a row"
+                          value={t("Too many messages in a row")}
                           className="min-w-0 p-1 mt-1 px-2 w-full rounded-md border border-zinc-900/10 bg-white placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                         />
                       </div>
@@ -682,8 +679,8 @@ export default function Settings() {
                           type="text"
                           name="title"
                           maxLength="300"
-                          defaultValue={defaultTitle}
-                          value={Title}
+                          defaultValue={t(defaultTitle)}
+                          value={t(Title)}
                           onChange={handleTitleChange}
                           className="min-w-0 p-1 mt-1 px-2 w-full rounded-md border border-zinc-900/10 bg-white placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                         />
@@ -732,8 +729,8 @@ export default function Settings() {
                                 type="text"
                                 name="title"
                                 maxLength="300"
-                                defaultValue={defaultName}
-                                value={Name}
+                                defaultValue={t(defaultName)}
+                                value={t(Name)}
                                 onChange={handleNameChange}
                                 className="min-w-0 p-1 mt-1 px-2 w-full rounded-md border border-zinc-900/10 bg-white placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                               />
@@ -785,8 +782,8 @@ export default function Settings() {
                                 type="email"
                                 name="email"
                                 maxLength="300"
-                                defaultValue={defaultEmail}
-                                value={Email}
+                                defaultValue={t(defaultEmail)}
+                                value={t(Email)}
                                 onChange={handleEmailChange}
                                 className="min-w-0 p-1 mt-1 px-2 w-full rounded-md border border-zinc-900/10 bg-white placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                               />
@@ -837,8 +834,8 @@ export default function Settings() {
                               <input
                                 name="phone"
                                 maxLength="300"
-                                defaultValue={defaultPhone}
-                                value={Phone}
+                                defaultValue={t(defaultPhone)}
+                                value={t(Phone)}
                                 onChange={handlePhoneChange}
                                 className="min-w-0 p-1 mt-1 px-2 w-full rounded-md border border-zinc-900/10 bg-white placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                               />
@@ -884,15 +881,15 @@ export default function Settings() {
                           </button>
                         </div>
                         <div className="mt-1">
-                          <textarea
+                          <textarea style={{ direction: isRTL ? "rtl" : "ltr" }}
                             name="initial_messages"
-                            defaultValue={defaultMessage}
-                            value={Message}
+                            defaultValue={t(defaultMessage)}
+                            value={t(Message)}
                             onChange={handleMessageChange}
                             className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                             maxLength="1000"
                           >
-                            Hi! What can I help you with?
+                            
                           </textarea>
                           <p className="mt-2 text-sm text-zinc-500">
                             {t("Enter each message in a new line.")}
@@ -904,9 +901,9 @@ export default function Settings() {
                           {t("Suggested Messages")}
                         </label>
                         <div className="mt-1">
-                          <textarea
+                          <textarea style={{ direction: isRTL ? "rtl" : "ltr" }}
                             name="suggested_messages"
-                            placeholder="What is example.com?"
+                            placeholder={t("What is example.com?")}
                             value={textareaValue}
                             onChange={handleTextareaChange}
                             className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
@@ -1169,7 +1166,7 @@ export default function Settings() {
                             >
                               <div className="flex flex-col items-start gap-4 break-words">
                                 <div className="prose text-inherit text-left w-full break-words dark:prose-invert ">
-                                  <p>Hi! What can I help you with?</p>
+                                  <p>{t("Hi! What can I help you with?")}</p>
                                 </div>
                               </div>
                             </div>
@@ -1184,7 +1181,7 @@ export default function Settings() {
                             >
                               <div className="flex flex-col items-start gap-4 break-words dark">
                                 <div className="prose text-inherit text-left w-full break-words dark:prose-invert ">
-                                  <p>Hi</p>
+                                  <p>{t("Hi")}</p>
                                 </div>
                               </div>
                             </div>

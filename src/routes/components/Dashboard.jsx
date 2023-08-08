@@ -3,14 +3,13 @@ import Datepicker from "react-tailwindcss-datepicker";
 import { useTranslation } from "react-i18next";
 
 export default function Dashboard() {
-  
   const { t, i18n } = useTranslation();
   const isRTL = i18n.dir() === "rtl";
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const options = t('options', { returnObjects: true });
+  const options = t("options", { returnObjects: true });
   const [selectedOptions, setSelectedOptions] = useState(options);
 
   const toggleDropdown = () => {
@@ -23,7 +22,6 @@ export default function Dashboard() {
     } else {
       setSelectedOptions([...selectedOptions, option]);
     }
-    
   };
   const datepickerRef = useRef(null);
   // const handleButtonClick = () => {
@@ -44,17 +42,17 @@ export default function Dashboard() {
   };
 
   const conversations = [
-    {
-      question: "what is blockchainguy.net",
-      time: "2 days",
-      answer:
-        "Blockchainguy.net is a website owned by Sheraz Manzoor, a web3 developer...",
-    },
-    {
-      question: "what is d.net",
-      time: "2 days",
-      answer: "d.net is a website owned by Sheraz Manzoor, a web3 developer...",
-    },
+    // {
+    //   question: "what is helmet.net",
+    //   time: "2 days",
+    //   answer:
+    //     "helmet.net is a website owned by Mr. amr, a web developer...",
+    // },
+    // {
+    //   question: "what is d.net",
+    //   time: "2 days",
+    //   answer: "d.net is a website owned by Mr D, a web3 developer...",
+    // },
   ];
 
   const [selectedConversation, setSelectedConversation] = useState(
@@ -142,6 +140,7 @@ export default function Dashboard() {
                     onChange={(date) =>
                       handleValueChange({ startDate: date, endDate: date })
                     }
+                    style={{ zIndex: 1 }}
                     showShortcuts={true}
                   />
                 </div>
@@ -185,14 +184,14 @@ export default function Dashboard() {
 
                               {isOpen && (
                                 <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black z-10 ring-opacity-5">
-                                  <div 
+                                  <div
                                     className="py-1"
                                     role="menu"
                                     aria-orientation="vertical"
                                     aria-labelledby="options-menu"
                                   >
                                     {options.map((option) => (
-                                      <div 
+                                      <div
                                         key={option}
                                         className="block px-2 ml-12 py-2  text-sm text-gray-700 cursor-pointer hover:bg-gray-100"
                                         role="menuitem"
@@ -200,7 +199,7 @@ export default function Dashboard() {
                                           handleOptionClick(option)
                                         }
                                       >
-                                        <input 
+                                        <input
                                           type="checkbox"
                                           className="mr-2 leading-tight"
                                           checked={selectedOptions.includes(
@@ -210,7 +209,7 @@ export default function Dashboard() {
                                             handleOptionClick(option)
                                           }
                                         />
-                                        <span >{option}</span>
+                                        <span>{option}</span>
                                       </div>
                                     ))}
                                   </div>
@@ -229,7 +228,7 @@ export default function Dashboard() {
                     style={{ backgroundColor: "black" }}
                     className="rounded-md w-full px-4 py-2 text-base font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                   >
-                   {t("Export filtered conversations (JSON)")}
+                    {t("Export filtered conversations (JSON)")}
                   </button>
                   <button
                     data-variant="flat"
@@ -263,7 +262,7 @@ export default function Dashboard() {
                                 aria-hidden="true"
                               ></span>
                               <p className="truncate text-sm text-gray-500">
-                               Customer:{conversation.question}{" "}
+                                Customer:{conversation.question}{" "}
                               </p>
                             </div>
                             <time
@@ -287,7 +286,10 @@ export default function Dashboard() {
               {conversations.length > 0 && selectedConversation && (
                 <div class="flex justify-center items-center flex-grow ">
                   <div className="w-full px-8">
-                    <p  style={{ direction: isRTL ? "rtl" : "ltr" }} className="text-sm font-bold my-2">
+                    <p
+                      style={{ direction: isRTL ? "rtl" : "ltr" }}
+                      className="text-sm font-bold my-2"
+                    >
                       {t("Source: Chatbase site")}
                     </p>
                     <div className=" w-full rounded h-[38rem] flex flex-col justify-between mb-4 overflow-auto border-zinc-200 border px-2 py-2 ">
@@ -303,7 +305,7 @@ export default function Dashboard() {
                             <div className=" flex flex-col items-start gap-4 break-words">
                               <div className="prose text-inherit text-left w-full break-words dark:prose-invert ">
                                 <div className="prose text-inherit text-left dark:prose-invert ">
-                                  <p>Hi! What can I help you with?</p>
+                                  <p>{t("Hi! What can I help you with?")}</p>
                                 </div>
                               </div>
                             </div>
@@ -346,7 +348,7 @@ export default function Dashboard() {
                               </div>
                               <div className="flex justify-end">
                                 <button className="text-xs text-gray-500">
-                                  revise answer
+                                  {t("revise answer")}
                                 </button>
                               </div>
                             </div>
@@ -372,7 +374,7 @@ export default function Dashboard() {
                   className="rounded-md  w-full px-4 py-2 text-sm mt-4 whitespace-nowrap  font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                 >
                   {" "}
-                  Export customers (CSV)
+                  {t("Export customers (CSV)")}
                 </button>
                 <button
                   data-variant="flat"
@@ -380,14 +382,14 @@ export default function Dashboard() {
                   className="rounded-md w-full px-4 mx-4 py-2 text-sm  mt-4 whitespace-nowrap font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                 >
                   {" "}
-                  Export customers (PDF)
+                  {t("Export customers (PDF)")}
                 </button>
               </div>
             </div>
           </div>
           <div className="flex flex-col space-y-12 sm:flex-row sm:space-x-8 sm:space-y-0 ">
             <div className=" w-full ">
-              <div className="text-center my-24">No customers found</div>
+              <div className="text-center my-24">{t("No customers found")}</div>
             </div>
           </div>
         </>
