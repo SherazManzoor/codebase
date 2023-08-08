@@ -5,7 +5,12 @@ import Settings from "./components/Settings";
 import Dashboard from "./components/Dashboard";
 import Sources from "./components/Sources";
 import Inetgration from "./components/Inetgration";
+import { useTranslation } from "react-i18next";
+
 export default function OpenChatbot() {
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.dir() === "rtl";
+
   const [selectedLink, setSelectedLink] = useState("Chatbot");
 
   const handleLinkClick = (event) => {
@@ -89,7 +94,7 @@ export default function OpenChatbot() {
                           : ""
                       }`}
                     >
-                      Chatbot
+                      {t("Chatbot")}
                     </a>
                     <a
                       href="Settings"
@@ -100,7 +105,7 @@ export default function OpenChatbot() {
                           : ""
                       }`}
                     >
-                      Settings
+                      {t("Settings")}
                     </a>
                     <a
                       href="Dashboard"
@@ -111,7 +116,7 @@ export default function OpenChatbot() {
                           : ""
                       }`}
                     >
-                      Dashboard
+                      {t("Dashboard")}
                     </a>
                     <a
                       href="Sources"
@@ -122,7 +127,7 @@ export default function OpenChatbot() {
                           : ""
                       }`}
                     >
-                      Sources
+                      {t("Sources")}
                     </a>
                     <a
                       href="Integrations"
@@ -133,7 +138,7 @@ export default function OpenChatbot() {
                           : ""
                       }`}
                     >
-                      Integrations
+                      {t("Integrations")}
                     </a>
 
                     <a
@@ -145,7 +150,7 @@ export default function OpenChatbot() {
                           : ""
                       }`}
                     >
-                      Embed on site
+                      {t("Embed on site")}
                     </a>
                     <a
                       href="#"
@@ -156,7 +161,7 @@ export default function OpenChatbot() {
                           : ""
                       }`}
                     >
-                      Share
+                      {t("Share")}
                     </a>
                     <a
                       href="#"
@@ -167,7 +172,7 @@ export default function OpenChatbot() {
                           : ""
                       }`}
                     >
-                      Delete
+                      {t("Delete")}
                     </a>
                   </div>
                 </div>

@@ -1,6 +1,9 @@
 import React, { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Sources() {
+    const { t, i18n } = useTranslation();
+    const isRTL = i18n.dir() === "rtl";
   const fileInputRef = useRef(null);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const handleFileChange = (event) => {
@@ -88,7 +91,7 @@ export default function Sources() {
     <div>
       <main className="isolate">
         <div className="relative px-6 lg:px-8 py-16 sm:py-8">
-          <h1 className=" text-3xl mb-8 text-center font-bold">Data Sources</h1>
+          <h1 className=" text-3xl mb-8 text-center font-bold">{t("Data Sources")}</h1>
           <div className="pb-8">
             <div className=" text-center space-x-8">
               <button
@@ -99,7 +102,7 @@ export default function Sources() {
                     : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
                 } inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium`}
               >
-                Files
+                {t("Files")}
               </button>
               <button
                 onClick={() => handleTypeChange("text")}
@@ -109,7 +112,7 @@ export default function Sources() {
                     : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
                 } inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium`}
               >
-                Text
+                {t("Text")}
               </button>
               <button
                 onClick={() => handleTypeChange("website")}
@@ -119,7 +122,7 @@ export default function Sources() {
                     : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
                 } inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium`}
               >
-                Website
+                {t("Website")}
               </button>
               <button
                 onClick={() => handleTypeChange("qna")}
@@ -129,7 +132,7 @@ export default function Sources() {
                     : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
                 } inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium`}
               >
-                Q&A
+                {t("Q&A")}
               </button>
             </div>
           </div>
@@ -140,7 +143,7 @@ export default function Sources() {
                   htmlFor=""
                   className=" text-center block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
-                  Upload Files
+                  {t("Upload Files")}
                 </label>
                 <div
                   role="presentation"
@@ -176,27 +179,25 @@ export default function Sources() {
                     </svg>
                     <div className="text-center justify-center items-center">
                       <p className="text-sm text-gray-600 ">
-                        Drag & drop files here, or click to select files
+                        {t("Drag & drop files here, or click to select files")}
                       </p>
-                      <span
+                      <span  style={{ direction: isRTL ? "rtl" : "ltr" }}
                         id="file_type_help"
                         className="text-xs text-gray-500 dark:text-gray-300"
                       >
-                        Supported File Types: .pdf, .doc, .docx, .txt
+                        {t("Supported File Types: .pdf, .doc, .docx, .txt")}
                       </span>
                     </div>
                   </div>
                 </div>
-                <p className="mt-2 text-sm text-center text-gray-500 dark:text-gray-300">
-                  NOTE: Uploading a PDF using safari doesn't work, we're looking
-                  into the issue. Make sure the text is OCR'd, i.e. you can copy
-                  it.
+                <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="mt-2 text-sm text-center text-gray-500 dark:text-gray-300">
+                {t("NOTE: Uploading a PDF using safari doesn't work, we're looking into the issue. Make sure the text is OCR'd, i.e. you can copy it.")}
                 </p>
                 <div className="pt-8">
                   {selectedFiles.length > 0 && (
                     <div>
                       <p className="font-semibold pb-2">
-                        Attached Files
+                        {t("Attached Files")}
                         <span className="text-zinc-500 text-sm ml-1">
                           (236 chars)
                         </span>
@@ -265,7 +266,7 @@ export default function Sources() {
                 htmlFor=""
                 className="block text-sm font-medium leading-6 text-gray-900 my-2"
               >
-                Crawl
+                {t("Crawl")}
               </label>
               <div className="relative mt-2 rounded-md">
                 <div className="flex space-x-2">
@@ -281,13 +282,12 @@ export default function Sources() {
                       className="rounded-md px-4 py-2 text-base font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                       href="/create-new-chatbot"
                     >
-                      Fetch links
+                      {t("Fetch links")}
                     </a>
                   </div>
                 </div>
-                <div className="py-4 text-sm text-zinc-900">
-                  This will crawl all the links starting with the URL (not
-                  including files on the website).
+                <div  style={{ direction: isRTL ? "rtl" : "ltr" }} className="py-4 text-sm text-zinc-900">
+                {t("This will crawl all the links starting with the URL (not including files on the website).")}
                 </div>
               </div>
               <div className="flex items-center my-4">
@@ -300,7 +300,7 @@ export default function Sources() {
                   htmlFor="sitemap"
                   className="block text-sm font-medium leading-6 text-gray-900 my-2"
                 >
-                  Submit Sitemap
+                  {t("Submit Sitemap")}
                 </label>
                 <div className="relative mt-2 rounded-md ">
                   <div className="flex space-x-2">
@@ -315,7 +315,7 @@ export default function Sources() {
                         className="rounded-md px-4 py-2 text-base font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                         href="/create-new-chatbot"
                       >
-                        Load sitemap
+                        {t("Load sitemap")}
                       </a>
                     </div>
                   </div>
@@ -326,7 +326,7 @@ export default function Sources() {
                   htmlFor=""
                   className="block text-sm font-medium leading-6 text-gray-900 my-2"
                 >
-                  Included Links
+                  {t("Included Links")}
                 </label>
                 {showDeleteAllButton && (
                   <div className="flex justify-end">
@@ -334,7 +334,7 @@ export default function Sources() {
                       className="text-sm text-red-700"
                       onClick={handleDeleteAllLinks}
                     >
-                      Delete all
+                      {t("Delete all")}
                     </button>
                   </div>
                 )}
@@ -383,7 +383,7 @@ export default function Sources() {
                     className="flex items-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300"
                     onClick={handleAddLink}
                   >
-                    Add
+                    {t("Add")}
                   </button>
                 </div>
               </div>
@@ -400,7 +400,7 @@ export default function Sources() {
                       className="text-sm text-red-700"
                       onClick={handleDeleteAllqna}
                     >
-                      Delete all
+                      {t("Delete all")}
                     </button>
                   </div>
                 )}
@@ -415,7 +415,7 @@ export default function Sources() {
                           htmlFor=""
                           className="mt-8 text-sm text-zinc-700"
                         >
-                          Questions
+                          {t("Questions")}
                         </label>
                         <textarea
                           className="min-w-0 p-1 w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
@@ -427,7 +427,7 @@ export default function Sources() {
                           htmlFor=""
                           className="mt-8 text-sm text-zinc-700"
                         >
-                          Answer
+                          {t("Answer")}
                         </label>
                         <textarea
                           className="min-w-0 p-1 w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
@@ -466,7 +466,7 @@ export default function Sources() {
                     className="flex items-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300"
                     onClick={handleAddqna}
                   >
-                    Add
+                    {t("Add")}
                   </button>
                 </div>
               </div>
@@ -475,20 +475,20 @@ export default function Sources() {
         </div>
         <div>
           <div className=" my-8 max-w-2xl m-auto p-4 rounded border">
-            <div>Included sources</div>
+            <div>{t("Included sources")}</div>
             <div className="flex py-1 space-x-3"></div>
-            <p className=" text-sm mt-4">
-              Total detected characters:
+            <p className=" text-sm mt-4"  style={{ direction: isRTL ? "rtl" : "ltr" }}>
+              {t("Total detected characters:")}
               <span className="font-bold">0</span>
-              <span className=" text-zinc-500">/400,000 limit</span>
+              <span className=" text-zinc-500">/400,000 {t("limit")}</span>
             </p>
             <div className="flex justify-center py-4">
-              <a
-                style={{ backgroundColor: "black" }}
+              <a 
+                style={{ backgroundColor: "black" ,direction: isRTL ? "rtl" : "ltr"}}
                 className="rounded-md w-full text-center py-2 text-base font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                 href="/create-new-chatbot"
               >
-                Create Chatbot
+                {t("Create Chatbot")}
               </a>
             </div>
           </div>

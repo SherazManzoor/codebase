@@ -1,25 +1,17 @@
 import React, { useState, useRef } from "react";
 import Datepicker from "react-tailwindcss-datepicker";
+import { useTranslation } from "react-i18next";
 
 export default function Dashboard() {
+  
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.dir() === "rtl";
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOptions, setSelectedOptions] = useState([
-    "Widget or Iframe",
-    "API (non-stream)",
-    "API (stream)",
-    "Chatbase site",
-    "Unspecified",
-  ]);
 
-  const options = [
-    "Widget or Iframe",
-    "API (non-stream)",
-    "API (stream)",
-    "Chatbase site",
-    "Unspecified",
-  ];
+  const options = t('options', { returnObjects: true });
+  const [selectedOptions, setSelectedOptions] = useState(options);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -31,6 +23,7 @@ export default function Dashboard() {
     } else {
       setSelectedOptions([...selectedOptions, option]);
     }
+    
   };
   const datepickerRef = useRef(null);
   // const handleButtonClick = () => {
@@ -90,7 +83,7 @@ export default function Dashboard() {
                 : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
             } inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium`}
           >
-            Conversations
+            {t("Conversations")}
           </button>
           <button
             onClick={() => handleTypeChange("Leads")}
@@ -100,7 +93,7 @@ export default function Dashboard() {
                 : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
             } inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium`}
           >
-            Leads
+            {t("Leads")}
           </button>
           {/* <button class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium">
             Leads
@@ -174,7 +167,7 @@ export default function Dashboard() {
                                 onClick={toggleDropdown}
                               >
                                 {isOpen ? "" : ""}
-                                <span>Source</span>
+                                <span>{t("Sources")}</span>
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   viewBox="0 0 20 20"
@@ -192,14 +185,14 @@ export default function Dashboard() {
 
                               {isOpen && (
                                 <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black z-10 ring-opacity-5">
-                                  <div
+                                  <div 
                                     className="py-1"
                                     role="menu"
                                     aria-orientation="vertical"
                                     aria-labelledby="options-menu"
                                   >
                                     {options.map((option) => (
-                                      <div
+                                      <div 
                                         key={option}
                                         className="block px-2 ml-12 py-2  text-sm text-gray-700 cursor-pointer hover:bg-gray-100"
                                         role="menuitem"
@@ -207,7 +200,7 @@ export default function Dashboard() {
                                           handleOptionClick(option)
                                         }
                                       >
-                                        <input
+                                        <input 
                                           type="checkbox"
                                           className="mr-2 leading-tight"
                                           checked={selectedOptions.includes(
@@ -217,7 +210,7 @@ export default function Dashboard() {
                                             handleOptionClick(option)
                                           }
                                         />
-                                        <span>{option}</span>
+                                        <span >{option}</span>
                                       </div>
                                     ))}
                                   </div>
@@ -236,14 +229,14 @@ export default function Dashboard() {
                     style={{ backgroundColor: "black" }}
                     className="rounded-md w-full px-4 py-2 text-base font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                   >
-                    Export filtered conversations (JSON)
+                   {t("Export filtered conversations (JSON)")}
                   </button>
                   <button
                     data-variant="flat"
                     style={{ backgroundColor: "black" }}
                     className="rounded-md w-full px-4 py-2 text-base font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                   >
-                    Export filtered conversations (PDF)
+                    {t("Export filtered conversations (PDF)")}
                   </button>
                 </div>
               </div>
@@ -252,7 +245,7 @@ export default function Dashboard() {
               <div class=" w-full sm:max-w-sm ">
                 {conversations.length === 0 ? (
                   <div className="text-center my-24">
-                    No conversations found
+                    {t("No conversations found")}
                   </div>
                 ) : (
                   <div class="max-h-[34rem] overflow-auto border rounded mt-4 w-full">
@@ -270,7 +263,7 @@ export default function Dashboard() {
                                 aria-hidden="true"
                               ></span>
                               <p className="truncate text-sm text-gray-500">
-                                Customer: {conversation.question}{" "}
+                               Customer:{conversation.question}{" "}
                               </p>
                             </div>
                             <time
@@ -294,8 +287,8 @@ export default function Dashboard() {
               {conversations.length > 0 && selectedConversation && (
                 <div class="flex justify-center items-center flex-grow ">
                   <div className="w-full px-8">
-                    <p className="text-sm font-bold my-2">
-                      Source: Chatbase site
+                    <p  style={{ direction: isRTL ? "rtl" : "ltr" }} className="text-sm font-bold my-2">
+                      {t("Source: Chatbase site")}
                     </p>
                     <div className=" w-full rounded h-[38rem] flex flex-col justify-between mb-4 overflow-auto border-zinc-200 border px-2 py-2 ">
                       <div>

@@ -1,6 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+
 export default function Settings() {
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.dir() === "rtl";
   const [selectedside, setSelectedside] = useState("General");
 
   const handlesideClick = (event) => {
@@ -226,7 +230,7 @@ export default function Settings() {
                               d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                             ></path>
                           </svg>
-                          General
+                          {t("General")}
                         </a>
                       </li>
                       <li>
@@ -257,7 +261,7 @@ export default function Settings() {
                               d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
                             ></path>
                           </svg>
-                          Leads
+                          {t("Leads")}
                         </a>
                       </li>
                       <li>
@@ -288,7 +292,7 @@ export default function Settings() {
                               d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z"
                             ></path>
                           </svg>
-                          Chat Interface
+                          {t("Chat Interface")}
                         </a>
                       </li>
                     </ul>
@@ -302,7 +306,7 @@ export default function Settings() {
               <div className="border border-gray-200 rounded mb-10">
                 <div className="border-b border-gray-200 bg-white py-4 px-5">
                   <h3 className="text-xl font-semibold leading-6 text-gray-900 ">
-                    General
+                    {t("General")}
                   </h3>
                 </div>
                 <div className="p-5">
@@ -311,7 +315,7 @@ export default function Settings() {
                       htmlFor=""
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Chatbot ID
+                      {t("Chatbot ID")}
                     </label>
                     <div className="flex space-x-4 items-center mt-1">
                       <div id="textToCopy" className="font-semibold">
@@ -343,7 +347,7 @@ export default function Settings() {
                       htmlFor=""
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Number of characters
+                      {t("Number of characters")}
                     </label>
                     <div className="mt-1 font-semibold">7,332</div>
                   </div>
@@ -352,7 +356,7 @@ export default function Settings() {
                       htmlFor=""
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Name
+                      {t("Name")}
                     </label>
                     <div className="mt-1">
                       <input
@@ -366,14 +370,14 @@ export default function Settings() {
                 </div>
                 <div className="flex justify-end bg-gray-100 px-5 py-3">
                   <button className="inline-flex items-center justify-center text-sm transform-none normal-case rounded leading-6 transition ease-in-out duration-150 shadow-sm font-semibold text-center border focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 bg-zinc-700 text-zinc-200 border-zinc-600 cursor-not-allowed hover:text-zinc-200 hover:border-zinc-600 hover:bg-zinc-700 hover:cursor-pointer h-7 w-16">
-                    Save
+                    {t("Save")}
                   </button>
                 </div>
               </div>
               <div className="border border-gray-200 rounded mb-10">
                 <div className="border-b border-gray-200 bg-white py-4 px-5">
                   <h3 className="text-xl font-semibold leading-6 text-gray-900 ">
-                    OpenAI
+                    {t("OpenAI")}
                   </h3>
                 </div>
                 <div className="p-5">
@@ -383,10 +387,10 @@ export default function Settings() {
                         htmlFor=""
                         className="block text-sm font-medium text-gray-700"
                       >
-                        Base Prompt (system message)
+                        {t("Base Prompt (system message)")}
                       </label>
                       <button className="inline-flex items-center justify-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto">
-                        Reset
+                        {t("Reset")}
                       </button>
                     </div>
                     <div className="mt-1">
@@ -397,10 +401,10 @@ export default function Settings() {
                         className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                       >
                         I want you to act as a document that I am having a
-                        conversation with. Your name is "AI Assistant". You will
+                        conversation with. Your name is 'AI Assistant'. You will
                         provide me with answers from the given info. If the
-                        answer is not included, say exactly "Hmm, I am not
-                        sure." and stop after that. Refuse to answer any
+                        answer is not included, say exactly 'Hmm, I am not
+                        sure.' and stop after that. Refuse to answer any
                         question not about the info. Never break character.
                       </textarea>
                     </div>
@@ -410,7 +414,7 @@ export default function Settings() {
                       htmlFor=""
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Model
+                      {t("Model")}
                     </label>
                     <select
                       name="model"
@@ -424,9 +428,13 @@ export default function Settings() {
                         gpt-4
                       </option>
                     </select>
-                    <p className="mt-2 text-sm text-zinc-500">
-                      1 message using gpt-3.5-turbo costs 1 message credit. 1
-                      message using gpt-4 costs 20 message credits.
+                    <p
+                      style={{ direction: isRTL ? "rtl" : "ltr" }}
+                      className="mt-2 text-sm text-zinc-500"
+                    >
+                      {t(
+                        "1 message using gpt-3.5-turbo costs 1 message credit. 1 message using gpt-4 costs 20 message credits."
+                      )}
                     </p>
                   </div>
                   <div>
@@ -434,7 +442,7 @@ export default function Settings() {
                       htmlFor=""
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Temperature
+                      {t("Temperature")}
                     </label>
                     <p className="text-sm">{inputValue}</p>
                     <input
@@ -448,21 +456,21 @@ export default function Settings() {
                       onChange={handleInputChange}
                     />
                     <div className="flex justify-between">
-                      <p className="text-zinc-700 text-xs">Reserved</p>
-                      <p className="text-zinc-700 text-xs">Creative</p>
+                      <p className="text-zinc-700 text-xs">{t("Reserved")}</p>
+                      <p className="text-zinc-700 text-xs">{t("Creative")}</p>
                     </div>
                   </div>
                 </div>
                 <div className="flex justify-end bg-gray-100 px-5 py-3">
                   <button className="inline-flex items-center justify-center text-sm transform-none normal-case rounded leading-6 transition ease-in-out duration-150 shadow-sm font-semibold text-center border focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 bg-zinc-700 text-zinc-200 border-zinc-600 cursor-not-allowed hover:text-zinc-200 hover:border-zinc-600 hover:bg-zinc-700 hover:cursor-pointer h-7 w-16">
-                    Save
+                    {t("Save")}
                   </button>
                 </div>
               </div>
               <div className="border border-gray-200 rounded mb-10">
                 <div className="border-b border-gray-200 bg-white py-4 px-5">
                   <h3 className="text-xl font-semibold leading-6 text-gray-900 ">
-                    Access
+                    {t("Access")}
                   </h3>
                 </div>
                 <div className="p-5">
@@ -471,58 +479,71 @@ export default function Settings() {
                       htmlFor=""
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Visibilty
+                      {t("Visibilty")}
                     </label>
                     <select
                       name=""
                       id=""
                       className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                     >
-                      <option value="private">private</option>
+                      <option value="private">{t("private")}</option>
                       <option value="can_be_embedded">
-                        can be embedded on website
+                        {t("can be embedded on website")}
                       </option>
                     </select>
-                    <p className="mt-2 text-sm text-zinc-500">
-                      'private': No one can access your chatbot except you (your
-                      account)
+                    <p
+                      style={{ direction: isRTL ? "rtl" : "ltr" }}
+                      className="mt-2 text-sm text-zinc-500"
+                    >
+                      '{t("private")}':{" "}
+                      {t(
+                        "No one can access your chatbot except you (your account)"
+                      )}
                     </p>
-                    <p className="mt-2 text-sm text-zinc-500">
-                      'can be embedded on website': Other people can chat with
-                      your chatbot if you send them the link. You can also embed
-                      it on your website so your website visitors are able to
-                      use it.
+                    <p
+                      style={{ direction: isRTL ? "rtl" : "ltr" }}
+                      className="mt-2 text-sm text-zinc-500"
+                    >
+                      ' {t("can be embedded on website")}':{" "}
+                      {t(
+                        "Other people can chat with your chatbot if you send them the link. You can also embed it on your website so your website visitors are able to use it."
+                      )}
                     </p>
                   </div>
                   <div className="pb-8">
                     <div>
                       <label
+                        style={{ direction: isRTL ? "rtl" : "ltr" }}
                         htmlFor=""
                         className="block text-sm font-medium text-gray-700 pb-2"
                       >
-                        Only allow the iframe and widget on specific domains
+                        {t(
+                          "Only allow the iframe and widget on specific domains"
+                        )}
                       </label>
-                      <button
-                        role="switch"
-                        type="button"
-                        tabIndex="0"
-                        aria-checked={showDomain}
-                        className={`${
-                          showDomain ? "bg-violet-600" : "bg-gray-200"
-                        } relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 ${
-                          showDomain
-                            ? "focus:ring-violet-600"
-                            : "focus:ring-gray-500"
-                        } focus:ring-offset-2`}
-                        onClick={handleSwitchToggle}
-                      >
-                        <span
-                          aria-hidden="true"
-                          className={`inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
-                            showDomain ? "translate-x-5" : "translate-x-0"
-                          }`}
-                        ></span>
-                      </button>
+                      <div>
+                        <button
+                          role="switch"
+                          type="button"
+                          tabIndex="0"
+                          aria-checked={showDomain}
+                          className={`${
+                            showDomain ? "bg-violet-600" : "bg-gray-200"
+                          } relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 ${
+                            showDomain
+                              ? "focus:ring-violet-600"
+                              : "focus:ring-gray-500"
+                          } focus:ring-offset-2`}
+                          onClick={handleSwitchToggle}
+                        >
+                          <span
+                            aria-hidden="true"
+                            className={`inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
+                              showDomain ? "translate-x-5" : "translate-x-0"
+                            }`}
+                          ></span>
+                        </button>
+                      </div>
                       {showDomain && (
                         <>
                           <div className="py-4">
@@ -530,7 +551,7 @@ export default function Settings() {
                               htmlFor=""
                               className="block text-sm font-medium text-gray-700"
                             >
-                              Domains
+                              {t("Domains")}
                             </label>
                           </div>
                           <div className="mt-1">
@@ -542,13 +563,19 @@ export default function Settings() {
                             >
                               blockchainguy.net
                             </textarea>
-                            <p className="mt-2 text-sm text-zinc-500">
-                              Enter each domain in a new line
+                            <p
+                              style={{ direction: isRTL ? "rtl" : "ltr" }}
+                              className="mt-2 text-sm text-zinc-500"
+                            >
+                              {t("Enter each domain in a new line")}
                             </p>
-                            <p className="mt-2 text-sm text-zinc-500">
-                              Domains you want to embed your chatbot on. Your
-                              chatbot visibility has to be 'can be embedded on
-                              website' for this to work.
+                            <p
+                              style={{ direction: isRTL ? "rtl" : "ltr" }}
+                              className="mt-2 text-sm text-zinc-500"
+                            >
+                              {t(
+                                "Domains you want to embed your chatbot on. Your chatbot visibility has to be 'can be embedded on website' for this to work."
+                              )}
                             </p>
                           </div>
                         </>
@@ -565,23 +592,28 @@ export default function Settings() {
                           htmlFor=""
                           className="block text-sm font-medium text-gray-700"
                         >
-                          Rate Limiting
+                          {t("Rate Limiting")}
                         </label>
                         <button
                           onClick={handleReset}
                           className="inline-flex items-center justify-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto"
                         >
-                          Reset
+                          {t("Reset")}
                         </button>
                       </div>
-                      <p className="mt-2 text-sm text-zinc-500">
-                        Limit the number of messages sent from one device on the
-                        iframe and chat bubble (this limit will not be applied
-                        to you on chatbase.co, only on your website for your
-                        users to prevent abuse).
+                      <p
+                        style={{ direction: isRTL ? "rtl" : "ltr" }}
+                        className="mt-2 text-sm text-zinc-500"
+                      >
+                        {t(
+                          "Limit the number of messages sent from one device on the iframe and chat bubble (this limit will not be applied to you on chatbase.co, only on your website for your users to prevent abuse)."
+                        )}
                       </p>
-                      <div className="mt-1 text-sm text-zinc-700">
-                        Limit to only
+                      <div
+                        style={{ direction: isRTL ? "rtl" : "ltr" }}
+                        className="mt-1 text-sm text-zinc-700"
+                      >
+                        {t("Limit to only")}
                         <input
                           type="number"
                           name="ip_limit"
@@ -590,7 +622,7 @@ export default function Settings() {
                           onChange={handleIpLimitChange}
                           className="min-w-0 p-1 px-2 rounded-md border border-zinc-900/10 bg-white placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                         />
-                        messages every
+                        {t("messages every")}
                         <input
                           type="number"
                           name="ip_limit_timeframe"
@@ -599,10 +631,10 @@ export default function Settings() {
                           className="min-w-0 p-1 px-2 rounded-md border border-zinc-900/10 bg-white placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                           onChange={handleIpLimittimeChange}
                         />
-                        seconds.
+                        {t("seconds.")}
                       </div>
                       <div className="text-sm text-zinc-700 my-4">
-                        Show this message to show when limit is hit
+                        {t("Show this message to show when limit is hit")}
                         <input
                           name="ip_limit_message"
                           value="Too many messages in a row"
@@ -613,7 +645,7 @@ export default function Settings() {
                   </div>
                   <div className="flex justify-end bg-gray-100 px-5 py-3">
                     <button className="inline-flex items-center justify-center text-sm bg-black text-zinc-200 transform-none normal-case cursor-pointer rounded leading-6 transition ease-in-out duration-150 shadow-sm font-semibold text-center border-transparent focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 hover:bg-zinc-800 hover:text-white border h-7 w-16">
-                      Save
+                      {t("Save")}
                     </button>
                   </div>
                 </div>
@@ -625,7 +657,7 @@ export default function Settings() {
               <div className="border border-gray-200 rounded mb-10">
                 <div className="border-b border-gray-200 bg-white py-4 px-5">
                   <h3 className="text-xl font-semibold leading-6 text-gray-900 ">
-                    Collect Customer Info
+                    {t("Collect Customer Info")}
                   </h3>
                 </div>
                 <div className="p-5">
@@ -637,13 +669,13 @@ export default function Settings() {
                             htmlFor=""
                             className="block font-semibold text-sm pb-2"
                           >
-                            Title
+                            {t("Title")}
                           </label>
                           <button
                             onClick={handleTitleReset}
                             className="inline-flex items-center justify-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto"
                           >
-                            Reset
+                            {t("Reset")}
                           </button>
                         </div>
                         <input
@@ -661,7 +693,7 @@ export default function Settings() {
                           htmlFor=""
                           className="block font-semibold text-sm pb-2"
                         >
-                          Name
+                          {t("Name")}
                         </label>
                         <button
                           role="switch"
@@ -692,7 +724,7 @@ export default function Settings() {
                                   onClick={handleNameReset}
                                   className="inline-flex items-center justify-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto"
                                 >
-                                  Reset
+                                  {t("Reset")}
                                 </button>
                               </div>
 
@@ -714,7 +746,7 @@ export default function Settings() {
                           htmlFor=""
                           className="block font-semibold text-sm pb-2"
                         >
-                          Email
+                          {t("Email")}
                         </label>
                         <button
                           role="switch"
@@ -745,7 +777,7 @@ export default function Settings() {
                                   onClick={handleEmailReset}
                                   className="inline-flex items-center justify-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto"
                                 >
-                                  Reset
+                                  {t("Reset")}
                                 </button>
                               </div>
 
@@ -767,7 +799,7 @@ export default function Settings() {
                           htmlFor=""
                           className="block font-semibold text-sm pb-2"
                         >
-                          Phone
+                          {t("Phone")}
                         </label>
                         <button
                           role="switch"
@@ -798,7 +830,7 @@ export default function Settings() {
                                   onClick={handlePhoneReset}
                                   className="inline-flex items-center justify-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto"
                                 >
-                                  Reset
+                                  {t("Reset")}
                                 </button>
                               </div>
 
@@ -820,7 +852,7 @@ export default function Settings() {
               </div>
               <div className="flex justify-end bg-gray-100 px-5 py-3">
                 <button className="inline-flex items-center justify-center cursor-pointer text-sm transform-none normal-case rounded leading-6 transition ease-in-out duration-150 shadow-sm font-semibold text-center border focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 bg-zinc-700 text-zinc-200 border-zinc-600 cursor-not-allowed hover:text-zinc-200 hover:border-zinc-600 hover:bg-zinc-700  h-7 w-16">
-                  Save
+                  {t("Save")}
                 </button>
               </div>
             </div>
@@ -830,25 +862,25 @@ export default function Settings() {
               <div className="border border-gray-200 rounded mb-10">
                 <div className="border-b border-gray-200 bg-white py-4 px-5">
                   <h3 className="text-xl font-semibold leading-6 text-gray-900 ">
-                    Chat Interface
+                    {t("Chat Interface")}
                   </h3>
                 </div>
                 <div className="p-5">
                   <h4 className="mb-8 text-sm text-zinc-600">
-                    Note: Applies when embedded on a website
+                    {t("Note: Applies when embedded on a website")}
                   </h4>
                   <div className=" flex justify-between lg:space-x-8 flex-col lg:flex-row">
                     <div className="flex-1 w-2/2 lg:w-1/2 pb-5">
                       <div className="pb-8">
                         <div className="flex justify-between">
                           <label className="block text-sm font-medium text-gray-700">
-                            Initial Messages
+                            {t("Initial Messages")}
                           </label>
                           <button
                             onClick={handleMessageReset}
                             className="inline-flex items-center justify-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto"
                           >
-                            Reset
+                            {t("Reset")}
                           </button>
                         </div>
                         <div className="mt-1">
@@ -857,20 +889,19 @@ export default function Settings() {
                             defaultValue={defaultMessage}
                             value={Message}
                             onChange={handleMessageChange}
-                            placeholder="Hi! What can I help you with?"
                             className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                             maxLength="1000"
                           >
                             Hi! What can I help you with?
                           </textarea>
                           <p className="mt-2 text-sm text-zinc-500">
-                            Enter each message in a new line.
+                            {t("Enter each message in a new line.")}
                           </p>
                         </div>
                       </div>
                       <div className="pb-8">
                         <label className="block text-sm font-medium text-gray-700">
-                          Suggested Messages
+                          {t("Suggested Messages")}
                         </label>
                         <div className="mt-1">
                           <textarea
@@ -881,13 +912,13 @@ export default function Settings() {
                             className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                           ></textarea>
                           <p className="mt-2 text-sm text-zinc-500">
-                            Enter each message in a new line.
+                            {t("Enter each message in a new line.")}
                           </p>
                         </div>
                       </div>
                       <div className="pb-8">
                         <label className="block text-sm font-medium text-gray-700">
-                          Theme
+                          {t("Theme")}
                         </label>
                         <select
                           id="theme"
@@ -895,9 +926,9 @@ export default function Settings() {
                           className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                         >
                           <option value="light" selected="">
-                            light
+                            {t("light")}
                           </option>
-                          <option value="dark">dark</option>
+                          <option value="dark">{t("dark")}</option>
                         </select>
                       </div>
                       <div className="pb-8">
@@ -905,7 +936,7 @@ export default function Settings() {
                           <>
                             {" "}
                             <label className="block text-sm font-medium text-gray-700">
-                              Update chatbot profile picture
+                              {t("Update chatbot profile picture")}
                             </label>
                             <input
                               id="bot_profile_picture"
@@ -920,7 +951,7 @@ export default function Settings() {
                       </div>
                       <div className="pb-8">
                         <label className="block text-sm font-medium text-gray-700">
-                          Remove Chatbot Profile Picture
+                          {t("Remove Chatbot Profile Picture")}
                         </label>
                         <input
                           type="checkbox"
@@ -932,7 +963,7 @@ export default function Settings() {
                       </div>
                       <div className="pb-8">
                         <label className="block text-sm font-medium text-gray-700">
-                          Display name
+                          {t("Display name")}
                         </label>
                         <div className="mt-1">
                           <input
@@ -946,13 +977,13 @@ export default function Settings() {
                       <div className="pb-8">
                         <div className="flex justify-between">
                           <label className="block text-sm font-medium text-gray-700">
-                            User Message Color
+                            {t("User Message Color")}
                           </label>
                           <button
                             onClick={handleColorReset}
                             className="inline-flex items-center justify-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto"
                           >
-                            Reset
+                            {t("Reset")}
                           </button>
                         </div>
                         <div className="flex items-center">
@@ -975,18 +1006,20 @@ export default function Settings() {
                           </div>
                         </div>
                       </div>
-                      <p className="text-sm text-zinc-900 pb-10">
-                        **If the changes here don &#x27;t show up immediately on
-                        your website try clearing your browser cache or use
-                        incognito. (New users will see the changes
-                        immediately)**
+                      <p
+                        style={{ direction: isRTL ? "rtl" : "ltr" }}
+                        className="text-sm text-zinc-900 pb-10"
+                      >
+                        {t(
+                          "**If the changes here don 't show up immediately on your website try clearing your browser cache or use incognito. (New users will see the changes immediately)**"
+                        )}
                       </p>
                       <div className="pb-8">
                         {!isChatIconChecked && (
                           <>
                             {" "}
                             <label className="block text-sm font-medium text-gray-700">
-                              Update chat icon
+                              {t("Update chat icon")}
                             </label>
                             <input
                               id="chat_icon"
@@ -1002,7 +1035,7 @@ export default function Settings() {
                       </div>
                       <div className="pb-2">
                         <label className="block text-sm font-medium text-gray-700">
-                          Remove chat icon
+                          {t("Remove chat icon")}
                         </label>
                         <input
                           type="checkbox"
@@ -1015,13 +1048,13 @@ export default function Settings() {
                       <div className="pb-8">
                         <div className="flex justify-between ">
                           <label className="block text-sm font-medium text-gray-700">
-                            Chat Bubble Button Color
+                            {t("Chat Bubble Button Color")}
                           </label>
                           <button
                             onClick={handleBubbleColorReset}
                             className="inline-flex items-center justify-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto"
                           >
-                            Reset
+                            {t("Reset")}
                           </button>
                         </div>
                         <div className="flex items-center">
@@ -1046,7 +1079,7 @@ export default function Settings() {
                       </div>
                       <div className="pb-8">
                         <label className="block text-sm font-medium text-gray-700">
-                          Align Chat Bubble Button
+                          {t("Align Chat Bubble Button")}
                         </label>
                         <select
                           id="theme"
@@ -1055,14 +1088,15 @@ export default function Settings() {
                           onChange={handleJustifyContentChange}
                           className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                         >
-                          <option value="flex-end">right</option>
-                          <option value="flex-start">left</option>
+                          <option value="flex-end">{t("right")}</option>
+                          <option value="flex-start">{t("left")}</option>
                         </select>
                       </div>
                       <div className="mt-1 text-sm text-zinc-700">
-                        Auto show initial messages pop-ups after
-                        {/* <!-- --> */}
+                        {t("Auto show initial messages pop-ups after")}
+
                         <input
+                          style={{ direction: isRTL ? "rtl" : "ltr" }}
                           name="auto_open_chat_window_after"
                           type="number"
                           value={popupLimit}
@@ -1070,8 +1104,8 @@ export default function Settings() {
                           onChange={handlepopupLimitChange}
                           className="min-w-0 p-1 px-2 rounded-md border border-zinc-900/10 bg-white placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                         />
-                        {/* <!-- --> */}
-                        seconds (negative to disable)
+
+                        {t("seconds (negative to disable)")}
                       </div>
                     </div>
                     <div className="flex-1 w-2/2 lg:w-1/2">
@@ -1222,7 +1256,7 @@ export default function Settings() {
                     className="inline-flex items-center justify-center text-sm transform-none normal-case rounded leading-6 transition ease-in-out duration-150 shadow-sm font-semibold text-center border focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 bg-zinc-700 text-zinc-200 border-zinc-600 cursor-not-allowed hover:text-zinc-200 hover:border-zinc-600 hover:bg-zinc-700 hover:cursor-not-allowed h-7 w-16"
                     disabled=""
                   >
-                    Save
+                    {t("Save")}
                   </button>
                 </div>
               </div>

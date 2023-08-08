@@ -7,7 +7,6 @@ export default function Chatbot() {
     // Add more chatbots here
   ];
 
-
   const { t, i18n } = useTranslation();
   const isRTL = i18n.dir() === "rtl";
   return (
@@ -21,10 +20,18 @@ export default function Chatbot() {
                   <div className="max-w-3xl w-full m-auto">
                     <div className="flex justify-between items-center mb-4">
                       <div>
-                        <h1 style={{ direction: isRTL ? "rtl" : "ltr" }} className="text-2xl md:text-3xl font-extrabold text-black">
-                         {t("My Chatbots")}
+                        <h1
+                          style={{ direction: isRTL ? "rtl" : "ltr" }}
+                          className="text-2xl md:text-3xl font-extrabold text-black"
+                        >
+                          {t("My Chatbots")}
                         </h1>
-                        <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="text-sm font-normal">{t("(1 chatbot limit)")}</p>
+                        <p
+                          style={{ direction: isRTL ? "rtl" : "ltr" }}
+                          className="text-sm font-normal"
+                        >
+                          {t("(1 chatbot limit)")}
+                        </p>
                       </div>
 
                       {chatbots.length != 0 && ( // Only show the button if chatbots array is not empty
