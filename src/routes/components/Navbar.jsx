@@ -20,24 +20,31 @@ export default function Navbar() {
 
   const handleLanguageChange = (language) => {
     i18n.changeLanguage(language);
+    if (language === "English") {
+      i18n.changeLanguage("en");
+    
+    } else if (language === "عربي") {
+      i18n.changeLanguage("ar");
+      
+    }
     localStorage.setItem("selectedLanguage", language);
     setActiveLanguage(language);
 
     setDropdownOpen(false); // Close the dropdown after selecting a language
-    window.location.reload();
+    // window.location.reload();
   };
-  useEffect(() => {
-    // Retrieve and set the language from localStorage when the component mounts
-    const storedLanguage = localStorage.getItem("selectedLanguage");
+  // useEffect(() => {
+  //   // Retrieve and set the language from localStorage when the component mounts
+  //   const storedLanguage = localStorage.getItem("selectedLanguage");
 
-    if (storedLanguage === "English") {
-      i18n.changeLanguage("en");
-      setActiveLanguage(storedLanguage);
-    } else if (storedLanguage === "عربي") {
-      i18n.changeLanguage("ar");
-      setActiveLanguage(storedLanguage);
-    }
-  }, [i18n]);
+  //   if (storedLanguage === "English") {
+  //     i18n.changeLanguage("en");
+  //     setActiveLanguage(storedLanguage);
+  //   } else if (storedLanguage === "عربي") {
+  //     i18n.changeLanguage("ar");
+  //     setActiveLanguage(storedLanguage);
+  //   }
+  // });
   const navigation = [
     { name: t("demo"), href: "/#demo" },
     { name: t("affiliate"), href: "#" },
