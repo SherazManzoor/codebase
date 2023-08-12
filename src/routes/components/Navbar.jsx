@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useTranslation } from "react-i18next";
-import i18n from "../../i18n.js";
+
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -37,7 +37,7 @@ export default function Navbar() {
       i18n.changeLanguage("ar");
       setActiveLanguage(storedLanguage);
     }
-  }, []);
+  }, [i18n]);
   const navigation = [
     { name: t("demo"), href: "/#demo" },
     { name: t("affiliate"), href: "#" },

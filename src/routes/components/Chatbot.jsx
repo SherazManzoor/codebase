@@ -34,7 +34,7 @@ export default function Chatbot() {
                         </p>
                       </div>
 
-                      {chatbots.length != 0 && ( // Only show the button if chatbots array is not empty
+                      {chatbots.length !== 0 && ( // Only show the button if chatbots array is not empty
                         <div className="flex justify-center">
                           <a
                             style={{ backgroundColor: "black" }}

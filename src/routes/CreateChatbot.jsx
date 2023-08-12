@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import Sources from "./components/Sources";
 
 export default function CreateChatbot() {

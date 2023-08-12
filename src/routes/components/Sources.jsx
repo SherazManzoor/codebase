@@ -2,8 +2,8 @@ import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 export default function Sources() {
-    const { t, i18n } = useTranslation();
-    const isRTL = i18n.dir() === "rtl";
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.dir() === "rtl";
   const fileInputRef = useRef(null);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const handleFileChange = (event) => {
@@ -91,7 +91,9 @@ export default function Sources() {
     <div>
       <main className="isolate">
         <div className="relative px-6 lg:px-8 py-16 sm:py-8">
-          <h1 className=" text-3xl mb-8 text-center font-bold">{t("Data Sources")}</h1>
+          <h1 className=" text-3xl mb-8 text-center font-bold">
+            {t("Data Sources")}
+          </h1>
           <div className="pb-8">
             <div className=" text-center space-x-8">
               <button
@@ -181,7 +183,8 @@ export default function Sources() {
                       <p className="text-sm text-gray-600 ">
                         {t("Drag & drop files here, or click to select files")}
                       </p>
-                      <span  style={{ direction: isRTL ? "rtl" : "ltr" }}
+                      <span
+                        style={{ direction: isRTL ? "rtl" : "ltr" }}
                         id="file_type_help"
                         className="text-xs text-gray-500 dark:text-gray-300"
                       >
@@ -190,8 +193,13 @@ export default function Sources() {
                     </div>
                   </div>
                 </div>
-                <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="mt-2 text-sm text-center text-gray-500 dark:text-gray-300">
-                {t("NOTE: Uploading a PDF using safari doesn't work, we're looking into the issue. Make sure the text is OCR'd, i.e. you can copy it.")}
+                <p
+                  style={{ direction: isRTL ? "rtl" : "ltr" }}
+                  className="mt-2 text-sm text-center text-gray-500 dark:text-gray-300"
+                >
+                  {t(
+                    "NOTE: Uploading a PDF using safari doesn't work, we're looking into the issue. Make sure the text is OCR'd, i.e. you can copy it."
+                  )}
                 </p>
                 <div className="pt-8">
                   {selectedFiles.length > 0 && (
@@ -286,13 +294,20 @@ export default function Sources() {
                     </a>
                   </div>
                 </div>
-                <div  style={{ direction: isRTL ? "rtl" : "ltr" }} className="py-4 text-sm text-zinc-900">
-                {t("This will crawl all the links starting with the URL (not including files on the website).")}
+                <div
+                  style={{ direction: isRTL ? "rtl" : "ltr" }}
+                  className="py-4 text-sm text-zinc-900"
+                >
+                  {t(
+                    "This will crawl all the links starting with the URL (not including files on the website)."
+                  )}
                 </div>
               </div>
               <div className="flex items-center my-4">
                 <hr className="w-full border-gray-300 border-t" />
-                <span className="px-2 text-gray-600 whitespace-nowrap">{t("OR")}</span>
+                <span className="px-2 text-gray-600 whitespace-nowrap">
+                  {t("OR")}
+                </span>
                 <hr className="w-full border-gray-300 border-t" />
               </div>
               <div>
@@ -477,14 +492,20 @@ export default function Sources() {
           <div className=" my-8 max-w-2xl m-auto p-4 rounded border">
             <div>{t("Included sources")}</div>
             <div className="flex py-1 space-x-3"></div>
-            <p className=" text-sm mt-4"  style={{ direction: isRTL ? "rtl" : "ltr" }}>
+            <p
+              className=" text-sm mt-4"
+              style={{ direction: isRTL ? "rtl" : "ltr" }}
+            >
               {t("Total detected characters:")}
               <span className="font-bold">0</span>
               <span className=" text-zinc-500">/400,000 {t("limit")}</span>
             </p>
             <div className="flex justify-center py-4">
-              <a 
-                style={{ backgroundColor: "black" ,direction: isRTL ? "rtl" : "ltr"}}
+              <a
+                style={{
+                  backgroundColor: "black",
+                  direction: isRTL ? "rtl" : "ltr",
+                }}
                 className="rounded-md w-full text-center py-2 text-base font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                 href="/create-new-chatbot"
               >
