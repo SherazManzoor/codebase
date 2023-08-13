@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useTranslation } from "react-i18next";
+import Cookies from "js-cookie"; // Import the js-cookie library
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,21 +15,21 @@ export default function Navbar() {
   };
   // document.body.dir = i18n.dir();
   const [activeLanguage, setActiveLanguage] = useState(() => {
-    return localStorage.getItem("selectedLanguage") || "English";
+    return Cookies.get("selectedLanguage") || "English";
   });
   const languages = ["English", "عربي"];
 
   const handleLanguageChange = (language) => {
     i18n.changeLanguage(language);
-    localStorage.setItem("selectedLanguage", language);
+    Cookies.set("selectedLanguage", language); // Set the correct key for the cookie
     setActiveLanguage(language);
 
     setDropdownOpen(false); // Close the dropdown after selecting a language
-    window.location.reload();
+    // window.location.reload();
   };
   useEffect(() => {
     // Retrieve and set the language from localStorage when the component mounts
-    const storedLanguage = localStorage.getItem("selectedLanguage");
+    const storedLanguage = Cookies.get("selectedLanguage");
 
     if (storedLanguage === "English") {
       i18n.changeLanguage("en");
@@ -37,7 +38,7 @@ export default function Navbar() {
       i18n.changeLanguage("ar");
       setActiveLanguage(storedLanguage);
     }
-  }, [i18n]);
+  }, [activeLanguage]);
   const navigation = [
     { name: t("demo"), href: "/#demo" },
     { name: t("affiliate"), href: "#" },

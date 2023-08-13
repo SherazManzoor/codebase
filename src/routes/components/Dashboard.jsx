@@ -248,7 +248,7 @@ export default function Dashboard() {
                   </div>
                 ) : (
                   <div class="max-h-[34rem] overflow-auto border rounded mt-4 w-full">
-                    <ul role="list" class="divide-y divide-gray-200 w-full">
+                    <ul  class="divide-y divide-gray-200 w-full">
                       {conversations.map((conversation, index) => (
                         <li
                           key={index}

@@ -3,7 +3,7 @@ import ChatbotFrame from "./ChatbotFrame";
 import { useTranslation } from "react-i18next";
 export default function Home() {
   const { t, i18n } = useTranslation();
-  
+
   const isRTL = i18n.dir() === "rtl";
   return (
     <div>
@@ -17,7 +17,7 @@ export default function Home() {
                     <div className="text-left w-[38rem]">
                       <h1 className="text-4xl text-center font-bold tracking-tight text-gray-900 sm:text-6xl">
                         {t("Custom ChatGPT for")}
-                        <span className=" text-transparent bg-clip-text bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-purple-200 via-violet-700 to-rose-700">
+                        <span className=" text-transparent text-5xl font-30 bg-clip-text bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-purple-200 via-violet-700 to-rose-700">
                           {t("your data")}
                         </span>
                       </h1>
@@ -72,7 +72,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div id="video" className="py-16">
+                <div id="video"  style={{ direction: isRTL ? "rtl" : "ltr" }} className="py-16">
                   <h4 className="text-2xl md:text-3xl font-extrabold text-black text-center py-2">
                     {t("Video Demo")}
                   </h4>
@@ -96,7 +96,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="mx-auto max-w-4xl">
-                  <div id="demo" className="py-16">
+                  <div id="demo"  style={{ direction: isRTL ? "rtl" : "ltr" }} className="py-16">
                     <h4 className="text-2xl md:text-3xl font-extrabold text-black text-center py-2">
                       {t("Live Demo")}
                     </h4>
@@ -117,7 +117,7 @@ export default function Home() {
                 <div className="relative isolate bg-white pt-24 pb-32 sm:pt-32">
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="mx-auto max-w-xl text-center">
-                      <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                      <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                         {t("Chatbase integrates with your favorite tools")}
                       </p>
                     </div>
@@ -126,6 +126,7 @@ export default function Home() {
                         <a
                           href="https://wordpress.org/plugins/chatbase/"
                           target="_blank"
+                          rel="noreferrer"
                           className=" h-full flex flex-col justify-center items-center "
                         >
                           <img
@@ -139,9 +140,9 @@ export default function Home() {
                             loading="lazy"
                             style={{ color: "transparent" }}
                           />
-                          <p className="font-semibold text-center">
+                          <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="font-semibold text-center">
                             {t("Add an AI chatbot to your WordPress website")}
-                            <span aria-hidden="true">→</span>
+                            <span>→</span>
                           </p>
                         </a>
                       </div>
@@ -149,6 +150,7 @@ export default function Home() {
                         <a
                           href="https://zapier.com/apps/chatbase/integrations"
                           target="_blank"
+                          rel="noreferrer"
                           className=" h-full flex flex-col justify-center items-center "
                         >
                           <img
@@ -162,15 +164,16 @@ export default function Home() {
                             loading="lazy"
                             style={{ color: "transparent" }}
                           />
-                          <p className="font-semibold text-center">
+                          <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="font-semibold text-center">
                             {t("Connect your chatbot to 5000+ apps on Zapier")}
-                            <span aria-hidden="true">→</span>
+                            <span></span>
                           </p>
                         </a>
                       </div>
                       <div className="space-y-8 xl:contents xl:space-y-0">
                         <a
                           target="_blank"
+                          rel="noreferrer"
                           className=" h-full flex flex-col justify-center items-center "
                         >
                           <img
@@ -184,7 +187,7 @@ export default function Home() {
                             loading="lazy"
                             style={{ color: "transparent" }}
                           />
-                          <p className="font-semibold text-center">
+                          <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="font-semibold text-center">
                             {t(
                               "Connect your chatbot to a Slack channel and interact with it there"
                             )}
@@ -194,6 +197,7 @@ export default function Home() {
                       <div className="space-y-8 xl:contents xl:space-y-0">
                         <a
                           target="_blank"
+                          rel="noreferrer"
                           className=" h-full flex flex-col justify-center items-center "
                         >
                           <img
@@ -207,7 +211,7 @@ export default function Home() {
                             loading="lazy"
                             style={{ color: "transparent" }}
                           />
-                          <p className="font-semibold text-center">
+                          <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="font-semibold text-center">
                             {t("Coming soon")}...
                           </p>
                         </a>
@@ -221,10 +225,10 @@ export default function Home() {
                   className="relative sm:py-12"
                 >
                   <div className="relative">
-                    <h4 className="text-2xl md:text-3xl font-extrabold text-black text-center py-2">
+                    <h4 style={{ direction: isRTL ? "rtl" : "ltr" }} className="text-2xl md:text-3xl font-extrabold text-black text-center py-2">
                       {t("Frequently Asked Questions")}
                     </h4>
-                    <h6 className="text-lg text-center">
+                    <h6 style={{ direction: isRTL ? "rtl" : "ltr" }}  className="text-lg text-center">
                       {t("If you can &#x27;t find your question, email ")}
                       {/* <a
                         className=" font-semibold"
@@ -234,13 +238,10 @@ export default function Home() {
                       </a> */}
                     </h6>
                   </div>
-                  <ul
-                    role="list"
-                    className="mt-16 grid grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-2"
-                  >
+                  <ul style={{ direction: isRTL ? "rtl" : "ltr" }}  className="mt-16 grid grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-2">
                     <li>
-                      <ul role="list" className="flex flex-col gap-y-8">
-                        <li>
+                      <ul className="flex flex-col gap-y-8">
+                        <li style={{ direction: isRTL ? "rtl" : "ltr" }} >
                           <h3 className="font-display text-lg leading-7 text-slate-900">
                             {t("What is Chatbase?")}
                           </h3>
@@ -291,7 +292,7 @@ export default function Home() {
                       </ul>
                     </li>
                     <li>
-                      <ul role="list" className="flex flex-col gap-y-8">
+                      <ul className="flex flex-col gap-y-8">
                         <li>
                           <h3 className="font-display text-lg leading-7 text-slate-900">
                             <div style={{ direction: isRTL ? "rtl" : "ltr" }}>
@@ -338,22 +339,7 @@ export default function Home() {
                             )}
                           </p>
                         </li>
-                        <li>
-                          <h3
-                            style={{ direction: isRTL ? "rtl" : "ltr" }}
-                            className="font-display text-lg leading-7 text-slate-900"
-                          >
-                            {t("Can I share a chatbot I created?")}
-                          </h3>
-                          <p
-                            style={{ direction: isRTL ? "rtl" : "ltr" }}
-                            className="mt-4 text-slate-700"
-                          >
-                            {t(
-                              "Yes, by default any chatbot you create is private but you can change the setting to make it public and send it to anyone."
-                            )}
-                          </p>
-                        </li>
+                       
                       </ul>
                     </li>
                   </ul>
@@ -409,6 +395,7 @@ export default function Home() {
                           <a
                             aria-label="Twitter Account"
                             target="_blank"
+                            rel="noreferrer"
                             href="https://twitter.com/I4NW/status/1631353148903239680"
                           >
                             <svg
@@ -455,6 +442,7 @@ export default function Home() {
                               <a
                                 aria-label="Twitter Account"
                                 target="_blank"
+                                rel="noreferrer"
                                 href="https://twitter.com/jacobandreou/status/1632423894832545794"
                               >
                                 <svg
@@ -499,6 +487,7 @@ export default function Home() {
                               <a
                                 aria-label="Twitter Account"
                                 target="_blank"
+                                rel="noreferrer"
                                 href="https://twitter.com/grigoriy_kogan/status/1632624160558940161"
                               >
                                 <svg
@@ -547,6 +536,7 @@ export default function Home() {
                               <a
                                 aria-label="Twitter Account"
                                 target="_blank"
+                                rel="noreferrer"
                                 href="https://twitter.com/OfficialLoganK/status/1632468116990054401"
                               >
                                 <svg

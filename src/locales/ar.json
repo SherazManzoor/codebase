@@ -1,195 +1,191 @@
 {
-    "demo": "ديمو",
-    "affiliate": "شريك",
-    "pricing": "الأسعار",
-    "api": "واجهة برمجة التطبيقات",
-    "guide": "دليل",
-    "mychatbots": "محادثاتي",
-    "Custom ChatGPT for":"ChatGPT مخصص " ,
-    "your data":"لبياناتك " ,
-    " Just connect your data sources and get a ChatGPT-like chatbot for your data. Then add it as a widget to your website or chat with it through the API.":"فقط قم بتوصيل مصادر البيانات الخاصة بك واحصل على chatbot شبيه بـ ChatGPT لبياناتك. ثم قم بإضافته كعنصر واجهة مستخدم إلى موقع الويب الخاص بك أو قم بالدردشة معه من خلال واجهة برمجة التطبيقات.",
-    "Build Your Chatbot":"بناء Chatbot الخاص بك",
-    "Video Demo":"فيديو تجريبي",
-    "Creating a chatbot for":"إنشاء روبوت محادثة ",
-    "Product Hunt":"المنتج هانت",
-    "by crawling the website and training the AI on its content.I can then embed the chatbot on the website!":"منبالزحف على الموقع وتدريب الذكاء الاصطناعي على محتواه. بعد ذلك يمكنني تضمين الروبوت الدردشة على الموقع!    .",
-    "Live Demo":"عرض حي",
-    "This chatbot was trained on a document explaining":"تم تدريب روبوت المحادثة هذا على مستند يشرح ",
-    "Chatbase":" قاعدة الدردشة",
-    "You can embed a widget like this on any page on your website!":"يمكنك تضمين عنصر واجهة مستخدم مثل هذا في أي صفحة على موقع الويب الخاص بك!",
-    "Chatbase integrates with your favorite tools":"يتكامل قاعدة الدردشة مع أدواتك المفضلة",
-    "Add an AI chatbot to your WordPress website":"أضف روبوت محادثة AI إلى موقع WordPress الخاص بك",
-    "Connect your chatbot to 5000+ apps on Zapier":"قم بتوصيل chatbot الخاص بك بأكثر من 5000 تطبيق على Zapier",
-    "Connect your chatbot to a Slack channel and interact with it there":"قم بتوصيل chatbot الخاص بك بقناة Slack وتفاعل معه هناك",
-    "Coming soon":"قريباً",
-    "Frequently Asked Questions":"أسئلة مكررة",
-    "If you can &#x27;t find your question, email ":"support@chatbase.co إذا لم تتمكن من العثور على سؤالك ، أرسل بريدًا إلكترونيًا",
-   "What is Chatbase?":"ما هو  قاعدة الدردشة؟",
-   "Chatbase is an AI chatbot builder, it trains ChatGPT on your data and lets you add a chat widget to your website. Just upload a document or add a link to your website and get a chatbot that can answer any question about their content.":"قاعدة الدردشة هو منشئ روبوتات AI ، يقوم بتدريب ChatGPT على بياناتك ويتيح لك إضافة عنصر واجهة دردشة إلى موقع الويب الخاص بك. ما عليك سوى تحميل مستند أو إضافة رابط إلى موقع الويب الخاص بك والحصول على chatbot يمكنه الإجابة على أي سؤال حول محتواها.   ",
-   "What should my data look like?":"كيف يجب أن تبدو بياناتي؟",
-   "Currently, you can upload one or multiple files(.pdf, .txt, .doc, .docx), paste text, or add a link to your website to be scraped.":"حاليًا ، يمكنك تحميل ملف واحد أو عدة ملفات(.pdf أو .txt أو .doc أو .docx) أو لصق نص أو إضافة ارتباط إلى موقع الويب الخاص بك ليتم كشطه.",
-   "Can I give my chatbots instructions?":"هل يمكنني إعطاء تعليمات برامج الدردشة الخاصة بي؟ ",
-   "Yes, you can edit the base prompt and give your chatbot a name, personality traits and instructions on how to answer questions ex. (only answer in French).":"نعم ، يمكنك تعديل الموجه الأساسي وإعطاء ملفchatbot اسم وسمات شخصية وتعليمات حول كيفية الإجابة على الأسئلة على سبيل المثال. (أجب فقط باللغة فرنسي).",
-   "Where is my data stored?":"أين يتم تخزين بياناتي؟",
-"The content of the document is hosted on secure GCP/AWS servers in us-east.":"تتم استضافة محتوى المستند على خوادم GCP / AWS الآمنة في شرق الولايات المتحدة.",
-"Does it use GPT-3.5 or GPT-4?":"هل يستخدم GPT-3.5 أم GPT-4؟",
-"By default your chatbot uses gpt-3.5-turbo (but you have the option to use gpt-4 on the Standard and Unlimited plans)":"بشكل افتراضي ، يستخدم chatbot الخاص بك gpt-3.5-turbo (لكن لديك خيار استخدام gpt-4 على الخطط القياسية وغير المحدودة)",
-"How can I add my chatbot to my website?":"كيف يمكنني إضافة chatbot الخاص بي إلى موقع الويب الخاص بي؟",
-"You can embed an iframe or add a chat bubble to the bottom right of your website. To do that, create a chatbot and click &quot;Embed on website &quot;. You  can also use the API to communicate with your chatbot anywhere!":"يمكنك تضمين iframe أو إضافة فقاعة دردشة في الجزء السفلي الأيمن من موقع الويب الخاص بك. للقيام بذلك ، قم بإنشاء chatbot وانقر فوق &quot;تضمين في موقع الويب&quot;. يمكنك أيضًا استخدام API للتواصل مع chatbot الخاص بك في أي مكان!",
-"Does it support other languages?":"هل يدعم لغات أخرى؟",
-"Yes, Chatbase supports about 95 languages. You can have your sources in any language and ask it questions in any language.":"نعم ، يدعم Chatbase حوالي 95 لغة. يمكنك الحصول على مصادرك بأي لغة وطرح الأسئلة عليها بأي لغة.",
-"Can I share a chatbot I created?":"هل يمكنني مشاركة روبوت محادثة أنشأته؟",
-"Yes, by default any chatbot you create is private but you can change the setting to make it public and send it to anyone.":"نعم ، بشكل افتراضي ، يكون أي روبوت محادثة تنشئه خاصًا ولكن يمكنك تغيير الإعداد لجعله عامًا وإرساله إلى أي شخص.",
-"What people say about Chatbase":"ماذا يقول الناس عن Chatbase",
-"“For anyone on the fence - in the 2 hours since this tweet I 've tested, set up and gone live on three separate websites with Chatbase. Still need to do some light tweaking of the base prompt but very happy with the results.”":"“بالنسبة لأي شخص موجود في الحياد - في غضون ساعتين منذ هذه التغريدة ، اختبرت ، وأعدت وبدأت مباشرة على ثلاثة مواقع ويب منفصلة باستخدام Chatbase. ما زلت بحاجة إلى إجراء بعض التغيير والتبديل الخفيف للموجه الأساسي ولكن سعيد جدًا بالنتائج”",
-"“This is awesome”":"“هذا رائع”",
-"“Another overpowered project built with the 🪄 OP stack”":"مشروع آخر تم التغلب عليه باستخدام مكدس  OP",
-"“This is awesome, thanks for building it!”":"“هذا رائع ، شكرا لبنائه!”",
-" “Website embed works like a charm even with non-English content!”":"يعمل تضمين موقع الويب مثل السحر حتى مع المحتوى غير الإنجليزي!",
-"My Chatbots":"روبوتات المحادثة الخاصة بي",
-"(1 chatbot limit)":"(1 حد chatbot)",
-"New Chatbot":"Chatbot جديد",
-"Chatbot":"الشات بوت",
-"Settings":"إعدادات",
-"Dashboard":"لوحة القيادة",
-"Sources":"مصادر",
-"Integrations":"تكاملات",
-"Embed on site":"تضمين في الموقع",
-"Share":"يشارك",
-"Delete":"يمسح",
-"General":"عام",
-"Leads":"يؤدي",
-"Chat Interface":"واجهة الدردشة",
-"Chatbot ID":"معرف Chatbot",
-"Number of characters":"عدد الشخصيات",
-"Name":"اسم",
-"Save":"يحفظ",
-"OpenAI":"أوبن إيه آي",
-"Base Prompt (system message)":"موجه القاعدة (رسالة النظام)",
-"Reset":"إعادة ضبط",
-"Model":"نموذج",
-"1 message using gpt-3.5-turbo costs 1 message credit. 1 message using gpt-4 costs 20 message credits.":"رسالة واحدة باستخدام gpt-3.5-turbo تكلف رسالة واحدة. رسالة واحدة باستخدام gpt-4 تكلف 20 رصيد رسالة.",
-"Temperature":"درجة حرارة",
-"Reserved":"محجوز",
-"Creative":"مبدع",
-"Access":"وصول",
-"Visibilty":"الرؤية",
-"private":"سري",
-"can be embedded on website":"يمكن تضمينها على موقع الويب",
-"No one can access your chatbot except you (your account)":"لا يمكن لأي شخص الوصول إلى chatbot الخاص بك غيرك (حسابك)",
-"Other people can chat with your chatbot if you send them the link. You can also embed it on your website so your website visitors are able to use it.":"يمكن للأشخاص الآخرين الدردشة مع chatbot الخاص بك إذا قمت بإرسال الرابط إليهم. يمكنك أيضًا تضمينه في موقع الويب الخاص بك حتى يتمكن زوار موقعك من استخدامه.",
-"Only allow the iframe and widget on specific domains":"السماح فقط بإطار iframe والأداة في نطاقات محددة",
-"Domains":"المجالات",
-"Enter each domain in a new line":"أدخل كل مجال في سطر جديد",
-"Domains you want to embed your chatbot on. Your chatbot visibility has to be 'can be embedded on website' for this to work.":"المجالات التي تريد تضمين برنامج الدردشة الخاص بك عليها. يجب أن تكون رؤية chatbot الخاص بك 'يمكن تضمينها في موقع الويب' حتى يعمل هذا.",
-"Rate Limiting":"تحديد معدل",
-"Limit the number of messages sent from one device on the iframe and chat bubble (this limit will not be applied to you on chatbase.co, only on your website for your users to prevent abuse).":"حدد عدد الرسائل المرسلة من جهاز واحد على iframe وفقاعة الدردشة (لن يتم تطبيق هذا الحد عليك على chatbase.co ، فقط على موقع الويب الخاص بك للمستخدمين لمنع إساءة الاستخدام).",
-"Limit to only":"يقتصر على فقط",
-"messages every":"رسائل كل",
-"seconds.":"ثواني.",
-"Show this message to show when limit is hit":"أظهر هذه الرسالة لتظهر عند الوصول إلى الحد",
-"Collect Customer Info":"جمع معلومات العميل",
-"Title":"عنوان",
-"Email":"بريد إلكتروني",
-"Phone":"هاتف",
-"Let us know how to contact you":"دعنا نعرف كيف نتواصل معك",
-"Note: Applies when embedded on a website":"ملاحظة: يتم تطبيقه عند تضمينه في موقع ويب",
-"Initial Messages":"الرسائل الأولية",
-"Enter each message in a new line.":"أدخل كل رسالة في سطر جديد.",
-"Suggested Messages":"الرسائل المقترحة",
-"Theme":"سمة",
-"light":"ضوء",
-"dark":"مظلم",
-"Update chatbot profile picture":"تحديث صورة الملف الشخصي للشات بوت",
-"Remove Chatbot Profile Picture":"إزالة صورة الملف الشخصي الشات بوت",
-"Display name":"اسم العرض",
-"User Message Color":"لون رسالة المستخدم",
-"**If the changes here don 't show up immediately on your website try clearing your browser cache or use incognito. (New users will see the changes immediately)**":"** إذا لم تظهر التغييرات هنا فورًا على موقع الويب الخاص بك ، فحاول مسح ذاكرة التخزين المؤقت للمتصفح أو استخدام وضع التصفح المتخفي. (سيرى المستخدمون الجدد التغييرات فورًا) **",
-"Update chat icon":"تحديث أيقونة الدردشة",
-"Remove chat icon":"إزالة رمز الدردشة",
-"Chat Bubble Button Color":"لون زر فقاعة الدردشة",
-"Align Chat Bubble Button":"محاذاة زر فقاعة الدردشة",
-"right":"يمين",
-"left":"غادر",
-"Auto show initial messages pop-ups after":"إظهار تلقائي للرسائل الأولية المنبثقة بعد",
-"seconds (negative to disable)":"ثواني (سلبية للتعطيل)",
-"Conversations":"المحادثات",
+  "demo": "ديمو",
+  "affiliate": "شريك",
+  "pricing": "الأسعار",
+  "api": "واجهة برمجة التطبيقات",
+  "guide": "دليل",
+  "mychatbots": "محادثاتي",
+  "Custom ChatGPT for": " ذكاء اصطناعي مخصص",
+  "your data": " لبياناتك ",
+  " Just connect your data sources and get a ChatGPT-like chatbot for your data. Then add it as a widget to your website or chat with it through the API.": " بسهولة اربط موقعك او بياناتك واحصل على شات بوت مشابه لشات جي بي تي مخصص لبياناتك. قم باضافة الايقونة في اي مكان تريده ",
+  "Build Your Chatbot": "بناء Chatbot الخاص بك",
+  "Video Demo": "فيديو تجريبي",
+  "Creating a chatbot for": " ",
+  "Product Hunt": " ",
+  "by crawling the website and training the AI on its content.I can then embed the chatbot on the website!": " فديو توضيحي لقكرة شات بوت لـ 'STC' عن طريق جمع المعلومات من الموقع وتدريب الذكاء الاصطناعي على محتواه. بعد ذلك تم اضافة الشات بوت على الموقع!",
+  "Live Demo": "عرض حي",
+  "This chatbot was trained on a document explaining": "جرب الان مباشرة ، تم تدريب هذا الشات بوت على ملف PDF تشرح' الأمين AI 'يمكنك اضافة واجهة مستخدم مشابهه لمشروعك ",
+  "Chatbase": "",
+  "You can embed a widget like this on any page on your website!": "",
+  "Chatbase integrates with your favorite tools": "يتكامل الأمين AI مع أدواتك المفضلة",
+  "Add an AI chatbot to your WordPress website": "أضف شات بوت ذكاء اصطناعي إلى موقع ووردبريس الخاص بك ",
+  "Connect your chatbot to 5000+ apps on Zapier": "قم بتوصيل شات بوتك بأكثر من 5000 تطبيق على Zapier → ",
+  "Connect your chatbot to a Slack channel and interact with it there": "قم بتوصيل شات بوتك بقناة Slack وتفاعل معه هناك",
+  "Coming soon": "قريباً... قريباً... قريباً",
+  "Frequently Asked Questions": "الأسئلة الشائعة !  ",
+  "If you can &#x27;t find your question, email ": "ذا لم تتمكن من العثور على سؤالك، يمكنك إرسال بريد إلكتروني إلى Support@alameen.co",
+  "What is Chatbase?": "ما هو الأمين AI؟",
+  "Chatbase is an AI chatbot builder, it trains ChatGPT on your data and lets you add a chat widget to your website. Just upload a document or add a link to your website and get a chatbot that can answer any question about their content.": "هو منشئ شات بوت ذكاء اصطناعي، يقوم بتدريب ChatGPT على بياناتك ويتيح لك إضافة ايقونة للدردشة إلى مشروعك . ممكن تحمل ملف PDF أو إضافة رابط موقعك فقط واحصل على شات بوت مخصص يمكنه الإجابة على أي سؤال حول محتواه",
+  "What should my data look like?": "ما هي صيغة البيانات للتحميل؟",
+  "Currently, you can upload one or multiple files(.pdf, .txt, .doc, .docx), paste text, or add a link to your website to be scraped.": "حاليًا، يمكنك تحميل ملف واحد أو ملفات متعددة (.pdf، .txt، .doc، .docx)، أو لصق النص، أو إضافة رابط موقع ليتم جمع المعلومات منه.",
+  "Can I give my chatbots instructions?": "هل يمكنني إعطاء تعليمات اضافية للذكاء الاصطناعي ؟",
+  "Yes, you can edit the base prompt and give your chatbot a name, personality traits and instructions on how to answer questions ex. (only answer in French).": "نعم، يمكنك تحرير النص الأساسي وإعطاء شاتك الخاص اسمًا وصفات شخصية وتعليمات حول كيفية الإجابة على الأسئلة مثل (الإجابة باللغة العربية فقط).",
+  "Where is my data stored?": "أين يتم تخزين بياناتي؟",
+  "The content of the document is hosted on secure GCP/AWS servers in us-east.": "تم استضافة محتوى الوثيقة على خوادم GCP/AWS الآمنة في us-east.هل يستخدم GPT-3.5 أو GPT-4؟بشكل افتراضي، يستخدم شات بوتك gpt-3.5-turbo (ولكن لديك خيار استخدام gpt-4 في الباقات القياسية وغير المحدودة).",
+  "Does it use GPT-3.5 or GPT-4?": "كيف يمكنني إضافة الشات بوت إلى موقعي ؟",
+  "By default your chatbot uses gpt-3.5-turbo (but you have the option to use gpt-4 on the Standard and Unlimited plans)": "يمكنك وضعه في وسط الصفحة (iframe) مثل الذي في موقعنا في الاعلى أو إضافة ايقونة دردشة في أسفل الزاوية اليمنى من موقعك . للقيام بذلك، قم بإنشاء شات بوت وانقر على 'تضمين على موقعي'. يمكنك أيضًا استخدام برمجة APIS للتواصل مع شات بوتك في أي مكان!",
+  "How can I add my chatbot to my website?": "هل يدعم لغات أخرى؟",
+  "You can embed an iframe or add a chat bubble to the bottom right of your website. To do that, create a chatbot and click &quot;Embed on website &quot;. You  can also use the API to communicate with your chatbot anywhere!": "نعم، يدعم حوالي 95 لغة. يمكنك من ان تكون لديك مصادرك بأي لغة وتسأله أسئلة بأي لغة.",
+  "Does it support other languages?": "هل يمكنني مشاركة شات بوت أنشأته؟",
+  "Yes, Chatbase supports about 95 languages. You can have your sources in any language and ask it questions in any language.": "نعم، بشكل افتراضي، يكون أي شات بوت تنشئه خاصًا، ولكن يمكنك تغيير الإعداد لجعله عامًا وإرساله لأي شخص.",
+  
+  "What people say about Chatbase": "إقراء تجربة واراء العملاء",
+  "“For anyone on the fence - in the 2 hours since this tweet I 've tested, set up and gone live on three separate websites with Chatbase. Still need to do some light tweaking of the base prompt but very happy with the results.”": "“بالنسبة لأي شخص موجود في الحياد - في غضون ساعتين منذ هذه التغريدة ، اختبرت ، وأعدت وبدأت مباشرة على ثلاثة مواقع ويب منفصلة باستخدام Chatbase. ما زلت بحاجة إلى إجراء بعض التغيير والتبديل الخفيف للموجه الأساسي ولكن سعيد جدًا بالنتائج”",
+  "“This is awesome”": "“هذا رائع”",
+  "“Another overpowered project built with the 🪄 OP stack”": "مشروع آخر تم التغلب عليه باستخدام مكدس  OP",
+  "“This is awesome, thanks for building it!”": "“هذا رائع ، شكرا لبنائه!”",
+  " “Website embed works like a charm even with non-English content!”": "يعمل تضمين موقع الويب مثل السحر حتى مع المحتوى غير الإنجليزي!",
+  "My Chatbots": "روبوتات المحادثة الخاصة بي",
+  "(1 chatbot limit)": "(1 حد chatbot)",
+  "New Chatbot": "Chatbot جديد",
+  "Chatbot": "الشات بوت",
+  "Settings": "إعدادات",
+  "Dashboard": "لوحة القيادة",
+  "Sources": "مصادر",
+  "Integrations": "تكاملات",
+  "Embed on site": "تضمين في الموقع",
+  "Share": "يشارك",
+  "Delete": "يمسح",
+  "General": "عام",
+  "Leads": "يؤدي",
+  "Chat Interface": "واجهة الدردشة",
+  "Chatbot ID": "معرف Chatbot",
+  "Number of characters": "عدد الشخصيات",
+  "Name": "اسم",
+  "Save": "يحفظ",
+  "OpenAI": "أوبن إيه آي",
+  "Base Prompt (system message)": "موجه القاعدة (رسالة النظام)",
+  "Reset": "إعادة ضبط",
+  "Model": "نموذج",
+  "1 message using gpt-3.5-turbo costs 1 message credit. 1 message using gpt-4 costs 20 message credits.": "رسالة واحدة باستخدام gpt-3.5-turbo تكلف رسالة واحدة. رسالة واحدة باستخدام gpt-4 تكلف 20 رصيد رسالة.",
+  "Temperature": "درجة حرارة",
+  "Reserved": "محجوز",
+  "Creative": "مبدع",
+  "Access": "وصول",
+  "Visibilty": "الرؤية",
+  "private": "سري",
+  "can be embedded on website": "يمكن تضمينها على موقع الويب",
+  "No one can access your chatbot except you (your account)": "لا يمكن لأي شخص الوصول إلى chatbot الخاص بك غيرك (حسابك)",
+  "Other people can chat with your chatbot if you send them the link. You can also embed it on your website so your website visitors are able to use it.": "يمكن للأشخاص الآخرين الدردشة مع chatbot الخاص بك إذا قمت بإرسال الرابط إليهم. يمكنك أيضًا تضمينه في موقع الويب الخاص بك حتى يتمكن زوار موقعك من استخدامه.",
+  "Only allow the iframe and widget on specific domains": "السماح فقط بإطار iframe والأداة في نطاقات محددة",
+  "Domains": "المجالات",
+  "Enter each domain in a new line": "أدخل كل مجال في سطر جديد",
+  "Domains you want to embed your chatbot on. Your chatbot visibility has to be 'can be embedded on website' for this to work.": "المجالات التي تريد تضمين برنامج الدردشة الخاص بك عليها. يجب أن تكون رؤية chatbot الخاص بك 'يمكن تضمينها في موقع الويب' حتى يعمل هذا.",
+  "Rate Limiting": "تحديد معدل",
+  "Limit the number of messages sent from one device on the iframe and chat bubble (this limit will not be applied to you on chatbase.co, only on your website for your users to prevent abuse).": "حدد عدد الرسائل المرسلة من جهاز واحد على iframe وفقاعة الدردشة (لن يتم تطبيق هذا الحد عليك على chatbase.co ، فقط على موقع الويب الخاص بك للمستخدمين لمنع إساءة الاستخدام).",
+  "Limit to only": "يقتصر على فقط",
+  "messages every": "رسائل كل",
+  "seconds.": "ثواني.",
+  "Show this message to show when limit is hit": "أظهر هذه الرسالة لتظهر عند الوصول إلى الحد",
+  "Collect Customer Info": "جمع معلومات العميل",
+  "Title": "عنوان",
+  "Email": "بريد إلكتروني",
+  "Phone": "هاتف",
+  "Let us know how to contact you": "دعنا نعرف كيف نتواصل معك",
+  "Note: Applies when embedded on a website": "ملاحظة: يتم تطبيقه عند تضمينه في موقع ويب",
+  "Initial Messages": "الرسائل الأولية",
+  "Enter each message in a new line.": "أدخل كل رسالة في سطر جديد.",
+  "Suggested Messages": "الرسائل المقترحة",
+  "Theme": "سمة",
+  "light": "ضوء",
+  "dark": "مظلم",
+  "Update chatbot profile picture": "تحديث صورة الملف الشخصي للشات بوت",
+  "Remove Chatbot Profile Picture": "إزالة صورة الملف الشخصي الشات بوت",
+  "Display name": "اسم العرض",
+  "User Message Color": "لون رسالة المستخدم",
+  "**If the changes here don 't show up immediately on your website try clearing your browser cache or use incognito. (New users will see the changes immediately)**": "** إذا لم تظهر التغييرات هنا فورًا على موقع الويب الخاص بك ، فحاول مسح ذاكرة التخزين المؤقت للمتصفح أو استخدام وضع التصفح المتخفي. (سيرى المستخدمون الجدد التغييرات فورًا) **",
+  "Update chat icon": "تحديث أيقونة الدردشة",
+  "Remove chat icon": "إزالة رمز الدردشة",
+  "Chat Bubble Button Color": "لون زر فقاعة الدردشة",
+  "Align Chat Bubble Button": "محاذاة زر فقاعة الدردشة",
+  "right": "يمين",
+  "left": "غادر",
+  "Auto show initial messages pop-ups after": "إظهار تلقائي للرسائل الأولية المنبثقة بعد",
+  "seconds (negative to disable)": "ثواني (سلبية للتعطيل)",
+  "Conversations": "المحادثات",
 
-"Export filtered conversations (JSON)":"تصدير المحادثات المفلترة (JSON)",
-"Export filtered conversations (PDF)":"تصدير المحادثات المفلترة (PDF)",
-"No conversations found":"لم يتم العثور على محادثات",
-"Source: Chatbase site":"المصدر: موقع Chatbase",
-"options": [
-  "القطعة أو Iframe" ,
-  "API (غير تيار)" ,
-  "API (تيار)" ,
-  "موقع Chatbase" ,
-  "غير محدد"
-],
+  "Export filtered conversations (JSON)": "تصدير المحادثات المفلترة (JSON)",
+  "Export filtered conversations (PDF)": "تصدير المحادثات المفلترة (PDF)",
+  "No conversations found": "لم يتم العثور على محادثات",
+  "Source: Chatbase site": "المصدر: موقع Chatbase",
+  "options": [
+    "القطعة أو Iframe",
+    "API (غير تيار)",
+    "API (تيار)",
+    "موقع Chatbase",
+    "غير محدد"
+  ],
 
-"Data Sources":"مصادر البيانات",
-"Files":"الملفات",
-"Text":"نص",
-"Website":"موقع إلكتروني",
-"Q&A":"سؤال وجواب",
-"Upload Files":"تحميل الملفات",
-"Drag & drop files here, or click to select files":"اسحب الملفات وأفلتها هنا ، أو انقر لتحديد الملفات",
-"Supported File Types: .pdf, .doc, .docx, .txt":"  .pdf ، .doc ، .docx ، .txt:أنواع الملفات المدعومة",
-"NOTE: Uploading a PDF using safari doesn't work, we're looking into the issue. Make sure the text is OCR'd, i.e. you can copy it.":"ملاحظة: لا يعمل تحميل ملف PDF باستخدام Safari ، فنحن نبحث في المشكلة. تأكد من أن النص هو OCR ، أي يمكنك نسخه.",
-"Attached Files":"الملفات المرفقة",
-"Crawl":"زحف",
-"Fetch links":"إحضار الروابط",
-"This will crawl all the links starting with the URL (not including files on the website).":"سيؤدي هذا إلى الزحف إلى جميع الروابط بدءًا من عنوان URL (لا يشمل الملفات الموجودة على موقع الويب).",
-"Submit Sitemap":"إرسال خريطة الموقع ",
-"Load sitemap":"تحميل خريطة الموقع",
-"Included Links":"الروابط المضمنة",
-"Delete all":"حذف الكل",
-"Add":"يضيف",
-"Questions":"أسئلة",
-"Answer":"إجابة",
-"Included sources":"المصادر المدرجة",
-"Total detected characters:":"إجمالي الأحرف المكتشفة:",
-"limit":"حد",
-"Create Chatbot":"إنشاء Chatbot",
-"Add to Slack workspace":"أضف إلى مساحة عمل Slack",
-"Subscription required":"الاشتراك المطلوبة",
-"Add to Messenger":"أضف إلى Messenger",
-"Coming Soon":"...قريباً",
-"Add to Zapier":"أضف إلى Zapier",
-"Add to Wordpress": "أضف إلى Wordpress",
-"Add to Shopify":"أضف إلى Shopify",
-"Add to Whatsapp":"أضف إلى Whatsapp",
-"Account":"حساب",
-"Embed on website":"تضمين في الموقع",
-"To add the chatbot any where on your website, add this iframe to your html code":"لإضافة chatbot في أي مكان على موقع الويب الخاص بك ، أضف iframe هذا إلى كود html الخاص بك",
-"To add a chat bubble to the bottom right of your website add this script tag to your html":"لإضافة فقاعة دردشة إلى أسفل يمين موقع الويب الخاص بك ، أضف علامة البرنامج النصي هذه إلى html الخاص بك",
-"Share your chatbot":"شارك روبوت المحادثة الخاص بك",
-"Use this link to access the chatbot":"استخدم هذا الرابط للوصول إلى chatbot",
-"Delete chatbot":"حذف chatbot",
-"Are you sure you want to delete your chatbot? This action cannot be undone.":"هل أنت متأكد أنك تريد حذف الشات بوت الخاص بك؟ لا يمكن التراجع عن هذا الإجراء.",
-"Cancel":"يلغي",
-"Chatbot Name":"اسم Chatbot",
-"I want you to act as a document that I am having a conversation with. Your name is 'AI Assistant'. You will provide me with answers from the given info. If the answer is not included, say exactly 'Hmm, I am not sure.' and stop after that. Refuse to answer any question not about the info. Never break character.":"أريدك أن تعمل كوثيقة أجري محادثة معها. اسمك 'AI Assistant'. سوف تزودني بالإجابات من المعلومات المقدمة. إذا لم يتم تضمين الإجابة ، قل بالضبط 'حسنًا ، لست متأكدًا'. وتوقف بعد ذلك. رفض الإجابة على أي سؤال لا يتعلق بالمعلومات. لا تكسر الشخصية أبدًا.",
-"Too many messages in a row":"هناك عدد كبير جدًا من الرسائل على التوالي",
-"Hi! What can I help you with?": "أهلاً! بماذا يمكنني مساعدتك؟",
-"What is example.com?":"ما هو example.com؟",
-"Hi":"أهلاً",
-"revise answer":"مراجعة الإجابة",
-"Export customers (CSV)":"عملاء التصدير (CSV)",
-"Export customers (PDF)":"عملاء التصدير (PDF)",
+  "Data Sources": "مصادر البيانات",
+  "Files": "الملفات",
+  "Text": "نص",
+  "Website": "موقع إلكتروني",
+  "Q&A": "سؤال وجواب",
+  "Upload Files": "تحميل الملفات",
+  "Drag & drop files here, or click to select files": "اسحب الملفات وأفلتها هنا ، أو انقر لتحديد الملفات",
+  "Supported File Types: .pdf, .doc, .docx, .txt": "  .pdf ، .doc ، .docx ، .txt:أنواع الملفات المدعومة",
+  "NOTE: Uploading a PDF using safari doesn't work, we're looking into the issue. Make sure the text is OCR'd, i.e. you can copy it.": "ملاحظة: لا يعمل تحميل ملف PDF باستخدام Safari ، فنحن نبحث في المشكلة. تأكد من أن النص هو OCR ، أي يمكنك نسخه.",
+  "Attached Files": "الملفات المرفقة",
+  "Crawl": "زحف",
+  "Fetch links": "إحضار الروابط",
+  "This will crawl all the links starting with the URL (not including files on the website).": "سيؤدي هذا إلى الزحف إلى جميع الروابط بدءًا من عنوان URL (لا يشمل الملفات الموجودة على موقع الويب).",
+  "Submit Sitemap": "إرسال خريطة الموقع ",
+  "Load sitemap": "تحميل خريطة الموقع",
+  "Included Links": "الروابط المضمنة",
+  "Delete all": "حذف الكل",
+  "Add": "يضيف",
+  "Questions": "أسئلة",
+  "Answer": "إجابة",
+  "Included sources": "المصادر المدرجة",
+  "Total detected characters:": "إجمالي الأحرف المكتشفة:",
+  "limit": "حد",
+  "Create Chatbot": "إنشاء Chatbot",
+  "Add to Slack workspace": "أضف إلى مساحة عمل Slack",
+  "Subscription required": "الاشتراك المطلوبة",
+  "Add to Messenger": "أضف إلى Messenger",
+  "Coming Soon": "...قريباً",
+  "Add to Zapier": "أضف إلى Zapier",
+  "Add to Wordpress": "أضف إلى Wordpress",
+  "Add to Shopify": "أضف إلى Shopify",
+  "Add to Whatsapp": "أضف إلى Whatsapp",
+  "Account": "حساب",
+  "Embed on website": "تضمين في الموقع",
+  "To add the chatbot any where on your website, add this iframe to your html code": "لإضافة chatbot في أي مكان على موقع الويب الخاص بك ، أضف iframe هذا إلى كود html الخاص بك",
+  "To add a chat bubble to the bottom right of your website add this script tag to your html": "لإضافة فقاعة دردشة إلى أسفل يمين موقع الويب الخاص بك ، أضف علامة البرنامج النصي هذه إلى html الخاص بك",
+  "Share your chatbot": "شارك روبوت المحادثة الخاص بك",
+  "Use this link to access the chatbot": "استخدم هذا الرابط للوصول إلى chatbot",
+  "Delete chatbot": "حذف chatbot",
+  "Are you sure you want to delete your chatbot? This action cannot be undone.": "هل أنت متأكد أنك تريد حذف الشات بوت الخاص بك؟ لا يمكن التراجع عن هذا الإجراء.",
+  "Cancel": "يلغي",
+  "Chatbot Name": "اسم Chatbot",
+  "I want you to act as a document that I am having a conversation with. Your name is 'AI Assistant'. You will provide me with answers from the given info. If the answer is not included, say exactly 'Hmm, I am not sure.' and stop after that. Refuse to answer any question not about the info. Never break character.": "أريدك أن تعمل كوثيقة أجري محادثة معها. اسمك 'AI Assistant'. سوف تزودني بالإجابات من المعلومات المقدمة. إذا لم يتم تضمين الإجابة ، قل بالضبط 'حسنًا ، لست متأكدًا'. وتوقف بعد ذلك. رفض الإجابة على أي سؤال لا يتعلق بالمعلومات. لا تكسر الشخصية أبدًا.",
+  "Too many messages in a row": "هناك عدد كبير جدًا من الرسائل على التوالي",
+  "Hi! What can I help you with?": "أهلاً! بماذا يمكنني مساعدتك؟",
+  "What is example.com?": "ما هو example.com؟",
+  "Hi": "أهلاً",
+  "revise answer": "مراجعة الإجابة",
+  "Export customers (CSV)": "عملاء التصدير (CSV)",
+  "Export customers (PDF)": "عملاء التصدير (PDF)",
 
-"No customers found":"لم يتم العثور على عملاء",
-"data":"بيانات",
-"characters":" حرف ",
-"OR":"أو",
-"Privacy Policy":"سياسة الخصوصية",
-"Terms of Service":"شروط الخدمة",
-"Contact Support":"اتصل بالدعم",
-"Contact":"اتصال",
-"👋 Hi! I am ChatbaseAI, ask me anything about Chatbase!":"👋 مرحبًا! أنا ChatbaseAI ، اسألني أي شيء عن Chatbase!",
-"By the way, you can create a chatbot like me for your website! 😮":"بالمناسبة ، يمكنك إنشاء روبوت محادثة مثلي لموقعك على الويب! 😮",
-"How do I add data to my chatbot?":"كيف أضيف البيانات إلى برنامج الدردشة الآلي الخاص بي؟"
-
-
-  }
-
+  "No customers found": "لم يتم العثور على عملاء",
+  "data": "بيانات",
+  "characters": " حرف ",
+  "OR": "أو",
+  "Privacy Policy": "سياسة الخصوصية",
+  "Terms of Service": "شروط الخدمة",
+  "Contact Support": "اتصل بالدعم",
+  "Contact": "اتصال",
+  "👋 Hi! I am ChatbaseAI, ask me anything about Chatbase!": "👋 مرحبًا! أنا ChatbaseAI ، اسألني أي شيء عن Chatbase!",
+  "By the way, you can create a chatbot like me for your website! 😮": "بالمناسبة ، يمكنك إنشاء روبوت محادثة مثلي لموقعك على الويب! 😮",
+  "How do I add data to my chatbot?": "كيف أضيف البيانات إلى برنامج الدردشة الآلي الخاص بي؟"
+}

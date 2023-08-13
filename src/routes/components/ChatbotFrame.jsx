@@ -21,7 +21,7 @@ export default function ChatbotFrame() {
                   src="https://backend.chatbase.co/storage/v1/object/public/chatbots-profile-pictures/4a84dc98-32e3-4cf7-9aaf-9df171bd7f8a/chatbase--1--pdf-p680fxvnm.svg?width=96&quality=50"
                   width="35"
                   height="35"
-                  alt="profile picture"
+                  alt="profile"
                   className="rounded-full m-1 mr-2"
                   style={{ color: "transparent" }}
                 />

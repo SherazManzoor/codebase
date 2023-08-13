@@ -62,7 +62,7 @@ export default function Chatbot() {
                                   height="200"
                                   className="border-none h-40 w-40 object-cover"
                                   style={{ color: "transparent" }}
-                                  alt=""
+                                  alt="Picture"
                                 />
                                 <div className="px-1 flex justify-center items-center h-14">
                                   <h3 className="text-xs md:text-sm font-semibold text-center overflow-hidden m-auto">
