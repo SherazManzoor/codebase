@@ -19,15 +19,15 @@ export default function Chatbot() {
                 <div className="pb-72">
                   <div className="max-w-3xl w-full m-auto">
                     <div className="flex justify-between items-center mb-4">
-                      <div>
+                      <div >
                         <h1
-                          style={{ direction: isRTL ? "rtl" : "ltr" }}
+                         
                           className="text-2xl md:text-3xl font-extrabold text-black"
                         >
                           {t("My Chatbots")}
                         </h1>
                         <p
-                          style={{ direction: isRTL ? "rtl" : "ltr" }}
+                          
                           className="text-sm font-normal"
                         >
                           {t("(1 chatbot limit)")}
@@ -35,9 +35,9 @@ export default function Chatbot() {
                       </div>
 
                       {chatbots.length !== 0 && ( // Only show the button if chatbots array is not empty
-                        <div className="flex justify-center">
-                          <a
-                            style={{ backgroundColor: "black" }}
+                        <div  className="flex justify-center">
+                          <a 
+                            style={{ backgroundColor: "black" ,direction: isRTL ? "rtl" : "ltr" }}
                             className="rounded-md px-4 py-2 text-base font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                             href="/create-new-chatbot"
                           >

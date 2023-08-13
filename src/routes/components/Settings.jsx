@@ -361,7 +361,7 @@ export default function Settings() {
                     <div className="mt-1">
                       <input
                         type="text"
-                        value={t("Chatbot Name")}
+                        placeholder={t("Chatbot Name")}
                         name="name"
                         className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900 "
                       />
@@ -400,7 +400,7 @@ export default function Settings() {
                         rows="5"
                         style={{ direction: isRTL ? "rtl" : "ltr" }}
                         value= {t("I want you to act as a document that I am having a conversation with. Your name is 'AI Assistant'. You will provide me with answers from the given info. If the answer is not included, say exactly 'Hmm, I am not sure.' and stop after that. Refuse to answer any question not about the info. Never break character.")}
-
+                        onChange={handleTextareaChange}
                         className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                       >
                       </textarea>

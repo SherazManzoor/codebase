@@ -4,7 +4,7 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie"; // Import the js-cookie library
-
+import logoen from "../../images/logo-en.jpeg";
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -14,11 +14,9 @@ export default function Navbar() {
     setDropdownOpen(!dropdownOpen);
   };
   // document.body.dir = i18n.dir();
-  const [activeLanguage, setActiveLanguage] = useState(() => {
-    return Cookies.get("selectedLanguage") || "English";
-  });
+  const [activeLanguage, setActiveLanguage] = useState();
   const languages = ["English", "عربي"];
-
+  const storedLanguage = Cookies.get("selectedLanguage");
   const handleLanguageChange = (language) => {
     i18n.changeLanguage(language);
     Cookies.set("selectedLanguage", language); // Set the correct key for the cookie
@@ -29,7 +27,7 @@ export default function Navbar() {
   };
   useEffect(() => {
     // Retrieve and set the language from localStorage when the component mounts
-    const storedLanguage = Cookies.get("selectedLanguage");
+   
 
     if (storedLanguage === "English") {
       i18n.changeLanguage("en");
@@ -38,6 +36,7 @@ export default function Navbar() {
       i18n.changeLanguage("ar");
       setActiveLanguage(storedLanguage);
     }
+    console.log(activeLanguage)
   }, [activeLanguage]);
   const navigation = [
     { name: t("demo"), href: "/#demo" },
@@ -66,7 +65,7 @@ export default function Navbar() {
               <span className="sr-only">Your Company</span>
               <img
                 className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                src={logoen}
                 alt=""
               />
             </a>

@@ -79,12 +79,15 @@ export default function OpenChatbot() {
           <div className=" max-w-7xl mx-auto py-8 sm:py-24 px-4 sm:px-6 lg:px-8">
             <div>
               <div className=" pb-12 py-8 ">
-                <h1 style={{ direction: isRTL ? "rtl" : "ltr" }} className=" text-2xl md:text-3xl font-bold text-black text-center mb-5">
+                <h1
+                  style={{ direction: isRTL ? "rtl" : "ltr" }}
+                  className=" text-2xl md:text-3xl font-bold text-black text-center mb-5"
+                >
                   {t("Chatbot Name")}
                 </h1>
 
-                <div className="no-scrollbar overflow-auto">
-                  <div className=" flex md:justify-center space-x-6 whitespace-nowrap text-sm ">
+                <div className="no-scrollbar overflow-x-auto">
+                  <div className="flex flex-wrap md:justify-center whitespace-nowrap text-sm  space-x-2 ">
                     <a
                       href="Chatbot"
                       onClick={handleLinkClick}
@@ -203,12 +206,20 @@ export default function OpenChatbot() {
                     >
                       <div className="sm:flex sm:items-start">
                         <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                          <h3 style={{ direction: isRTL ? "rtl" : "ltr" }} className="text-lg font-medium leading-6 text-gray-900">
+                          <h3
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
+                            className="text-lg font-medium leading-6 text-gray-900"
+                          >
                             {t("Embed on website")}
                           </h3>
                           <div className="mt-2">
-                            <p  style={{ direction: isRTL ? "rtl" : "ltr" }} className="text-sm text-gray-500">
-                              {t("To add the chatbot any where on your website, add this iframe to your html code")}
+                            <p
+                              style={{ direction: isRTL ? "rtl" : "ltr" }}
+                              className="text-sm text-gray-500"
+                            >
+                              {t(
+                                "To add the chatbot any where on your website, add this iframe to your html code"
+                              )}
                             </p>
                           </div>
                         </div>
@@ -219,8 +230,13 @@ export default function OpenChatbot() {
                         </pre>
                       </div>
                       <div className="mt-2">
-                        <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="text-sm text-gray-500">
-                          {t("To add a chat bubble to the bottom right of your website add this script tag to your html")}
+                        <p
+                          style={{ direction: isRTL ? "rtl" : "ltr" }}
+                          className="text-sm text-gray-500"
+                        >
+                          {t(
+                            "To add a chat bubble to the bottom right of your website add this script tag to your html"
+                          )}
                         </p>
                       </div>
                       <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
@@ -236,22 +252,28 @@ export default function OpenChatbot() {
                     <div className="modal-background fixed inset-0 bg-gray-900 opacity-50"></div>
                     <div
                       ref={modalRef}
-                      className="modal-content bg-white p-8 rounded-lg shadow-lg z-50"
+                      className="modal-content bg-white p-4 md:p-8 rounded-lg shadow-lg z-50"
                     >
                       <div className="sm:flex sm:items-start">
                         <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                          <h3 style={{ direction: isRTL ? "rtl" : "ltr" }} className="text-lg font-medium leading-6 text-gray-900">
+                          <h3
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
+                            className="text-lg font-medium leading-6 text-gray-900"
+                          >
                             {t("Share your chatbot")}
                           </h3>
                           <div className="mt-2">
-                            <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="text-sm text-gray-500">
+                            <p
+                              style={{ direction: isRTL ? "rtl" : "ltr" }}
+                              className="text-sm text-gray-500"
+                            >
                               {t("Use this link to access the chatbot")}
                             </p>
                           </div>
                         </div>
                       </div>
                       <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-                        <pre className=" w-full overflow-auto text-xs bg-slate-100 rounded p-2">
+                        <pre className=" w-80 md:w-full no-scrollbar overflow-auto text-xs bg-slate-100 rounded p-2">
                           <code>{iframeCode3}</code>{" "}
                         </pre>
                       </div>
@@ -284,12 +306,20 @@ export default function OpenChatbot() {
                           </svg>
                         </div>
                         <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                          <h3 style={{ direction: isRTL ? "rtl" : "ltr" }}  className="text-lg font-medium leading-6 text-gray-900">
+                          <h3
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
+                            className="text-lg font-medium leading-6 text-gray-900"
+                          >
                             {t("Delete chatbot")}
                           </h3>
                           <div className="mt-2">
-                            <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="text-sm text-gray-500">
-                              {t("Are you sure you want to delete your chatbot? This action cannot be undone.")}
+                            <p
+                              style={{ direction: isRTL ? "rtl" : "ltr" }}
+                              className="text-sm text-gray-500"
+                            >
+                              {t(
+                                "Are you sure you want to delete your chatbot? This action cannot be undone."
+                              )}
                             </p>
                           </div>
                         </div>

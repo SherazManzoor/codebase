@@ -72,7 +72,11 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div id="video"  style={{ direction: isRTL ? "rtl" : "ltr" }} className="py-16">
+                <div
+                  id="video"
+                  style={{ direction: isRTL ? "rtl" : "ltr" }}
+                  className="py-16"
+                >
                   <h4 className="text-2xl md:text-3xl font-extrabold text-black text-center py-2">
                     {t("Video Demo")}
                   </h4>
@@ -96,7 +100,11 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="mx-auto max-w-4xl">
-                  <div id="demo"  style={{ direction: isRTL ? "rtl" : "ltr" }} className="py-16">
+                  <div
+                    id="demo"
+                    style={{ direction: isRTL ? "rtl" : "ltr" }}
+                    className="py-16"
+                  >
                     <h4 className="text-2xl md:text-3xl font-extrabold text-black text-center py-2">
                       {t("Live Demo")}
                     </h4>
@@ -117,7 +125,10 @@ export default function Home() {
                 <div className="relative isolate bg-white pt-24 pb-32 sm:pt-32">
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="mx-auto max-w-xl text-center">
-                      <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                      <p
+                        style={{ direction: isRTL ? "rtl" : "ltr" }}
+                        className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+                      >
                         {t("Chatbase integrates with your favorite tools")}
                       </p>
                     </div>
@@ -140,7 +151,10 @@ export default function Home() {
                             loading="lazy"
                             style={{ color: "transparent" }}
                           />
-                          <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="font-semibold text-center">
+                          <p
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
+                            className="font-semibold text-center"
+                          >
                             {t("Add an AI chatbot to your WordPress website")}
                             <span>→</span>
                           </p>
@@ -164,7 +178,10 @@ export default function Home() {
                             loading="lazy"
                             style={{ color: "transparent" }}
                           />
-                          <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="font-semibold text-center">
+                          <p
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
+                            className="font-semibold text-center"
+                          >
                             {t("Connect your chatbot to 5000+ apps on Zapier")}
                             <span></span>
                           </p>
@@ -187,7 +204,10 @@ export default function Home() {
                             loading="lazy"
                             style={{ color: "transparent" }}
                           />
-                          <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="font-semibold text-center">
+                          <p
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
+                            className="font-semibold text-center"
+                          >
                             {t(
                               "Connect your chatbot to a Slack channel and interact with it there"
                             )}
@@ -211,7 +231,10 @@ export default function Home() {
                             loading="lazy"
                             style={{ color: "transparent" }}
                           />
-                          <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="font-semibold text-center">
+                          <p
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
+                            className="font-semibold text-center"
+                          >
                             {t("Coming soon")}...
                           </p>
                         </a>
@@ -225,10 +248,16 @@ export default function Home() {
                   className="relative sm:py-12"
                 >
                   <div className="relative">
-                    <h4 style={{ direction: isRTL ? "rtl" : "ltr" }} className="text-2xl md:text-3xl font-extrabold text-black text-center py-2">
+                    <h4
+                      style={{ direction: isRTL ? "rtl" : "ltr" }}
+                      className="text-2xl md:text-3xl font-extrabold text-black text-center py-2"
+                    >
                       {t("Frequently Asked Questions")}
                     </h4>
-                    <h6 style={{ direction: isRTL ? "rtl" : "ltr" }}  className="text-lg text-center">
+                    <h6
+                      style={{ direction: isRTL ? "rtl" : "ltr" }}
+                      className="text-lg text-center"
+                    >
                       {t("If you can &#x27;t find your question, email ")}
                       {/* <a
                         className=" font-semibold"
@@ -238,55 +267,42 @@ export default function Home() {
                       </a> */}
                     </h6>
                   </div>
-                  <ul style={{ direction: isRTL ? "rtl" : "ltr" }}  className="mt-16 grid grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-2">
+                  <ul
+                    style={{ direction: isRTL ? "rtl" : "ltr" }}
+                    className="mt-16 grid grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-2"
+                  >
                     <li>
                       <ul className="flex flex-col gap-y-8">
-                        <li style={{ direction: isRTL ? "rtl" : "ltr" }} >
+                        <li style={{ direction: isRTL ? "rtl" : "ltr" }}>
                           <h3 className="font-display text-lg leading-7 text-slate-900">
-                            {t("What is Chatbase?")}
+                            {t("Q1")}
                           </h3>
                           <p className="mt-4 text-slate-700">
-                            <div dir="rtl">
-                              {t(
-                                "Chatbase is an AI chatbot builder, it trains ChatGPT on your data and lets you add a chat widget to your website. Just upload a document or add a link to your website and get a chatbot that can answer any question about their content."
-                              )}
-                            </div>
+                            <div dir="rtl">{t("A1")}</div>
                           </p>
                         </li>
                         <li>
                           <h3 className="font-display text-lg leading-7 text-slate-900">
-                            {t("What should my data look like?")}
+                            {t("Q2")}
                           </h3>
                           <p className="mt-4 text-slate-700">
-                            <div dir="rtl">
-                              {t(
-                                "Currently, you can upload one or multiple files(.pdf, .txt, .doc, .docx), paste text, or add a link to your website to be scraped."
-                              )}
-                            </div>{" "}
+                            <div dir="rtl">{t("A2")}</div>{" "}
                           </p>
                         </li>
                         <li>
                           <h3 className="font-display text-lg leading-7 text-slate-900">
-                            {t("Can I give my chatbots instructions?")}
+                            {t("Q3")}
                           </h3>
                           <p className="mt-4 text-slate-700">
-                            <div dir="rtl">
-                              {t(
-                                "Yes, you can edit the base prompt and give your chatbot a name, personality traits and instructions on how to answer questions ex. (only answer in French)."
-                              )}
-                            </div>{" "}
+                            <div dir="rtl">{t("A3")}</div>{" "}
                           </p>
                         </li>
                         <li>
                           <h3 className="font-display text-lg leading-7 text-slate-900">
-                            {t("Where is my data stored?")}
+                            {t("Q4")}
                           </h3>
                           <p className="mt-4 text-slate-700">
-                            <div dir="rtl">
-                              {t(
-                                "The content of the document is hosted on secure GCP/AWS servers in us-east."
-                              )}
-                            </div>
+                            <div dir="rtl">{t("A4")}</div>
                           </p>
                         </li>
                       </ul>
@@ -294,52 +310,45 @@ export default function Home() {
                     <li>
                       <ul className="flex flex-col gap-y-8">
                         <li>
+                          <h3
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
+                            className="font-display text-lg leading-7 text-slate-900"
+                          >
+                            {t("Q7")}
+                          </h3>
+                          <p
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
+                            className="mt-4 text-slate-700"
+                          >
+                            {t("A7")}
+                          </p>
+                        </li>
+                        <li>
+                          <h3
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
+                            className="font-display text-lg leading-7 text-slate-900"
+                          >
+                            {t("Q6")}
+                          </h3>
+                          <p
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
+                            className="mt-4 text-slate-700"
+                          >
+                            {t("A6")}
+                          </p>
+                        </li>
+                        <li>
                           <h3 className="font-display text-lg leading-7 text-slate-900">
                             <div style={{ direction: isRTL ? "rtl" : "ltr" }}>
-                              {t("Does it use GPT-3.5 or GPT-4?")}
+                              {t("Q5")}
                             </div>
                           </h3>
                           <p className="mt-4 text-slate-700">
                             <div style={{ direction: isRTL ? "rtl" : "ltr" }}>
-                              {t(
-                                "By default your chatbot uses gpt-3.5-turbo (but you have the option to use gpt-4 on the Standard and Unlimited plans)"
-                              )}
+                              {t("A5")}
                             </div>
                           </p>
                         </li>
-                        <li>
-                          <h3
-                            style={{ direction: isRTL ? "rtl" : "ltr" }}
-                            className="font-display text-lg leading-7 text-slate-900"
-                          >
-                            {t("How can I add my chatbot to my website?")}
-                          </h3>
-                          <p
-                            style={{ direction: isRTL ? "rtl" : "ltr" }}
-                            className="mt-4 text-slate-700"
-                          >
-                            {t(
-                              "You can embed an iframe or add a chat bubble to the bottom right of your website. To do that, create a chatbot and click &quot;Embed on website &quot;. You  can also use the API to communicate with your chatbot anywhere!"
-                            )}
-                          </p>
-                        </li>
-                        <li>
-                          <h3
-                            style={{ direction: isRTL ? "rtl" : "ltr" }}
-                            className="font-display text-lg leading-7 text-slate-900"
-                          >
-                            {t("Does it support other languages?")}
-                          </h3>
-                          <p
-                            style={{ direction: isRTL ? "rtl" : "ltr" }}
-                            className="mt-4 text-slate-700"
-                          >
-                            {t(
-                              "Yes, Chatbase supports about 95 languages. You can have your sources in any language and ask it questions in any language."
-                            )}
-                          </p>
-                        </li>
-                       
                       </ul>
                     </li>
                   </ul>
