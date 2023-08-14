@@ -62,16 +62,16 @@ export default function OpenChatbot() {
   ></iframe>`;
 
   const iframeCode2 = `  <script>
-  window.chatbaseConfig = {
+  window.almeenConfig = {
     chatbotId: "cg4jKuFttHITHAOVYD24a",
   }
 </script>
 <script
-  src="https://www.chatbase.co/embed.min.js"
+  src="https://www.alameen.co/embed.min.js"
   id="cg4jKuFttHITHAOVYD24a"
   defer>
 </script>`;
-  const iframeCode3 = ` https://www.chatbase.co/chatbot-iframe/cg4jKuFttHITHAOVYD24a`;
+  const iframeCode3 = ` https://www.alameen.co/chatbot-iframe/cg4jKuFttHITHAOVYD24a`;
   return (
     <div>
       <main id="skip">
