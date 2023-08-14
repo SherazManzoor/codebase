@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Pricing() {
+
+    const { t, i18n } = useTranslation();
+    const isRTL = i18n.dir() === "rtl";
+
     const [isMonthlyBilling, setIsMonthlyBilling] = useState(true);
     const prices = isMonthlyBilling
     ? ["$19", "$99", "$399"]
@@ -15,10 +20,10 @@ export default function Pricing() {
           <div className=" max-w-7xl mx-auto py-8 sm:py-24 px-4 sm:px-6 lg:px-8">
             <div className="sm:flex sm:flex-col sm:align-center">
               <h1 className="text-4xl font-extrabold text-black sm:text-center sm:text-6xl">
-                Pricing Plans
+                {t("Pricing Plans")}
               </h1>
               <p className="mt-6 text-center">
-                Get 2 months for free by subscribing yearly!
+                {t("Get 2 months for free by subscribing yearly!")}
               </p>
               <div className="relative self-center mt-2 bg-zinc-100 rounded-lg p-0.5 flex sm:mt-4 border border-zinc-200">
               <button
@@ -30,7 +35,7 @@ export default function Pricing() {
           } shadow-sm text-black rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
           onClick={handleToggle}
         >
-          Monthly billing
+          {t("Monthly billing")}
         </button>
         <button
           type="button"
@@ -41,7 +46,7 @@ export default function Pricing() {
           } text-zinc-600 rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
           onClick={handleToggle}
         >
-          Yearly billing
+          {t("Yearly billing")}
         </button>
               </div>
             </div>
@@ -50,10 +55,10 @@ export default function Pricing() {
                 <div className="p-4 flex flex-col justify-between h-full">
                   <div>
                     <h2 className="text-2xl leading-6 font-semibold text-black">
-                      Free
+                      {t("Free")}
                     </h2>
                     <div className="py-4">
-                      <li className="flex space-x-2 mb-3 items-center">
+                      <li   style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex space-x-2 mb-3 items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
@@ -63,11 +68,11 @@ export default function Pricing() {
                         >
                           <path d="M5.25 3A2.25 2.25 0 003 5.25v9.5A2.25 2.25 0 005.25 17h9.5A2.25 2.25 0 0017 14.75v-9.5A2.25 2.25 0 0014.75 3h-9.5z"></path>
                         </svg>
-                        <span className="text-sm font-semibold text-zinc-700">
-                          30 message credits/month
+                        <span className="text-sm font-semibold px-2 text-zinc-700">
+                          {t("30 message credits/month")}
                         </span>
                       </li>
-                      <li className="flex space-x-2 mb-3 items-center">
+                      <li style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex space-x-2 mb-3 items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
@@ -77,11 +82,11 @@ export default function Pricing() {
                         >
                           <path d="M5.25 3A2.25 2.25 0 003 5.25v9.5A2.25 2.25 0 005.25 17h9.5A2.25 2.25 0 0017 14.75v-9.5A2.25 2.25 0 0014.75 3h-9.5z"></path>
                         </svg>
-                        <span className="text-sm font-semibold text-zinc-700">
-                          1 chatbot
+                        <span className="text-sm font-semibold px-2 text-zinc-700">
+                          {t("1 chatbot")}
                         </span>
                       </li>
-                      <li className="flex space-x-2 mb-3 items-center">
+                      <li style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex space-x-2 mb-3 items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
@@ -91,11 +96,11 @@ export default function Pricing() {
                         >
                           <path d="M5.25 3A2.25 2.25 0 003 5.25v9.5A2.25 2.25 0 005.25 17h9.5A2.25 2.25 0 0017 14.75v-9.5A2.25 2.25 0 0014.75 3h-9.5z"></path>
                         </svg>
-                        <span className="text-sm font-semibold text-zinc-700">
-                          400,000 characters/chatbot
+                        <span className="text-sm font-semibold px-2 text-zinc-700">
+                          {t("400,000 characters/chatbot")}
                         </span>
                       </li>
-                      <li className="flex space-x-2 mb-3 items-center">
+                      <li style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex space-x-2 mb-3 items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
@@ -105,11 +110,11 @@ export default function Pricing() {
                         >
                           <path d="M5.25 3A2.25 2.25 0 003 5.25v9.5A2.25 2.25 0 005.25 17h9.5A2.25 2.25 0 0017 14.75v-9.5A2.25 2.25 0 0014.75 3h-9.5z"></path>
                         </svg>
-                        <span className="text-sm font-semibold text-zinc-700">
-                          Embed on unlimited websites
+                        <span className="text-sm font-semibold px-2 text-zinc-700">
+                          {t("Embed on unlimited websites")}
                         </span>
                       </li>
-                      <li className="flex space-x-2 mb-3 items-center">
+                      <li style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex space-x-2 mb-3 items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
@@ -119,11 +124,11 @@ export default function Pricing() {
                         >
                           <path d="M5.25 3A2.25 2.25 0 003 5.25v9.5A2.25 2.25 0 005.25 17h9.5A2.25 2.25 0 0017 14.75v-9.5A2.25 2.25 0 0014.75 3h-9.5z"></path>
                         </svg>
-                        <span className="text-sm font-semibold text-zinc-700">
-                          Upload multiple files
+                        <span className="text-sm font-semibold px-2 text-zinc-700">
+                          {t("Upload multiple files")}
                         </span>
                       </li>
-                      <li className="flex space-x-2 mb-3 items-center">
+                      <li style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex space-x-2 mb-3 items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
@@ -133,11 +138,11 @@ export default function Pricing() {
                         >
                           <path d="M5.25 3A2.25 2.25 0 003 5.25v9.5A2.25 2.25 0 005.25 17h9.5A2.25 2.25 0 0017 14.75v-9.5A2.25 2.25 0 0014.75 3h-9.5z"></path>
                         </svg>
-                        <span className="text-sm font-semibold text-zinc-700">
-                          View conversation history
+                        <span className="text-sm font-semibold px-2 text-zinc-700">
+                          {t("View conversation history")}
                         </span>
                       </li>
-                      <li className="flex space-x-2 mb-3 items-center">
+                      <li style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex space-x-2 mb-3 items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
@@ -147,11 +152,11 @@ export default function Pricing() {
                         >
                           <path d="M5.25 3A2.25 2.25 0 003 5.25v9.5A2.25 2.25 0 005.25 17h9.5A2.25 2.25 0 0017 14.75v-9.5A2.25 2.25 0 0014.75 3h-9.5z"></path>
                         </svg>
-                        <span className="text-sm font-semibold text-zinc-700">
-                          Capture leads
+                        <span className="text-sm font-semibold px-2 text-zinc-700">
+                          {t("Capture leads")}
                         </span>
                       </li>
-                      <li className="flex space-x-2 mb-3 items-center">
+                      <li style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex space-x-2 mb-3 items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
@@ -161,8 +166,8 @@ export default function Pricing() {
                         >
                           <path d="M5.25 3A2.25 2.25 0 003 5.25v9.5A2.25 2.25 0 005.25 17h9.5A2.25 2.25 0 0017 14.75v-9.5A2.25 2.25 0 0014.75 3h-9.5z"></path>
                         </svg>
-                        <span className="text-sm font-semibold text-zinc-700">
-                          Chatbots get deleted after 7 days of inactivity
+                        <span  className="text-sm font-semibold  text-zinc-700">
+                          {t("Chatbots get deleted after 7 days of inactivity")}
                         </span>
                       </li>
                     </div>
