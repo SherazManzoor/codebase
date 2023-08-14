@@ -15,7 +15,7 @@
   "by crawling the website and training the AI on its content.I can then embed the chatbot on the website!": " by crawling the website and training the AI on its content.I can then embed the chatbot on the website!",
   "Live Demo": "Live Demo",
   "This chatbot was trained on a document explaining": "This chatbot was trained on a document explaining",
-  "Chatbase": "Chatbase",
+  "Chatbase": "ALAMEEN",
   "You can embed a widget like this on any page on your website!": "You can embed a widget like this on any page on your website!",
   "Chatbase integrates with your favorite tools": " Al-Ameen AI  integrates with your favorite tools",
   "Add an AI chatbot to your WordPress website": " Add an AI chatbot to your WordPress website",
@@ -37,9 +37,9 @@
   "Q6": "How can I add my chatbot to my website?",
   "A6": "You can embed an iframe or add a chat bubble to the bottom right of your website. To do that, create a chatbot and click Embed on website. You  can also use the API to communicate with your chatbot anywhere!",
   "Q7": "Does it support other languages?",
-  "A7": "Yes, Chatbase supports about 95 languages. You can have your sources in any language and ask it questions in any language.",
-   "What people say about Chatbase": "What people say about Chatbase",
-  "“For anyone on the fence - in the 2 hours since this tweet I 've tested, set up and gone live on three separate websites with Chatbase. Still need to do some light tweaking of the base prompt but very happy with the results.”": "“For anyone on the fence - in the 2 hours since this tweet I 've tested, set up and gone live on three separate websites with Chatbase. Still need to do some light tweaking of the base prompt but very happy with the results.”",
+  "A7": "Yes, ALAMEEN supports about 95 languages. You can have your sources in any language and ask it questions in any language.",
+   "What people say about Chatbase": "What people say about ALAMEEN",
+  "“For anyone on the fence - in the 2 hours since this tweet I 've tested, set up and gone live on three separate websites with Chatbase. Still need to do some light tweaking of the base prompt but very happy with the results.”": "“For anyone on the fence - in the 2 hours since this tweet I 've tested, set up and gone live on three separate websites with ALAMEEN. Still need to do some light tweaking of the base prompt but very happy with the results.”",
   "“This is awesome”": "“This is awesome”",
   "“Another overpowered project built with the 🪄 OP stack”": "“Another overpowered project built with the 🪄 OP stack”",
   "“This is awesome, thanks for building it!”": "“This is awesome, thanks for building it!”",
@@ -81,7 +81,7 @@
   "Enter each domain in a new line": "Enter each domain in a new line",
   "Domains you want to embed your chatbot on. Your chatbot visibility has to be 'can be embedded on website' for this to work.": "Domains you want to embed your chatbot on. Your chatbot visibility has to be 'can be embedded on website' for this to work.",
   "Rate Limiting": "Rate Limiting",
-  "Limit the number of messages sent from one device on the iframe and chat bubble (this limit will not be applied to you on chatbase.co, only on your website for your users to prevent abuse).": "Limit the number of messages sent from one device on the iframe and chat bubble (this limit will not be applied to you on chatbase.co, only on your website for your users to prevent abuse).",
+  "Limit the number of messages sent from one device on the iframe and chat bubble (this limit will not be applied to you on chatbase.co, only on your website for your users to prevent abuse).": "Limit the number of messages sent from one device on the iframe and chat bubble (this limit will not be applied to you on ALAMEEN.co, only on your website for your users to prevent abuse).",
   "Limit to only": "Limit to only",
   "messages every": "messages every",
   "seconds.": "seconds.",
@@ -118,12 +118,12 @@
 
   "No conversations found": "No conversations found",
 
-  "Source: Chatbase site": "Source: Chatbase site",
+  "Source: Chatbase site": "Source: ALAMEEN site",
   "options": [
     "Widget or Iframe",
     "API (non-stream)",
     "API (stream)",
-    "Chatbase site",
+    "ALAMEEN site",
     "Unspecified"
   ],
   "Data Sources": "Data Sources",
@@ -185,7 +185,7 @@
   "Terms of Service": "Terms of Service",
   "Contact Support": "Contact Support",
   "Contact": "Contact",
-  "👋 Hi! I am ChatbaseAI, ask me anything about Chatbase!": "👋 Hi! I am ChatbaseAI, ask me anything about Chatbase!",
+  "👋 Hi! I am ChatbaseAI, ask me anything about Chatbase!": "👋 Hi! I am ALAMEEN AI, ask me anything about ALAMEEN!",
   "By the way, you can create a chatbot like me for your website! 😮": "By the way, you can create a chatbot like me for your website! 😮",
   "How do I add data to my chatbot?": "How do I add data to my chatbot?"
 

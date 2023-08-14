@@ -4,7 +4,9 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie"; // Import the js-cookie library
-import logoen from "../../images/logo-en.jpeg";
+import logoen from "../../images/logo-en.png";
+import logoar from "../../images/logo-ar.png";
+
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -27,7 +29,6 @@ export default function Navbar() {
   };
   useEffect(() => {
     // Retrieve and set the language from localStorage when the component mounts
-   
 
     if (storedLanguage === "English") {
       i18n.changeLanguage("en");
@@ -36,7 +37,7 @@ export default function Navbar() {
       i18n.changeLanguage("ar");
       setActiveLanguage(storedLanguage);
     }
-    console.log(activeLanguage)
+    console.log(activeLanguage);
   }, [activeLanguage]);
   const navigation = [
     { name: t("demo"), href: "/#demo" },
@@ -61,13 +62,13 @@ export default function Navbar() {
         >
           {" "}
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
+            <a href="#" className="">
               <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
-                src={logoen}
-                alt=""
-              />
+              {activeLanguage === "English" ? (
+                <img className="h-10 w-auto" src={logoen} alt="" />
+              ) : (
+                <img className="h-10 w-auto" src={logoar} alt="" />
+              )}
             </a>
           </div>
           <div className="flex lg:hidden">

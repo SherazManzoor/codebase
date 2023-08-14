@@ -118,7 +118,17 @@ export default function Settings() {
   const handleMessageReset = () => {
     setMessage(defaultMessage); // Reset the value to the default
   };
+ //Reset Base Prompt Message
+ const [base, setbase] = useState("I want you to act as a document that I am having a conversation with. Your name is 'AI Assistant'. You will provide me with answers from the given info. If the answer is not included, say exactly 'Hmm, I am not sure.' and stop after that. Refuse to answer any question not about the info. Never break character.");
+ let defaultbase = "I want you to act as a document that I am having a conversation with. Your name is 'AI Assistant'. You will provide me with answers from the given info. If the answer is not included, say exactly 'Hmm, I am not sure.' and stop after that. Refuse to answer any question not about the info. Never break character.";
 
+ const baseChange = (event) => {
+   const newValue = event.target.value;
+   setbase(newValue);
+ };
+ const baseReset = () => {
+   setbase(defaultbase); // Reset the value to the default
+ };
   //   Set Textarea value to button
   const [textareaValue, setTextareaValue] = useState("");
   const handleTextareaChange = (event) => {
@@ -389,7 +399,7 @@ export default function Settings() {
                       >
                         {t("Base Prompt (system message)")}
                       </label>
-                      <button className="inline-flex items-center justify-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto">
+                      <button onClick={baseReset} className="inline-flex items-center justify-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto">
                         {t("Reset")}
                       </button>
                     </div>
@@ -399,8 +409,9 @@ export default function Settings() {
                         maxLength="5000"
                         rows="5"
                         style={{ direction: isRTL ? "rtl" : "ltr" }}
-                        value= {t("I want you to act as a document that I am having a conversation with. Your name is 'AI Assistant'. You will provide me with answers from the given info. If the answer is not included, say exactly 'Hmm, I am not sure.' and stop after that. Refuse to answer any question not about the info. Never break character.")}
-                        onChange={handleTextareaChange}
+                        value= {t(base)}
+                        defaultValue={t(base)}
+                        onChange={baseChange}
                         className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                       >
                       </textarea>

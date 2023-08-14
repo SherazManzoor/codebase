@@ -1,9 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-
+import logoen from "../../images/logo-en.png";
 export default function ChatbotFrame() {
-    const { t, i18n } = useTranslation();
-    const isRTL = i18n.dir() === "rtl";
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.dir() === "rtl";
   return (
     <div>
       <div id="next">
@@ -18,16 +18,13 @@ export default function ChatbotFrame() {
             >
               <div className="flex items-center">
                 <img
-                  src="https://backend.chatbase.co/storage/v1/object/public/chatbots-profile-pictures/4a84dc98-32e3-4cf7-9aaf-9df171bd7f8a/chatbase--1--pdf-p680fxvnm.svg?width=96&quality=50"
-                  width="35"
-                  height="35"
+                  src={logoen}
+                  width="115"
+                  height="115"
                   alt="profile"
                   className="rounded-full m-1 mr-2"
                   style={{ color: "transparent" }}
                 />
-                <h1 className="text-lg font-bold     text-zinc-700">
-                  {t("Chatbase")}
-                </h1>
               </div>
               <div className="flex justify-center items-center">
                 <button className="text-sm py-3   hover:text-zinc-600 text-zinc-700">
@@ -58,8 +55,10 @@ export default function ChatbotFrame() {
               >
                 <div className="flex flex-col items-start gap-4 break-words">
                   <div className="prose text-inherit text-left w-full break-words dark:prose-invert ">
-                    <p  style={{ direction: isRTL ? "rtl" : "ltr" }}>
-                      {t("👋 Hi! I am ChatbaseAI, ask me anything about Chatbase!")}
+                    <p style={{ direction: isRTL ? "rtl" : "ltr" }}>
+                      {t(
+                        "👋 Hi! I am ChatbaseAI, ask me anything about Chatbase!"
+                      )}
                     </p>
                   </div>
                 </div>
@@ -72,8 +71,10 @@ export default function ChatbotFrame() {
               >
                 <div className="flex flex-col items-start gap-4 break-words">
                   <div className="prose text-inherit text-left w-full break-words dark:prose-invert ">
-                    <p  style={{ direction: isRTL ? "rtl" : "ltr" }}>
-                      {t("By the way, you can create a chatbot like me for your website! 😮")}
+                    <p style={{ direction: isRTL ? "rtl" : "ltr" }}>
+                      {t(
+                        "By the way, you can create a chatbot like me for your website! 😮"
+                      )}
                     </p>
                   </div>
                 </div>
