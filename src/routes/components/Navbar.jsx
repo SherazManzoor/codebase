@@ -16,7 +16,7 @@ export default function Navbar() {
     setDropdownOpen(!dropdownOpen);
   };
   // document.body.dir = i18n.dir();
-  const [activeLanguage, setActiveLanguage] = useState();
+  const [activeLanguage, setActiveLanguage] = useState("English");
   const languages = ["English", "عربي"];
   const storedLanguage = Cookies.get("selectedLanguage");
   const handleLanguageChange = (language) => {
