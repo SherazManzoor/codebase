@@ -14,6 +14,7 @@ import { I18nextProvider } from "react-i18next";
 import Backend from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 import i18n from "./i18n";
+import Pricing from './routes/components/Pricing';
 i18n
   .use(Backend)
   .use(LanguageDetector)
@@ -38,7 +39,8 @@ root.render(
       <Route path="/chatbot" element={<Chatbot />} />
       <Route path="/create-new-chatbot" element={<CreateChatbot />} />
        <Route path="/open-chatbot" element={<OpenChatbot />} />
-      
+       <Route path="/pricing" element={<Pricing />} />
+
       </Routes>
       <Footer/>
     </Router>
