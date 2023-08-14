@@ -57,8 +57,8 @@ export default function Pricing() {
                     <h2 className="text-2xl leading-6 font-semibold text-black">
                       {t("Free")}
                     </h2>
-                    <div className="py-4">
-                      <li   style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex space-x-2 mb-3 items-center">
+                    <div style={{ direction: isRTL ? "rtl" : "ltr" }} className="py-4">
+                      <li     className="flex space-x-2 mb-3 items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
@@ -72,7 +72,7 @@ export default function Pricing() {
                           {t("30 message credits/month")}
                         </span>
                       </li>
-                      <li style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex space-x-2 mb-3 items-center">
+                      <li   className="flex space-x-2 mb-3 items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
@@ -86,7 +86,7 @@ export default function Pricing() {
                           {t("1 chatbot")}
                         </span>
                       </li>
-                      <li style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex space-x-2 mb-3 items-center">
+                      <li   className="flex space-x-2 mb-3 items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
@@ -100,7 +100,7 @@ export default function Pricing() {
                           {t("400,000 characters/chatbot")}
                         </span>
                       </li>
-                      <li style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex space-x-2 mb-3 items-center">
+                      <li   className="flex space-x-2 mb-3 items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
@@ -114,7 +114,7 @@ export default function Pricing() {
                           {t("Embed on unlimited websites")}
                         </span>
                       </li>
-                      <li style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex space-x-2 mb-3 items-center">
+                      <li   className="flex space-x-2 mb-3 items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
@@ -128,7 +128,7 @@ export default function Pricing() {
                           {t("Upload multiple files")}
                         </span>
                       </li>
-                      <li style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex space-x-2 mb-3 items-center">
+                      <li   className="flex space-x-2 mb-3 items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
@@ -142,7 +142,7 @@ export default function Pricing() {
                           {t("View conversation history")}
                         </span>
                       </li>
-                      <li style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex space-x-2 mb-3 items-center">
+                      <li   className="flex space-x-2 mb-3 items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
@@ -156,7 +156,7 @@ export default function Pricing() {
                           {t("Capture leads")}
                         </span>
                       </li>
-                      <li style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex space-x-2 mb-3 items-center">
+                      <li   className="flex space-x-2 mb-3 items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
@@ -183,7 +183,7 @@ export default function Pricing() {
                         disabled
                         type="button"
                       >
-                        Signed in
+                        {t("Signed in")}
                       </button>
                     </a>
                   </div>
@@ -193,9 +193,9 @@ export default function Pricing() {
                 <div className="p-4 flex flex-col justify-between h-full">
                   <div>
                     <h2 className="text-2xl leading-6 font-semibold text-black">
-                      Hobby
+                      {t("Hobby")}
                     </h2>
-                    <div className="py-4">
+                    <div  style={{ direction: isRTL ? "rtl" : "ltr" }} className="py-4">
                       <li className="flex space-x-2 mb-3">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -211,7 +211,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          2,000 message credits/month
+                          {t("2,000 message credits/month")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -229,7 +229,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          2 chatbots
+                          {t("2 chatbots")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -247,7 +247,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          11,000,000 characters/chatbot
+                          {t("11,000,000 characters/chatbot")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -265,7 +265,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Embed on unlimited websites
+                          {t("Embed on unlimited websites")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -283,7 +283,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Upload multiple files
+                          {t("Upload multiple files")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -301,7 +301,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          View conversation history
+                          {t("View conversation history")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -319,7 +319,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Capture leads
+                          {t("Capture leads")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -337,7 +337,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          API access
+                          {t("API access")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -355,7 +355,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Zapier integration
+                          {t("Zapier integration")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -373,7 +373,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Slack integration
+                          {t("Slack integration")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -391,7 +391,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Wordpress integration
+                          {t("Wordpress integration")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -409,7 +409,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Messenger integration (coming soon)
+                          {t("Messenger integration (coming soon)")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -427,7 +427,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          WhatsApp integration (coming soon)
+                          {t("WhatsApp integration (coming soon)")}
                         </span>
                       </li>
                     </div>
@@ -445,7 +445,7 @@ export default function Pricing() {
                       disabled=""
                       type="button"
                     >
-                      Subscribe
+                      {t("Subscribe")}
                     </button>
                   </div>
                 </div>
@@ -454,9 +454,9 @@ export default function Pricing() {
                 <div className="p-4 flex flex-col justify-between h-full">
                   <div>
                     <h2 className="text-2xl leading-6 font-semibold text-black">
-                      Standard
+                      {t("Standard")}
                     </h2>
-                    <div className="py-4">
+                    <div style={{ direction: isRTL ? "rtl" : "ltr" }} className="py-4">
                       <li className="flex space-x-2 mb-3">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -472,7 +472,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          10,000 message credits/month
+                          {t("10,000 message credits/month")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
