@@ -19,7 +19,7 @@ export default function Pricing() {
         <section className="bg-white">
           <div className=" max-w-7xl mx-auto py-8 sm:py-24 px-4 sm:px-6 lg:px-8">
             <div className="sm:flex sm:flex-col sm:align-center">
-              <h1 className="text-4xl font-extrabold text-black sm:text-center sm:text-6xl">
+              <h1 className="text-4xl font-extrabold text-black py-4 sm:text-center sm:text-6xl">
                 {t("Pricing Plans")}
               </h1>
               <p className="mt-6 text-center">
@@ -436,7 +436,7 @@ export default function Pricing() {
                     <p className="mt-8">
                       <span className="text-3xl font-bold white">{prices[0]}</span>
                       <span className="text-base font-medium text-zinc-900">
-                        / month
+                        / {t("month")}
                       </span>
                     </p>
                     <button
@@ -490,7 +490,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          5 chatbots
+                          {t("5 chatbots")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -508,7 +508,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          11,000,000 characters/chatbot
+                          {t("11,000,000 characters/chatbot")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -526,7 +526,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Embed on unlimited websites
+                          {t("Embed on unlimited websites")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -544,7 +544,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Upload multiple files
+                          {t("Upload multiple files")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -562,7 +562,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          View conversation history
+                          {t("View conversation history")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -580,7 +580,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Capture leads
+                          {t("Capture leads")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -598,7 +598,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          API access
+                          {t("API access")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -616,7 +616,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Zapier integration
+                          {t("Zapier integration")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -634,7 +634,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Slack integration
+                          {t("Slack integration")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -652,7 +652,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Wordpress integration
+                          {t("Wordpress integration")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -670,7 +670,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Messenger integration (coming soon)
+                          {t("Messenger integration (coming soon)")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -688,7 +688,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          WhatsApp integration (coming soon)
+                          {t("WhatsApp integration (coming soon)")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -706,7 +706,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Option to Choose GPT-4
+                          {t("Option to Choose GPT-4")}
                         </span>
                       </li>
                     </div>
@@ -715,7 +715,7 @@ export default function Pricing() {
                     <p className="mt-8">
                       <span className="text-3xl font-bold white">{prices[1]}</span>
                       <span className="text-base font-medium text-zinc-900">
-                        / month
+                        / {t("month")}
                       </span>
                     </p>
                     <button
@@ -724,7 +724,7 @@ export default function Pricing() {
                       disabled=""
                       type="button"
                     >
-                      Subscribe
+                      {t("Subscribe")}
                     </button>
                   </div>
                 </div>
@@ -733,9 +733,9 @@ export default function Pricing() {
                 <div className="p-4 flex flex-col justify-between h-full">
                   <div>
                     <h2 className="text-2xl leading-6 font-semibold text-black">
-                      Unlimited
+                      {t("Unlimited")}
                     </h2>
-                    <div className="py-4">
+                    <div style={{ direction: isRTL ? "rtl" : "ltr" }} className="py-4">
                       <li className="flex space-x-2 mb-3">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -751,8 +751,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          40,000 message credits/month included (Messages over
-                          the limit will use your OpenAI API Key)
+                          {t("40,000 message credits/month included (Messages over the limit will use your OpenAI API Key)")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -770,7 +769,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          10 chatbots
+                          {t("10 chatbots")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -788,7 +787,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          11,000,000 characters/chatbot
+                          {t("11,000,000 characters/chatbot")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -806,7 +805,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Embed on unlimited websites
+                          {t("Embed on unlimited websites")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -824,7 +823,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Upload multiple files
+                          {t("Upload multiple files")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -842,7 +841,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          View conversation history
+                          {t("View conversation history")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -860,7 +859,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Capture leads
+                          {t("Capture leads")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -878,7 +877,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          API access
+                          {t("API access")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -896,7 +895,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Zapier integration
+                          {t("Zapier integration")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -914,7 +913,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Slack integration
+                          {t("Slack integration")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -932,7 +931,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Wordpress integration
+                          {t("Wordpress integration")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -950,7 +949,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Messenger integration (coming soon)
+                          {t("Messenger integration (coming soon)")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -968,7 +967,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          WhatsApp integration (coming soon)
+                          {t("WhatsApp integration (coming soon)")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -986,7 +985,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Option to Choose GPT-4
+                          {t("Option to Choose GPT-4")}
                         </span>
                       </li>
                       <li className="flex space-x-2 mb-3">
@@ -1004,7 +1003,7 @@ export default function Pricing() {
                           ></path>
                         </svg>
                         <span className="text-sm font-semibold text-zinc-700">
-                          Remove &#x27;Powered by ALAMEEN &#x27;
+                          {t("Remove &#x27;Powered by ALAMEEN &#x27;")}
                         </span>
                       </li>
                     </div>
@@ -1013,7 +1012,7 @@ export default function Pricing() {
                     <p className="mt-8">
                       <span className="text-3xl font-bold white">{prices[2]}</span>
                       <span className="text-base font-medium text-zinc-900">
-                        / month
+                        / {t("month")}
                       </span>
                     </p>
                     <button
@@ -1022,7 +1021,7 @@ export default function Pricing() {
                       disabled=""
                       type="button"
                     >
-                      Subscribe
+                      {t("Subscribe")}
                     </button>
                   </div>
                 </div>
@@ -1030,7 +1029,7 @@ export default function Pricing() {
             </div>
             <div>
               <div className="py-16">
-                <h4 className="text-3xl font-extrabold text-black ">Add-ons</h4>
+                <h4 className="text-3xl font-extrabold text-black ">{t("Add-ons")}</h4>
                 <ul
                   role="list"
                   className="mt-8 grid grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-2 "
@@ -1039,19 +1038,19 @@ export default function Pricing() {
                     <div className="p-4 flex flex-col justify-between h-full">
                       <div>
                         <h2 className="text-2xl leading-6 font-semibold text-black">
-                          Extra message credits
+                          {t("Extra message credits")}
                         </h2>
                       </div>
-                      <p className=" my-5">
+                      <p style={{ direction: isRTL ? "rtl" : "ltr" }} className=" my-5">
                         <span className=" font-semibold ">
-                          $7 per 1000 msg credit s
+                         {t("$7 per 1000 msg credit s")}
                         </span>
                         <span className="text-base font-medium text-zinc-900">
-                          /month
+                          /{t("month")}
                         </span>
                       </p>
-                      <div className="flex">
-                        I want
+                      <div style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex">
+                        {t("I want")}
                         <input
                           type="number"
                           step="1000"
@@ -1059,10 +1058,10 @@ export default function Pricing() {
                           className="min-w-0 p-1 mx-1 px-1 rounded-md border border-zinc-900/10 bg-white shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                           value="1000"
                         />
-                        extra msg credit s every month
+                        {t("extra msg credit s every month")}
                       </div>
-                      <p className="my-5 text-lg font-bold">
-                        Your Total: $7 / month
+                      <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="my-5 text-lg font-bold">
+                        {t("Your Total: $7 / month")}
                       </p>
                       <div className="">
                         <button
@@ -1071,7 +1070,7 @@ export default function Pricing() {
                           disabled=""
                           type="button"
                         >
-                          Get Add-on
+                          {t("Get Add-on")}
                         </button>
                       </div>
                     </div>
@@ -1080,19 +1079,19 @@ export default function Pricing() {
                     <div className="p-4 flex flex-col justify-between h-full">
                       <div>
                         <h2 className="text-2xl leading-6 font-semibold text-black">
-                          Extra chatbots
+                          {t("Extra chatbots")}
                         </h2>
                       </div>
-                      <p className=" my-5">
+                      <p style={{ direction: isRTL ? "rtl" : "ltr" }} className=" my-5">
                         <span className=" font-semibold ">
-                          $7 per 1 chatbot s
+                          {t("$7 per 1 chatbot s")}
                         </span>
                         <span className="text-base font-medium text-zinc-900">
-                          /month
+                          /{t("month")}
                         </span>
                       </p>
-                      <div className="flex">
-                        I want
+                      <div style={{ direction: isRTL ? "rtl" : "ltr" }} className="flex">
+                        {t("I want")}
                         <input
                           type="number"
                           step="1"
@@ -1100,10 +1099,10 @@ export default function Pricing() {
                           className="min-w-0 p-1 mx-1 px-1 rounded-md border border-zinc-900/10 bg-white shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                           value="1"
                         />
-                        extra chatbot
+                        {t("extra chatbot")}
                       </div>
-                      <p className="my-5 text-lg font-bold">
-                        Your Total: $7 / month
+                      <p style={{ direction: isRTL ? "rtl" : "ltr" }} className="my-5 text-lg font-bold">
+                        {t("Your Total: $7 / month")}
                       </p>
                       <div className="">
                         <button
@@ -1112,23 +1111,23 @@ export default function Pricing() {
                           disabled=""
                           type="button"
                         >
-                          Get Add-on
+                          {t("Get Add-on")}
                         </button>
                       </div>
                     </div>
                   </div>
                   <div className="rounded-lg shadow-sm divide-y divide-zinc-400 bg-zinc-100 min-h-[15rem]">
                     <div className="p-4 flex flex-col justify-between h-full">
-                      <h2 className="text-2xl leading-6 font-semibold text-black">
-                        Remove &#x27;Powered By ALAMEEN &#x27;
+                      <h2  className="text-2xl leading-6 font-semibold text-black">
+                        {t("Remove &#x27;Powered by ALAMEEN &#x27;")}
                       </h2>
-                      <p>
-                        Remove the ALAMEEN branding from the iframe and widget
+                      <p style={{ direction: isRTL ? "rtl" : "ltr" }}>
+                        {t("Remove the ALAMEEN branding from the iframe and widget")}
                       </p>
                       <p className=" text-3xl">
                         <span className=" font-semibold ">$39</span>
                         <span className="text-base font-medium text-zinc-900">
-                          /month
+                          /{t("month")}
                         </span>
                       </p>
                       <div className="">
@@ -1138,7 +1137,7 @@ export default function Pricing() {
                           disabled=""
                           type="button"
                         >
-                          Get Add-on
+                          {t("Get Add-on")}
                         </button>
                       </div>
                     </div>
@@ -1146,11 +1145,11 @@ export default function Pricing() {
                 </ul>
               </div>
             </div>
-            <div className="py-16">
+            <div  className="py-16">
               <h4 className="text-3xl font-extrabold text-black ">
-                Pricing FAQs
+                {t("Pricing FAQs")}
               </h4>
-              <ul
+              <ul style={{ direction: isRTL ? "rtl" : "ltr" }}
                 role="list"
                 className="mt-8 grid grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-2"
               >
@@ -1158,56 +1157,42 @@ export default function Pricing() {
                   <ul role="list" className="flex flex-col gap-y-8">
                     <li>
                       <h3 className="font-display text-lg leading-7 text-slate-900">
-                        Is there a free plan?
+                        {t("Is there a free plan?")}
                       </h3>
                       <p className="mt-4 text-slate-700">
-                        Yes, just by signing up you get 30 message credits and 1
-                        chatbot (400k characters). You can use these to test out
-                        ALAMEEN and see if it works for you.
+                       {t("Ans1")}
                       </p>
                     </li>
                     <li>
                       <h3 className="font-display text-lg leading-7 text-slate-900">
-                        How do message credits work?
+                        {t("How do message credits work?")}
                       </h3>
                       <p className="mt-4 text-slate-700">
-                        One AI response with gpt-3.5-turbo (the default) costs 1
-                        message credit. One AI response with gpt-4 costs 20
-                        message credits. You can change which model your chatbot
-                        uses in the chatbot settings. The difference is because
-                        gpt-4 costs 15x (prompt tokens) and 30x (completion
-                        tokens) what gpt-3.5-turbo costs on OpenAI.
+                        {t("Ans2")}
                       </p>
                     </li>
                     <li>
                       <h3 className="font-display text-lg leading-7 text-slate-900">
-                        What counts as one chatbot?
+                        {t("What counts as one chatbot?")}
                       </h3>
                       <p className="mt-4 text-slate-700">
-                        One chatbot means a chatbot that contains specific data
-                        and can answer any question about this data. Even if it
-                        was created using multiple documents.
+                       {t("Ans3")}
                       </p>
                     </li>
                     <li>
                       <h3 className="font-display text-lg leading-7 text-slate-900">
-                        How many users can use my chatbot?
+                        {t("How many users can use my chatbot?")}
                       </h3>
                       <p className="mt-4 text-slate-700">
-                        If your chatbot is private, only you have access to it.
-                        If you decide to make it public, anyone with the link
-                        will be able to interact with it.
+                       {t("Ans4")}
                       </p>
                     </li>
                     <li>
                       <h3 className="font-display text-lg leading-7 text-slate-900">
-                        When are my message credits renewed?
+                       {t(" When are my message credits renewed?")}
                       </h3>
                       <p className="mt-4 text-slate-700">
-                        Your message credits are renewed at the start of every
-                        calendar month regardless of when you subscribed. So if
-                        you subscribe on the 15th of March, your credits will be
-                        renewed on the 1st of April.
+                      {t("Ans5")}
                       </p>
                     </li>
                   </ul>
@@ -1216,43 +1201,34 @@ export default function Pricing() {
                   <ul role="list" className="flex flex-col gap-y-8">
                     <li>
                       <h3 className="font-display text-lg leading-7 text-slate-900">
-                        How do I know how many characters are in my document?
+                       {t(" How do I know how many characters are in my document?")}
                       </h3>
                       <p className="mt-4 text-slate-700">
-                        Once you attach your document(s) for upload, ALAMEEN
-                        will show you the character count of all the attached
-                        documents.
+                        {t("Ans6")}
                       </p>
                     </li>
                     <li>
                       <h3 className="font-display text-lg leading-7 text-slate-900">
-                        Can I upload multiple files to one chatbot?
+                        {t("Can I upload multiple files to one chatbot?")}
                       </h3>
                       <p className="mt-4 text-slate-700">
-                        Yes, if you have a paid plan you can upload multiple
-                        files to one chatbot. Just click ctrl (windows) or cmd
-                        (mac) and select as many files as you want.
+                       {t("Ans7")}
                       </p>
                     </li>
                     <li>
                       <h3 className="font-display text-lg leading-7 text-slate-900">
-                        How much data can I give one chatbot?
+                        {t("How much data can I give one chatbot?")}
                       </h3>
                       <p className="mt-4 text-slate-700">
-                        Free plan: 400K Characters (~5MB) |
-                        Hobby/Standard/Unlimited: 11M Characters (~140MB)
+                        {t("Ans8")}
                       </p>
                     </li>
                     <li>
                       <h3 className="font-display text-lg leading-7 text-slate-900">
-                        How does the unlimited plan work?
+                        {t("How does the unlimited plan work?")}
                       </h3>
                       <p className="mt-4 text-slate-700">
-                        You get 40,000 message credits included in the plan when
-                        you subscribe. Every message after that will use your
-                        OpenAI API key that you can add in your account page. So
-                        you get the cheapest possible price per message after
-                        you hit the limit.
+                       {t("Ans9")}
                       </p>
                     </li>
                   </ul>
