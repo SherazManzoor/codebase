@@ -27,8 +27,11 @@ export default function Home() {
                         )}
                       </p>
                       <div className="mt-10 flex items-center justify-center gap-x-6">
-                        <a  
-                          style={{ backgroundColor: "#6f44fc" , direction: isRTL ? "rtl" : "ltr"}}
+                        <a
+                          style={{
+                            backgroundColor: "#6f44fc",
+                            direction: isRTL ? "rtl" : "ltr",
+                          }}
                           className="rounded-md px-4 py-2 text-base font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                           href="/create-new-chatbot"
                         >
@@ -72,7 +75,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div
+                {/* <div
                   id="video"
                   style={{ direction: isRTL ? "rtl" : "ltr" }}
                   className="py-16"
@@ -98,7 +101,7 @@ export default function Home() {
                       <source src="https://backend.chatbase.co/storage/v1/object/public/chatbase/producthunt-demo.mp4" />
                     </video>
                   </div>
-                </div>
+                </div> */}
                 <div className="mx-auto max-w-4xl">
                   <div
                     id="demo"
