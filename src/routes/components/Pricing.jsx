@@ -19,7 +19,7 @@ export default function Pricing() {
         <section className="bg-white">
           <div className=" max-w-7xl mx-auto py-8 sm:py-24 px-4 sm:px-6 lg:px-8">
             <div className="sm:flex sm:flex-col sm:align-center">
-              <h1 className="text-4xl font-extrabold text-black py-4 sm:text-center sm:text-6xl">
+              <h1 className="text-4xl font-extrabold text-black pt-20 md:py-4 sm:text-center sm:text-6xl">
                 {t("Pricing Plans")}
               </h1>
               <p className="mt-6 text-center">
