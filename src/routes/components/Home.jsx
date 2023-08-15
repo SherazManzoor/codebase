@@ -27,8 +27,8 @@ export default function Home() {
                         )}
                       </p>
                       <div className="mt-10 flex items-center justify-center gap-x-6">
-                        <a
-                          style={{ backgroundColor: "#6f44fc" }}
+                        <a  
+                          style={{ backgroundColor: "#6f44fc" , direction: isRTL ? "rtl" : "ltr"}}
                           className="rounded-md px-4 py-2 text-base font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                           href="/create-new-chatbot"
                         >
