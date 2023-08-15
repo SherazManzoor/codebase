@@ -8,6 +8,23 @@ import logoen from "../../images/logo-en.png";
 import logoar from "../../images/logo-ar.png";
 
 export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -52,12 +69,13 @@ export default function Navbar() {
     <div>
       <header className="absolute inset-x-0 top-0 z-50">
         <nav
-          className="flex items-center justify-between p-6 lg:px-8"
+          className={`flex items-center justify-between p-4 lg:px-8 ${
+            isScrolled ? "shadow-md bg-white" : "bg-transparent" // Add shadow class when scrolled
+          }`}
           aria-label="Global"
           style={{
             position: "fixed",
             width: "100%",
-            backgroundColor: "transparent",
           }}
         >
           {" "}
@@ -164,10 +182,10 @@ export default function Navbar() {
               <a href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
                 {activeLanguage === "English" ? (
-                <img className="h-10 w-auto" src={logoen} alt="" />
-              ) : (
-                <img className="h-10 w-auto" src={logoar} alt="" />
-              )}
+                  <img className="h-10 w-auto" src={logoen} alt="" />
+                ) : (
+                  <img className="h-10 w-auto" src={logoar} alt="" />
+                )}
               </a>
               <button
                 type="button"
