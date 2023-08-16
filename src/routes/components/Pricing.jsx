@@ -13,6 +13,27 @@ export default function Pricing() {
     const handleToggle = () => {
       setIsMonthlyBilling(!isMonthlyBilling);
     };
+
+
+      //   Reset Limit Range
+  const [Limit, setLimit] = useState(1000);
+
+  const defaultLimit = 1000;
+  
+  const handleLimitChange = (event) => {
+    const newValue = parseInt(event.target.value);
+    setLimit(newValue);
+  };
+
+
+  const [Extra, setExtra] = useState(1);
+
+  const defaultExtra = 1;
+  
+  const handleExtraChange = (event) => {
+    const newValue = parseInt(event.target.value);
+    setExtra(newValue);
+  };
   return (
     <div>
       <main id="skip">
@@ -1055,8 +1076,12 @@ export default function Pricing() {
                           type="number"
                           step="1000"
                           min="1000"
+                          value={Limit}
+                          defaultValue={defaultLimit}
+                          onChange={handleLimitChange}
+                        
                           className="min-w-0 p-1 mx-1 px-1 rounded-md border border-zinc-900/10 bg-white shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
-                          value="1000"
+                          
                         />
                         {t("extra msg credit s every month")}
                       </div>
@@ -1097,7 +1122,10 @@ export default function Pricing() {
                           step="1"
                           min="1"
                           className="min-w-0 p-1 mx-1 px-1 rounded-md border border-zinc-900/10 bg-white shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
-                          value="1"
+                          value={Extra}
+                          defaultValue={defaultExtra}
+                          onChange={handleExtraChange}
+                        
                         />
                         {t("extra chatbot")}
                       </div>
