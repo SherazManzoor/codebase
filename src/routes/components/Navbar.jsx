@@ -7,7 +7,7 @@ import Cookies from "js-cookie"; // Import the js-cookie library
 import logoen from "../../images/logo-en.png";
 import logoar from "../../images/logo-ar.png";
 
-export default function Navbar() {
+export default function Navbar({activeLanguage, setActiveLanguage}) {
   const isMobile = window.innerWidth <= 767;
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,7 +36,7 @@ export default function Navbar() {
     setDropdownOpen(!dropdownOpen);
   };
   // document.body.dir = i18n.dir();
-  const [activeLanguage, setActiveLanguage] = useState("English");
+
   const languages = ["English", "عربي"];
   const storedLanguage = Cookies.get("selectedLanguage");
   const handleLanguageChange = (language) => {

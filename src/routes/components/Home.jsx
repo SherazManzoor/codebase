@@ -1,8 +1,32 @@
-import React from "react";
+import {React, useState ,useEffect} from "react";
 import ChatbotFrame from "./ChatbotFrame";
 import { useTranslation } from "react-i18next";
 export default function Home() {
   const { t, i18n } = useTranslation();
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Add your screen size detection logic here
+  useEffect(() => {
+    const handleResize = () => {
+      // Example logic to set isMobile based on screen width
+      if (window.innerWidth <= 767) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    };
+
+    // Attach the resize event listener
+    window.addEventListener("resize", handleResize);
+
+    // Initial check when the component mounts
+    handleResize();
+
+    // Remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const isRTL = i18n.dir() === "rtl";
   return (
@@ -447,6 +471,58 @@ export default function Home() {
                           </div>
                         </figcaption>
                       </figure>
+
+                      {isMobile && (
+                        <div className="space-y-8 xl:contents xl:space-y-0">
+                          <div className="xl:row-span-2 space-y-8">
+                            <figure className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5">
+                              <div className="flex justify-end">
+                                <a
+                                  aria-label="Twitter Account"
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  href="https://twitter.com/jacobandreou/status/1632423894832545794"
+                                >
+                                  <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                                fill="currentColor"
+                              ></path>
+                            </svg>
+                                </a>
+                              </div>
+                              <blockquote className="text-gray-900">
+                                <p style={{ direction: isRTL ? "rtl" : "ltr" }}>
+                                  {t("testimonial1")}
+                                </p>
+                              </blockquote>
+                              <figcaption className="mt-6 flex items-center gap-x-4">
+                                <img
+                                  className="h-10 w-10 rounded-full bg-gray-50"
+                                  src="https://pbs.twimg.com/profile_images/1642428370091925505/xknh7v7j_400x400.jpg"
+                                  alt=""
+                                />
+                                <div>
+                                  <div className="font-semibold">
+                                  {t("Abdullah Abdulaziz")}
+                            </div>
+                            <div className="text-gray-600">
+                              {t("Chief Executive Officer")}
+                                  </div>
+                                </div>
+                              </figcaption>
+                            </figure>
+                          </div>
+                        </div>
+                      )}
                       <div className="space-y-8 xl:contents xl:space-y-0">
                         <div className="xl:row-span-2 space-y-8">
                           <figure className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5">
