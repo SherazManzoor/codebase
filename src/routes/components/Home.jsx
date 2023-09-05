@@ -5,24 +5,16 @@ export default function Home() {
   const { t, i18n } = useTranslation();
   const [isMobile, setIsMobile] = useState(false);
 
-  // Add your screen size detection logic here
   useEffect(() => {
     const handleResize = () => {
-      // Example logic to set isMobile based on screen width
       if (window.innerWidth <= 767) {
         setIsMobile(true);
       } else {
         setIsMobile(false);
       }
     };
-
-    // Attach the resize event listener
     window.addEventListener("resize", handleResize);
-
-    // Initial check when the component mounts
     handleResize();
-
-    // Remove the event listener when the component unmounts
     return () => {
       window.removeEventListener("resize", handleResize);
     };
