@@ -8,7 +8,22 @@ import logoen from "../../images/logo-en.png";
 import logoar from "../../images/logo-ar.png";
 
 export default function Navbar({activeLanguage, setActiveLanguage}) {
-  const isMobile = window.innerWidth <= 767;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 767) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const [isScrolled, setIsScrolled] = useState(false);
 
