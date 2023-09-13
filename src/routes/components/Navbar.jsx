@@ -6,10 +6,10 @@ import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie"; // Import the js-cookie library
 import logoen from "../../images/logo-en.png";
 import logoar from "../../images/logo-ar.png";
-
+import { useNavigate } from "react-router-dom";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -62,7 +62,7 @@ export default function Navbar() {
     { name: t("pricing"), href: "/pricing" },
     { name: t("api"), href: "#" },
     { name: t("guide"), href: "#" },
-    { name: t("mychatbots"), href: "chatbot" },
+    { name: t("mychatbots"), href: "/chatbot" },
   ];
 
   return (
@@ -103,7 +103,9 @@ export default function Navbar() {
             {navigation.map((item) => (
               <a
                 key={item.name}
-                href={item.href}
+                onClick={() => {
+                  navigate(item.href);
+                }}
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 {item.name}

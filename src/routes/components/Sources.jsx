@@ -1,13 +1,17 @@
 import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-
+import api from "../../api";
+import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 export default function Sources() {
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const isRTL = i18n.dir() === "rtl";
   const fileInputRef = useRef(null);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const handleFileChange = (event) => {
     const newFiles = event.target.files;
+    console.log(event.target.files[0]);
     // Append the new files to the existing selectedFiles state
     setSelectedFiles((prevFiles) => [...prevFiles, ...Array.from(newFiles)]);
   };
@@ -18,6 +22,50 @@ export default function Sources() {
       prevFiles.filter((_, index) => index !== fileIndex)
     );
   };
+
+  async function createNewChatbot() {
+    try {
+      console.log("Creating ChatBot");
+      let values = {
+        model: "gpt-3.5-turbo",
+        embedding: "openai",
+      };
+
+      if (selectedType === "files") {
+        values.file = [];
+
+        selectedFiles.forEach((file, index) => {
+          let uid = uuidv4().toString();
+          // console.log(file);
+          file.uid = uid;
+          file.originFileObj = { uid };
+          values.file.push(file);
+        });
+        const response = await api.post(
+          `/bot/upload?embedding=${values.embedding}&model=${values.model}`,
+          values,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        console.log(JSON.stringify(response.data));
+        alert("Bot Created Successfully.");
+        navigate("/");
+      } else {
+        values.content = text;
+        console.log(values);
+        const response = await api.post("/bot", {
+          type: "text",
+          ...values,
+        });
+        console.log(JSON.stringify(response.data));
+        alert("Bot Created Successfully.");
+        // return response.data;
+      }
+    } catch (error) {}
+  }
   const handleFileClick = () => {
     fileInputRef.current.click(); // Trigger click on the hidden input element
   };
@@ -206,19 +254,19 @@ export default function Sources() {
                     <div>
                       <p className="font-semibold pb-2">
                         {t("Attached Files")}
-                        <span className="text-zinc-500 text-sm ml-1">
+                        {/* <span className="text-zinc-500 text-sm ml-1">
                           (236 chars)
-                        </span>
+                        </span> */}
                       </p>
                       {selectedFiles.map((file, index) => (
                         <>
                           <div className="grid grid-cols-10 pb-4">
                             <div key={index} className="col-span-9">
                               <span className="break-words">{file.name} </span>
-                              <span className="text-zinc-500 text-sm">
+                              {/* <span className="text-zinc-500 text-sm">
                                 {" "}
                                 (236 chars)
-                              </span>
+                              </span> */}
                             </div>
                             <div className="flex items-center justify-end">
                               <button onClick={() => handleFileDelete(index)}>
@@ -497,7 +545,7 @@ export default function Sources() {
               style={{ direction: isRTL ? "rtl" : "ltr" }}
             >
               {t("Total detected characters:")}
-              <span className="font-bold">0</span>
+              <span className="font-bold">{text.length}</span>
               <span className=" text-zinc-500">/400,000 {t("limit")}</span>
             </p>
             <div className="flex justify-center py-4">
@@ -507,7 +555,7 @@ export default function Sources() {
                   direction: isRTL ? "rtl" : "ltr",
                 }}
                 className="rounded-md w-full text-center py-2 text-base font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
-                href="/create-new-chatbot"
+                onClick={createNewChatbot}
               >
                 {t("Create Chatbot")}
               </a>

@@ -1,22 +1,100 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router";
+import { useQueryClient, useQuery } from "@tanstack/react-query";
+import api from "../../api";
 
 export default function Settings() {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.dir() === "rtl";
   const [selectedside, setSelectedside] = useState("General");
+  const [inputValueTemperature, setInputTemperatureValue] = useState(0);
+  const { id } = useParams();
+  const params = useParams();
+  const [data, setData] = useState();
+  const [appearanceData, setAppearanceData] = useState();
 
+  const client = useQueryClient();
+
+  useEffect(() => {
+    try {
+      async function getData() {
+        const response = await api.get(`/bot/${id}`);
+        console.log(JSON.stringify(response.data));
+        let tempdata = response.data.data;
+        setName(tempdata.name);
+        setInputTemperatureValue(parseFloat(tempdata.temperature));
+        setbase(tempdata.qaPrompt);
+        setData(tempdata);
+
+        const appearence_response = await api.get(
+          `/bot/appearance/${params.id}`
+        );
+        console.log(JSON.stringify(appearence_response.data));
+        setAppearanceData(appearence_response.data);
+        let appearanceTempData = appearence_response.data;
+        setMessage(appearanceTempData.data.first_message);
+        set_chatBot_public_name(appearanceTempData.data.bot_name);
+        setColor(
+          appearanceTempData.data.chat_human_bubble_style.background_color
+        );
+        setBubbleColor(
+          appearanceTempData.data.chat_bot_bubble_style.background_color
+        );
+      }
+      getData();
+    } catch (error) {
+      alert("Error: " + error);
+    }
+  }, []);
+
+  // let { data, status } = useQuery(["getBotSettings", id], async () => {
+  //   const response = await api.get(`/bot/${id}`);
+  //   //console.log(JSON.stringify(response.data));
+  //   let data = response.data.data;
+  //   setName(data.name);
+  //   setInputTemperatureValue(parseFloat(data.temperature));
+  //   setbase(data.qaPrompt);
+
+  //   return data;
+  // });
   const handlesideClick = (event) => {
     event.preventDefault();
     setSelectedside(event.target.getAttribute("href"));
   };
 
-  const [inputValue, setInputValue] = useState(0);
+  const saveNewData = async () => {
+    try {
+      console.log(JSON.stringify(data));
+      const response = await api.put(`/bot/${params.id}`, data);
+      alert("Updated Successfully");
+      return response.data;
+    } catch (error) {
+      console.log(JSON.stringify(error));
+      alert("Something went wrong");
+    }
+  };
 
-  const handleInputChange = (event) => {
+  const saveAppearenceNewData = async () => {
+    try {
+      console.log(JSON.stringify(appearanceData));
+      const response = await api.post(
+        `/bot/appearance/${params.id}`,
+        appearanceData.data
+      );
+      alert("Updated Successfully");
+      return response.data;
+    } catch (error) {
+      console.log(JSON.stringify(error));
+      alert("Something went wrong");
+    }
+  };
+
+  const handleTemperatureChange = (event) => {
     const newValue = parseFloat(event.target.value);
-    setInputValue(newValue);
+    setInputTemperatureValue(newValue);
+    data.temperature = parseFloat(newValue);
   };
 
   const [showDomain, setShowDomain] = useState(false);
@@ -81,6 +159,7 @@ export default function Settings() {
   const handleNameChange = (event) => {
     const newValue = event.target.value;
     setName(newValue);
+    data.name = newValue;
   };
   const handleNameReset = () => {
     setName(defaultName); // Reset the value to the default
@@ -114,21 +193,32 @@ export default function Settings() {
   const handleMessageChange = (event) => {
     const newValue = event.target.value;
     setMessage(newValue);
+    appearanceData.data.first_message = newValue;
   };
   const handleMessageReset = () => {
     setMessage(defaultMessage); // Reset the value to the default
   };
- //Reset Base Prompt Message
- const [base, setbase] = useState("I want you to act as a document that I am having a conversation with. Your name is 'AI Assistant'. You will provide me with answers from the given info. If the answer is not included, say exactly 'Hmm, I am not sure.' and stop after that. Refuse to answer any question not about the info. Never break character.");
- let defaultbase = "I want you to act as a document that I am having a conversation with. Your name is 'AI Assistant'. You will provide me with answers from the given info. If the answer is not included, say exactly 'Hmm, I am not sure.' and stop after that. Refuse to answer any question not about the info. Never break character.";
+  //Reset Base Prompt Message
+  const [base, setbase] = useState(
+    "You are a helpful AI assistant. Use the following pieces of context to answer the question at the end. If you don't know the answer, just say you don't know. DO NOT try to make up an answer. If the question is not related to the context, politely respond that you are tuned to only answer questions that are related to the context.  {context}  Question: {question} Helpful answer in markdown:"
+  );
+  let defaultbase =
+    "You are a helpful AI assistant. Use the following pieces of context to answer the question at the end. If you don't know the answer, just say you don't know. DO NOT try to make up an answer. If the question is not related to the context, politely respond that you are tuned to only answer questions that are related to the context.  {context}  Question: {question} Helpful answer in markdown:";
 
- const baseChange = (event) => {
-   const newValue = event.target.value;
-   setbase(newValue);
- };
- const baseReset = () => {
-   setbase(defaultbase); // Reset the value to the default
- };
+  const baseChange = (event) => {
+    const newValue = event.target.value;
+    setbase(newValue);
+    data.qaPrompt = newValue;
+  };
+  const baseReset = () => {
+    setbase(defaultbase); // Reset the value to the default
+    data.qaPrompt = defaultbase;
+  };
+  const [chatBot_public_name, set_chatBot_public_name] = useState("");
+  const handle_chatBot_public_nameChange = (event) => {
+    set_chatBot_public_name(event.target.value);
+    appearanceData.data.bot_name = event.target.value;
+  };
   //   Set Textarea value to button
   const [textareaValue, setTextareaValue] = useState("");
   const handleTextareaChange = (event) => {
@@ -162,9 +252,11 @@ export default function Settings() {
   const handleColorChange = (event) => {
     const newValue = event.target.value;
     setColor(newValue);
+    appearanceData.data.chat_human_bubble_style.background_color = newValue;
   };
   const handleColorReset = () => {
     setColor(defaultColor);
+    appearanceData.data.chat_human_bubble_style.background_color = defaultColor;
   };
 
   const [BubbleColor, setBubbleColor] = useState("black");
@@ -173,9 +265,12 @@ export default function Settings() {
   const handleBubbleColorChange = (event) => {
     const newValue = event.target.value;
     setBubbleColor(newValue);
+    appearanceData.data.chat_bot_bubble_style.background_color = newValue;
   };
   const handleBubbleColorReset = () => {
     setBubbleColor(defaultBubbleColor);
+    appearanceData.data.chat_bot_bubble_style.background_color =
+      defaultBubbleColor;
   };
   // align bubble icon
   const [justifyContentValue, setJustifyContentValue] = useState("flex-end");
@@ -244,7 +339,7 @@ export default function Settings() {
                         </a>
                       </li>
                       <li>
-                        <a
+                        {/* <a
                           href="Leads"
                           onClick={handlesideClick}
                           className={`text-gray-700 hover:text-violet-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold whitespace-nowrap ${
@@ -272,7 +367,7 @@ export default function Settings() {
                             ></path>
                           </svg>
                           {t("Leads")}
-                        </a>
+                        </a> */}
                       </li>
                       <li>
                         <a
@@ -329,7 +424,7 @@ export default function Settings() {
                     </label>
                     <div className="flex space-x-4 items-center mt-1">
                       <div id="textToCopy" className="font-semibold">
-                        cg4jKuFttHITHAOVYD24a{" "}
+                        {id}
                       </div>
                       <button
                         onClick={handleCopyClick}
@@ -373,13 +468,18 @@ export default function Settings() {
                         type="text"
                         placeholder={t("Chatbot Name")}
                         name="name"
+                        value={Name}
+                        onChange={handleNameChange}
                         className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900 "
                       />
                     </div>
                   </div>
                 </div>
                 <div className="flex justify-end bg-gray-100 px-5 py-3">
-                  <button className="inline-flex items-center justify-center text-sm transform-none normal-case rounded leading-6 transition ease-in-out duration-150 shadow-sm font-semibold text-center border focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 bg-zinc-700 text-zinc-200 border-zinc-600 cursor-not-allowed hover:text-zinc-200 hover:border-zinc-600 hover:bg-zinc-700 hover:cursor-pointer h-7 w-16">
+                  <button
+                    onClick={saveNewData}
+                    className="inline-flex items-center justify-center text-sm transform-none normal-case rounded leading-6 transition ease-in-out duration-150 shadow-sm font-semibold text-center border focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 bg-zinc-700 text-zinc-200 border-zinc-600 cursor-not-allowed hover:text-zinc-200 hover:border-zinc-600 hover:bg-zinc-700 hover:cursor-pointer h-7 w-16"
+                  >
                     {t("Save")}
                   </button>
                 </div>
@@ -399,7 +499,10 @@ export default function Settings() {
                       >
                         {t("Base Prompt (system message)")}
                       </label>
-                      <button onClick={baseReset} className="inline-flex items-center justify-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto">
+                      <button
+                        onClick={baseReset}
+                        className="inline-flex items-center justify-center rounded-md border border-transparent bg-zinc-200 py-1 px-2 text-sm font-medium text-black shadow-sm hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto"
+                      >
                         {t("Reset")}
                       </button>
                     </div>
@@ -409,12 +512,11 @@ export default function Settings() {
                         maxLength="5000"
                         rows="5"
                         style={{ direction: isRTL ? "rtl" : "ltr" }}
-                        value= {t(base)}
+                        value={t(base)}
                         defaultValue={t(base)}
                         onChange={baseChange}
                         className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
-                      >
-                      </textarea>
+                      ></textarea>
                     </div>
                   </div>
                   <div className="pb-8">
@@ -432,16 +534,16 @@ export default function Settings() {
                       <option value="gpt-3.5-turbo" selected>
                         gpt-3.5-turbo
                       </option>
-                      <option value="gpt-4" disabled>
+                      {/* <option value="gpt-4" disabled>
                         gpt-4
-                      </option>
+                      </option> */}
                     </select>
                     <p
                       style={{ direction: isRTL ? "rtl" : "ltr" }}
                       className="mt-2 text-sm text-zinc-500"
                     >
                       {t(
-                        "1 message using gpt-3.5-turbo costs 1 message credit. 1 message using gpt-4 costs 20 message credits."
+                        "1 message using gpt-3.5-turbo costs 1 message credit."
                       )}
                     </p>
                   </div>
@@ -452,16 +554,16 @@ export default function Settings() {
                     >
                       {t("Temperature")}
                     </label>
-                    <p className="text-sm">{inputValue}</p>
+                    <p className="text-sm">{inputValueTemperature}</p>
                     <input
                       id="steps-range"
                       type="range"
                       min="0"
                       max="1"
                       step="0.1"
-                      value={inputValue}
+                      value={inputValueTemperature}
                       className="w-full h-2 bg-gray-200 rounded-lg accent-violet-700 appearance-none cursor-pointer dark:bg-gray-700"
-                      onChange={handleInputChange}
+                      onChange={handleTemperatureChange}
                     />
                     <div className="flex justify-between">
                       <p className="text-zinc-700 text-xs">{t("Reserved")}</p>
@@ -470,7 +572,10 @@ export default function Settings() {
                   </div>
                 </div>
                 <div className="flex justify-end bg-gray-100 px-5 py-3">
-                  <button className="inline-flex items-center justify-center text-sm transform-none normal-case rounded leading-6 transition ease-in-out duration-150 shadow-sm font-semibold text-center border focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 bg-zinc-700 text-zinc-200 border-zinc-600 cursor-not-allowed hover:text-zinc-200 hover:border-zinc-600 hover:bg-zinc-700 hover:cursor-pointer h-7 w-16">
+                  <button
+                    onClick={saveNewData}
+                    className="inline-flex items-center justify-center text-sm transform-none normal-case rounded leading-6 transition ease-in-out duration-150 shadow-sm font-semibold text-center border focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 bg-zinc-700 text-zinc-200 border-zinc-600 cursor-not-allowed hover:text-zinc-200 hover:border-zinc-600 hover:bg-zinc-700 hover:cursor-pointer h-7 w-16"
+                  >
                     {t("Save")}
                   </button>
                 </div>
@@ -593,7 +698,7 @@ export default function Settings() {
                 </div>
 
                 <div>
-                  <div className="p-5">
+                  {/* <div className="p-5">
                     <div className="pb-8">
                       <div className="flex justify-between">
                         <label
@@ -650,9 +755,12 @@ export default function Settings() {
                         />
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="flex justify-end bg-gray-100 px-5 py-3">
-                    <button className="inline-flex items-center justify-center text-sm bg-black text-zinc-200 transform-none normal-case cursor-pointer rounded leading-6 transition ease-in-out duration-150 shadow-sm font-semibold text-center border-transparent focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 hover:bg-zinc-800 hover:text-white border h-7 w-16">
+                    <button
+                      onClick={saveNewData}
+                      className="inline-flex items-center justify-center text-sm bg-black text-zinc-200 transform-none normal-case cursor-pointer rounded leading-6 transition ease-in-out duration-150 shadow-sm font-semibold text-center border-transparent focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 hover:bg-zinc-800 hover:text-white border h-7 w-16"
+                    >
                       {t("Save")}
                     </button>
                   </div>
@@ -660,7 +768,7 @@ export default function Settings() {
               </div>
             </div>
           )}
-          {selectedside === "Leads" && (
+          {/* {selectedside === "Leads" && (
             <div className="col-span-12 sm:col-span-8 md:col-span-9">
               <div className="border border-gray-200 rounded mb-10">
                 <div className="border-b border-gray-200 bg-white py-4 px-5">
@@ -864,7 +972,7 @@ export default function Settings() {
                 </button>
               </div>
             </div>
-          )}
+          )} */}
           {selectedside === "Chat Interface" && (
             <div className="col-span-12 sm:col-span-8 md:col-span-9">
               <div className="border border-gray-200 rounded mb-10">
@@ -892,27 +1000,27 @@ export default function Settings() {
                           </button>
                         </div>
                         <div className="mt-1">
-                          <textarea style={{ direction: isRTL ? "rtl" : "ltr" }}
+                          <textarea
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
                             name="initial_messages"
                             defaultValue={t(defaultMessage)}
                             value={t(Message)}
                             onChange={handleMessageChange}
                             className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
                             maxLength="1000"
-                          >
-                            
-                          </textarea>
+                          ></textarea>
                           <p className="mt-2 text-sm text-zinc-500">
                             {t("Enter each message in a new line.")}
                           </p>
                         </div>
                       </div>
-                      <div className="pb-8">
+                      {/* <div className="pb-8">
                         <label className="block text-sm font-medium text-gray-700">
                           {t("Suggested Messages")}
                         </label>
                         <div className="mt-1">
-                          <textarea style={{ direction: isRTL ? "rtl" : "ltr" }}
+                          <textarea
+                            style={{ direction: isRTL ? "rtl" : "ltr" }}
                             name="suggested_messages"
                             placeholder={t("What is example.com?")}
                             value={textareaValue}
@@ -923,8 +1031,8 @@ export default function Settings() {
                             {t("Enter each message in a new line.")}
                           </p>
                         </div>
-                      </div>
-                      <div className="pb-8">
+                      </div> */}
+                      {/* <div className="pb-8">
                         <label className="block text-sm font-medium text-gray-700">
                           {t("Theme")}
                         </label>
@@ -938,8 +1046,8 @@ export default function Settings() {
                           </option>
                           <option value="dark">{t("dark")}</option>
                         </select>
-                      </div>
-                      <div className="pb-8">
+                      </div> */}
+                      {/* <div className="pb-8">
                         {!isCheckboxChecked && (
                           <>
                             {" "}
@@ -968,7 +1076,7 @@ export default function Settings() {
                           onChange={handleCheckboxChange}
                           className="h-4 w-4 rounded border-gray-300 text-violet-600 focus:ring-violet-600"
                         />
-                      </div>
+                      </div> */}
                       <div className="pb-8">
                         <label className="block text-sm font-medium text-gray-700">
                           {t("Display name")}
@@ -978,7 +1086,7 @@ export default function Settings() {
                             type="text"
                             name="name"
                             className="min-w-0 p-1 flex-auto w-full appearance-none rounded-md border border-zinc-900/10 bg-white px-3 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 sm:text-sm text-gray-900"
-                            value=""
+                            value={chatBot_public_name}
                           />
                         </div>
                       </div>
@@ -1022,7 +1130,7 @@ export default function Settings() {
                           "**If the changes here don 't show up immediately on your website try clearing your browser cache or use incognito. (New users will see the changes immediately)**"
                         )}
                       </p>
-                      <div className="pb-8">
+                      {/* <div className="pb-8">
                         {!isChatIconChecked && (
                           <>
                             {" "}
@@ -1052,7 +1160,7 @@ export default function Settings() {
                           name="should_remove_bot_profile_picture"
                           className="h-4 w-4 rounded border-gray-300 text-violet-600 focus:ring-violet-600"
                         />
-                      </div>
+                      </div> */}
                       <div className="pb-8">
                         <div className="flex justify-between ">
                           <label className="block text-sm font-medium text-gray-700">
@@ -1085,7 +1193,7 @@ export default function Settings() {
                           </div>
                         </div>
                       </div>
-                      <div className="pb-8">
+                      {/* <div className="pb-8">
                         <label className="block text-sm font-medium text-gray-700">
                           {t("Align Chat Bubble Button")}
                         </label>
@@ -1099,8 +1207,8 @@ export default function Settings() {
                           <option value="flex-end">{t("right")}</option>
                           <option value="flex-start">{t("left")}</option>
                         </select>
-                      </div>
-                      <div className="mt-1 text-sm text-zinc-700">
+                      </div> */}
+                      {/* <div className="mt-1 text-sm text-zinc-700">
                         {t("Auto show initial messages pop-ups after")}
 
                         <input
@@ -1114,7 +1222,7 @@ export default function Settings() {
                         />
 
                         {t("seconds (negative to disable)")}
-                      </div>
+                      </div> */}
                     </div>
                     <div className="flex-1 w-2/2 lg:w-1/2">
                       <div
@@ -1262,7 +1370,7 @@ export default function Settings() {
                   <button
                     data-variant="flat"
                     className="inline-flex items-center justify-center text-sm transform-none normal-case rounded leading-6 transition ease-in-out duration-150 shadow-sm font-semibold text-center border focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 bg-zinc-700 text-zinc-200 border-zinc-600 cursor-not-allowed hover:text-zinc-200 hover:border-zinc-600 hover:bg-zinc-700 hover:cursor-not-allowed h-7 w-16"
-                    disabled=""
+                    onClick={saveAppearenceNewData}
                   >
                     {t("Save")}
                   </button>

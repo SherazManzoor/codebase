@@ -5,9 +5,15 @@
   "dependencies": {
     "@headlessui/react": "^1.7.16",
     "@heroicons/react": "^2.0.18",
+    "@supabase/auth-helpers-react": "^0.4.2",
+    "@supabase/auth-ui-react": "^0.4.4",
+    "@supabase/auth-ui-shared": "^0.1.6",
+    "@supabase/supabase-js": "^2.33.1",
+    "@tanstack/react-query": "^4.33.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.5.0",
     "i18next": "^23.4.1",
     "i18next-browser-languagedetector": "^7.1.0",
     "i18next-http-backend": "^2.2.1",
@@ -18,7 +24,9 @@
     "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
     "react-tailwindcss-datepicker": "^1.6.6",
-    "web-vitals": "^2.1.4"
+    "uuid": "^9.0.1",
+    "web-vitals": "^2.1.4",
+    "zustand": "^4.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

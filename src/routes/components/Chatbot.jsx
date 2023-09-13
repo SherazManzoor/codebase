@@ -1,6 +1,14 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useQuery } from "@tanstack/react-query";
+import api from "../../api";
 export default function Chatbot() {
+  const { data, status } = useQuery(["getAllBots"], async () => {
+    const response = await api.get("/bot");
+    //console.log(JSON.stringify(response.data));
+    console.log("Total Length: " + response.data.length);
+    return response.data;
+  });
   const chatbots = [
     { name: "Chatbot 1" },
 
@@ -19,25 +27,22 @@ export default function Chatbot() {
                 <div className="pb-72">
                   <div className="max-w-3xl w-full m-auto">
                     <div className="flex justify-between items-center mb-4">
-                      <div >
-                        <h1
-                         
-                          className="text-2xl md:text-3xl font-extrabold text-black"
-                        >
+                      <div>
+                        <h1 className="text-2xl md:text-3xl font-extrabold text-black">
                           {t("My Chatbots")}
                         </h1>
-                        <p
-                          
-                          className="text-sm font-normal"
-                        >
+                        <p className="text-sm font-normal">
                           {t("(1 chatbot limit)")}
                         </p>
                       </div>
 
                       {chatbots.length !== 0 && ( // Only show the button if chatbots array is not empty
-                        <div  className="flex justify-center">
-                          <a 
-                            style={{ backgroundColor: "black" ,direction: isRTL ? "rtl" : "ltr" }}
+                        <div className="flex justify-center">
+                          <a
+                            style={{
+                              backgroundColor: "black",
+                              direction: isRTL ? "rtl" : "ltr",
+                            }}
                             className="rounded-md px-4 py-2 text-base font-semibold leading-7 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                             href="/create-new-chatbot"
                           >
@@ -46,14 +51,14 @@ export default function Chatbot() {
                         </div>
                       )}
                     </div>
-                    {chatbots.length > 0 ? (
+                    {status === "success" && data.length > 0 ? (
                       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 py-4">
-                        {chatbots.map((chatbot, index) => (
+                        {data.map((chatbot) => (
                           <div
-                            key={index}
+                            key={chatbot.id}
                             className="flex items-center justify-center"
                           >
-                            <a href="/open-chatbot">
+                            <a href={"/open-chatbot/" + chatbot.id}>
                               <div className="flex flex-col justify-between w-40 border rounded relative overflow-hidden">
                                 <img
                                   srcSet="https://backend.chatbase.co/storage/v1/object/public/chatbase/chatbot-placeholder.png?width=256&quality=50 1x, https://backend.chatbase.co/storage/v1/object/public/chatbase/chatbot-placeholder.png?width=640&quality=50 2x"
