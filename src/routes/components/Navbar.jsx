@@ -6,10 +6,10 @@ import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie"; // Import the js-cookie library
 import logoen from "../../images/logo-en.png";
 import logoar from "../../images/logo-ar.png";
-import { useNavigate } from "react-router-dom";
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const navigate = useNavigate();
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -29,11 +29,12 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const { t, i18n } = useTranslation();
+  const isRTL = i18n.dir() === "rtl";
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
   // document.body.dir = i18n.dir();
-  const [activeLanguage, setActiveLanguage] = useState("English");
+
   const languages = ["English", "عربي"];
   const storedLanguage = Cookies.get("selectedLanguage");
   const handleLanguageChange = (language) => {
@@ -79,13 +80,22 @@ export default function Navbar() {
           }}
         >
           {" "}
-          <div className="flex lg:flex-1">
-            <a href="/" className="">
+          <div
+            className={`flex lg:flex-1  ${
+              isMobile && activeLanguage === "عربي"
+                ? "flex-row-reverse"
+                : "flex-row"
+            }`}
+            style={{
+              width: isMobile && activeLanguage === "عربي" ? "100%" : "",
+            }}
+          >
+            <a href="/">
               <span className="sr-only">Your Company</span>
               {activeLanguage === "English" ? (
                 <img className="h-10 w-auto" src={logoen} alt="" />
               ) : (
-                <img className="h-10 w-auto" src={logoar} alt="" />
+                <img className="h-10 w-auto " src={logoar} alt="" />
               )}
             </a>
           </div>
@@ -102,6 +112,7 @@ export default function Navbar() {
           <div className="hidden lg:flex lg:gap-x-12 ">
             {navigation.map((item) => (
               <a
+                style={{ direction: isRTL ? "rtl" : "ltr" }}
                 key={item.name}
                 onClick={() => {
                   navigate(item.href);
@@ -180,7 +191,10 @@ export default function Navbar() {
         >
           <div className="fixed inset-0 z-50" />
           <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-            <div className="flex items-center justify-between">
+            <div
+              className="flex items-center "
+              style={{ direction: isRTL ? "rtl" : "ltr" }}
+            >
               <a href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
                 {activeLanguage === "English" ? (
@@ -200,7 +214,10 @@ export default function Navbar() {
             </div>
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
-                <div className="space-y-2 py-6">
+                <div
+                  style={{ direction: isRTL ? "rtl" : "ltr" }}
+                  className="space-y-2 py-6"
+                >
                   {navigation.map((item) => (
                     <a
                       key={item.name}
@@ -211,7 +228,10 @@ export default function Navbar() {
                     </a>
                   ))}
                 </div>
-                <div className="py-6">
+                <div
+                  style={{ direction: isRTL ? "rtl" : "ltr" }}
+                  className="py-6"
+                >
                   <div className="relative px-0 inline-block text-left">
                     <button
                       type="button"
@@ -239,7 +259,7 @@ export default function Navbar() {
                   </div>
                   {dropdownOpen && (
                     <div
-                      className="origin-top-right absolute left-4 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+                      className="origin-top-right relative left-4 mt-2 w-56  rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
                       role="menu"
                       aria-orientation="vertical"
                       aria-labelledby="language-menu"
