@@ -52,7 +52,7 @@ export default function Sources() {
         );
         console.log(JSON.stringify(response.data));
         alert("Bot Created Successfully.");
-        navigate("/");
+        navigate("/open-chatbot/" + response.data.id);
       } else {
         values.content = text;
         console.log(values);
@@ -62,6 +62,7 @@ export default function Sources() {
         });
         console.log(JSON.stringify(response.data));
         alert("Bot Created Successfully.");
+        navigate("/open-chatbot/" + response.data.id);
         // return response.data;
       }
     } catch (error) {}

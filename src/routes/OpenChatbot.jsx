@@ -8,12 +8,13 @@ import Inetgration from "./components/Inetgration";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 import api from "../api";
 
 export default function OpenChatbot() {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.dir() === "rtl";
-
+  const navigate = useNavigate();
   const { id } = useParams();
   const [status, setStatus] = useState(true);
   useEffect(() => {
@@ -64,10 +65,16 @@ export default function OpenChatbot() {
   }, [showModal, showShareModal, showDelModal]);
 
   async function deleteBot() {
-    console.log("Deleting :" + id);
-    const response = await api.delete(`/bot/${id}`);
-    alert("Bot Deleted Successfully.");
-    handleCloseDelModal();
+    try {
+      console.log("Deleting :" + id);
+      const response = await api.delete(`/bot/${id}`);
+      alert("Bot Deleted Successfully.");
+      handleCloseDelModal();
+      navigate("/chatbot");
+    } catch (error) {
+      console.log(error);
+      alert("Failed");
+    }
   }
   const handleOpenModal = () => {
     setShowModal(true);
@@ -412,7 +419,7 @@ export default function OpenChatbot() {
                               strokeWidth="1.5"
                               stroke="currentColor"
                               aria-hidden="true"
-                              class="h-6 w-6 text-red-600"
+                              className="h-6 w-6 text-red-600"
                             >
                               <path
                                 strokeLinecap="round"

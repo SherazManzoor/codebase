@@ -1,8 +1,23 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
+import { useState, useEffect } from "react";
 import api from "../../api";
 export default function Chatbot() {
+  // const [data, setData] = useState(null);
+  // if (data === null) {
+  //   getdata();
+  //   // console.log("getting data");
+  // }
+  // async function getdata() {
+  //   const response = await api.get("/bot");
+  //   console.log("Total Length: " + response.data.length);
+  //   setData(response.data);
+  //   console.log("getting data");
+  // }
+  // useEffect(() => {
+
+  // }, []);
   const { data, status } = useQuery(["getAllBots"], async () => {
     const response = await api.get("/bot");
     //console.log(JSON.stringify(response.data));
@@ -51,9 +66,9 @@ export default function Chatbot() {
                         </div>
                       )}
                     </div>
-                    {status === "success" && data.length > 0 ? (
+                    {data?.length > 0 ? (
                       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 py-4">
-                        {data.map((chatbot) => (
+                        {data?.map((chatbot) => (
                           <div
                             key={chatbot.id}
                             className="flex items-center justify-center"

@@ -71,8 +71,8 @@ export default function Dashboard() {
   };
   return (
     <div className="py-8">
-      <div class=" pb-8">
-        <div class=" text-center space-x-8">
+      <div className=" pb-8">
+        <div className=" text-center space-x-8">
           <button
             onClick={() => handleTypeChange("Conversations")}
             className={`${
@@ -93,20 +93,20 @@ export default function Dashboard() {
           >
             {t("Leads")}
           </button>
-          {/* <button class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium">
+          {/* <button className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium">
             Leads
           </button> */}{" "}
         </div>
       </div>
       {selectedType === "Conversations" && (
         <>
-          <div class=" my-8">
+          <div className=" my-8">
             <div>
-              <div class=" max-w-sm">
-                <div class="relative w-full text-gray-700">
+              <div className=" max-w-sm">
+                <div className="relative w-full text-gray-700">
                   {/* <input
                     type="text"
-                    class="w-full px-2 py-1 rounded border focus:outline-none focus:ring-2 focus:ring-violet-600 focus:border-transparent"
+                    className="w-full px-2 py-1 rounded border focus:outline-none focus:ring-2 focus:ring-violet-600 focus:border-transparent"
                     placeholder="Pick date range"
                     autoComplete="off"
                     role="presentation"
@@ -115,10 +115,10 @@ export default function Dashboard() {
                   <button
                     onClick={handleButtonClick}
                     type="button"
-                    class="absolute right-0 h-full px-3 text-gray-400 focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed"
+                    className="absolute right-0 h-full px-3 text-gray-400 focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed"
                   >
                     <svg
-                      class="h-5 w-5"
+                      className="h-5 w-5"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -145,21 +145,21 @@ export default function Dashboard() {
                   />
                 </div>
 
-                <div class="bg-white">
+                <div className="bg-white">
                   <section aria-labelledby="filter-heading">
-                    <h2 id="filter-heading" class="sr-only">
+                    <h2 id="filter-heading" className="sr-only">
                       Filters
                     </h2>
-                    <div class="my-5 ml-2">
+                    <div className="my-5 ml-2">
                       <div>
-                        <div class="flow-root">
-                          <div class="mx-4 flex items-center divide-x divide-gray-200">
+                        <div className="flow-root">
+                          <div className="mx-4 flex items-center divide-x divide-gray-200">
                             <div
-                              class="relative inline-block px-4 text-left"
+                              className="relative inline-block px-4 text-left"
                               data-headlessui-state=""
                             >
                               <button
-                                class="group inline-flex justify-center text-sm font-medium text-gray-700 ring-0 outline-0 hover:text-gray-900"
+                                className="group inline-flex justify-center text-sm font-medium text-gray-700 ring-0 outline-0 hover:text-gray-900"
                                 type="button"
                                 aria-expanded="false"
                                 data-headlessui-state=""
@@ -172,7 +172,7 @@ export default function Dashboard() {
                                   viewBox="0 0 20 20"
                                   fill="currentColor"
                                   aria-hidden="true"
-                                  class="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                                  className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                                 >
                                   <path
                                     fillRule="evenodd"
@@ -222,7 +222,7 @@ export default function Dashboard() {
                     </div>
                   </section>
                 </div>
-                <div class="space-y-4">
+                <div className="space-y-4">
                   <button
                     data-variant="flat"
                     style={{ backgroundColor: "black" }}
@@ -240,15 +240,15 @@ export default function Dashboard() {
                 </div>
               </div>
             </div>
-            <div class="flex flex-col space-y-12 sm:flex-row sm:space-x-8 sm:space-y-0 ">
-              <div class=" w-full sm:max-w-sm ">
+            <div className="flex flex-col space-y-12 sm:flex-row sm:space-x-8 sm:space-y-0 ">
+              <div className=" w-full sm:max-w-sm ">
                 {conversations.length === 0 ? (
                   <div className="text-center my-24">
                     {t("No conversations found")}
                   </div>
                 ) : (
-                  <div class="max-h-[34rem] overflow-auto border rounded mt-4 w-full">
-                    <ul class="divide-y divide-gray-200 w-full">
+                  <div className="max-h-[34rem] overflow-auto border rounded mt-4 w-full">
+                    <ul className="divide-y divide-gray-200 w-full">
                       {conversations.map((conversation, index) => (
                         <li
                           key={index}
@@ -284,7 +284,7 @@ export default function Dashboard() {
                 )}{" "}
               </div>
               {conversations.length > 0 && selectedConversation && (
-                <div class="flex justify-center items-center flex-grow ">
+                <div className="flex justify-center items-center flex-grow ">
                   <div className="w-full px-8">
                     <p
                       style={{ direction: isRTL ? "rtl" : "ltr" }}

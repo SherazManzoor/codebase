@@ -14,6 +14,7 @@ import i18n from "./i18n";
 import Pricing from "./routes/components/Pricing";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
+import Login from "./routes/Login";
 i18n
   .use(Backend)
   .use(LanguageDetector)
@@ -45,6 +46,7 @@ function App() {
             <Route path="/create-new-chatbot" element={<CreateChatbot />} />
             <Route path="/open-chatbot/:id" element={<OpenChatbot />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </QueryClientProvider>
       </Router>

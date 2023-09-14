@@ -6,9 +6,26 @@ import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie"; // Import the js-cookie library
 import logoen from "../../images/logo-en.png";
 import logoar from "../../images/logo-ar.png";
-
-export default function Navbar() {
+import { useNavigate } from "react-router-dom";
+export default function Navbar({ activeLanguage, setActiveLanguage }) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 767) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
